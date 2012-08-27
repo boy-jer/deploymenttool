@@ -5,7 +5,7 @@ FactoryGirl.define do
     name "Foo"
     data_file "Bar"
     drop_date "2012-08-26"
-    round NIL
+    round 0
     brand_id 1
     counts_approval NIL
   end
