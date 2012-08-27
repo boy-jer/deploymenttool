@@ -4,6 +4,5 @@ class Version < ActiveRecord::Base
   validates :audience_id, :creative, :creative_approval, :campaign_id, :presence => true
   
   belongs_to :campaign
-  has_many :demographics
-  has_many :audiences, :through => :demographics
+  has_one :segment
 end

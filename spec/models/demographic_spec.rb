@@ -10,7 +10,7 @@ describe Demographic do
     @demographic =  FactoryGirl.build(:demographic)
   end
 
-  it { should belong_to(:version) }
+  it { should belong_to(:segment) }
   it { should belong_to(:audience) }
 
 end

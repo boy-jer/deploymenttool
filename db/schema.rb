@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827143729) do
+ActiveRecord::Schema.define(:version => 20120827150400) do
 
   create_table "audiences", :force => true do |t|
     t.string   "code"
@@ -49,14 +49,20 @@ ActiveRecord::Schema.define(:version => 20120827143729) do
   end
 
   create_table "demographics", :force => true do |t|
-    t.integer  "version_id"
+    t.integer  "segment_id"
     t.integer  "audience_id"
     t.integer  "count"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "demographics", ["version_id", "audience_id"], :name => "index_demographics_on_version_id_and_audience_id"
+  add_index "demographics", ["segment_id", "audience_id"], :name => "index_demographics_on_version_id_and_audience_id"
+
+  create_table "segments", :force => true do |t|
+    t.integer  "version_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "send_lists", :force => true do |t|
     t.integer  "brand_id"

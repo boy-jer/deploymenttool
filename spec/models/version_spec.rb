@@ -11,8 +11,7 @@ describe Version do
   end
   
   it { should belong_to(:campaign) }
-  it { should have_many(:demographics) }
-  it { should have_many(:audiences).through(:demographics) }
+  it { should have_one(:segment) }
 
   context "attribute is missing" do
   
