@@ -9,7 +9,8 @@ describe Brand do
   before :each do
     @brand = FactoryGirl.build(:brand)
   end
-  
+
+  it { should have_many(:audiences) }
   it { should have_many(:campaigns) }
   
   context "attribute is missing" do

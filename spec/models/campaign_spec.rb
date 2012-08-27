@@ -19,9 +19,9 @@ describe Campaign do
   it { should respond_to :month_day_date }
   it { should respond_to :client_responce_deadline }
   
-  context "attribute is missing" do
+  context "required attribute is missing" do
   
-    required_attributes = [:name, :drop_date, :brand_id, :round]
+    required_attributes = [:name, :drop_date, :brand_id, :round, :counts_approval]
     
     required_attributes.each do |attribute|
       it "if #{attribute.to_s} is missing, it should be invalid" do
@@ -29,6 +29,10 @@ describe Campaign do
       end
     end
     
+  end
+  
+  context "a new instance is created" do
+    pending 'counts approval should default to false'
   end
   
   describe "#proof_round" do

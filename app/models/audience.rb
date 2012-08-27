@@ -1,5 +1,9 @@
 class Audience < ActiveRecord::Base
-  attr_accessible :code
+  attr_accessible :code, :brand_id
   
-  validates :code, :presence => true  
+  validates :code, :brand_id, :presence => true
+  
+  belongs_to :brand
+  has_many :demographics
+  has_many :versions, :through => :demographics
 end

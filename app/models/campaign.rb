@@ -1,9 +1,11 @@
 class Campaign < ActiveRecord::Base
   attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions
 
-  validates :name, :drop_date, :brand_id, :round, :presence => true
+  validates :name, :drop_date, :brand_id, :round, :counts_approval, :presence => true
   
   has_many :versions
+  
+  after_initialize :init
   
   def proof_round
     'R' + round.to_s
@@ -27,4 +29,11 @@ class Campaign < ActiveRecord::Base
     'Immediatly' if 0 == 1
   
   end
+
+private
+
+  def init
+    self.counts_approval ||= FALSE #will set the default value only if it's nil
+  end  
+
 end

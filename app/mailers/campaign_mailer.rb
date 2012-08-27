@@ -1,7 +1,9 @@
 class CampaignMailer < ActionMailer::Base
   default from: "from@example.com"
   
-  def proof_email
+  def proof_email(campaign)
+    @campaign = campaign
+    mail( :to => 'nofuim13@gmail.com', :subject => "Test" )
   end
   
   def counts_email

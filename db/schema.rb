@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120827023710) do
+ActiveRecord::Schema.define(:version => 20120827143729) do
 
   create_table "audiences", :force => true do |t|
     t.string   "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "brand_id"
   end
 
   create_table "brands", :force => true do |t|
@@ -46,6 +47,16 @@ ActiveRecord::Schema.define(:version => 20120827023710) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "demographics", :force => true do |t|
+    t.integer  "version_id"
+    t.integer  "audience_id"
+    t.integer  "count"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "demographics", ["version_id", "audience_id"], :name => "index_demographics_on_version_id_and_audience_id"
 
   create_table "send_lists", :force => true do |t|
     t.integer  "brand_id"
