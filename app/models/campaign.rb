@@ -21,13 +21,17 @@ class Campaign < ActiveRecord::Base
   
   # Logic is a work in progress here.
   def client_responce_deadline
-  
     return DateTime.now.tomorrow.strftime('%A') + ' at 12:00pm' if drop_date.yesterday.past?
     
     'As soon as possible' if 0 == 1
     
     'Immediatly' if 0 == 1
-  
+  end
+
+  def counts_total
+    total = 0
+    versions.each { |version| total += version.counts_subtotal }
+    total
   end
 
 private

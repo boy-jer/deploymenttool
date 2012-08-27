@@ -18,7 +18,8 @@ describe Campaign do
   it { should respond_to :date_code }
   it { should respond_to :month_day_date }
   it { should respond_to :client_responce_deadline }
-  
+  it { should respond_to :counts_total }
+    
   context "required attribute is missing" do
   
     required_attributes = [:name, :drop_date, :brand_id, :round, :counts_approval]

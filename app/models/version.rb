@@ -5,4 +5,10 @@ class Version < ActiveRecord::Base
   
   belongs_to :campaign
   has_one :segment
+  
+  def counts_subtotal
+    subtotal = 0
+    segment.demographics.each { |demographic| subtotal += demographic.count }
+    subtotal
+  end
 end

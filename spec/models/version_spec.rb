@@ -12,6 +12,10 @@ describe Version do
   
   it { should belong_to(:campaign) }
   it { should have_one(:segment) }
+  
+  subject { @version }
+  
+  it { should respond_to :counts_subtotal }
 
   context "attribute is missing" do
   
