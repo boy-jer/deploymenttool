@@ -9,6 +9,9 @@ describe Contact do
   before :each do
     @contact =  FactoryGirl.build(:contact)
   end
+
+  it { should have_many(:subscriptions) }
+  it { should have_many(:send_lists).through(:subscriptions) }
   
   subject { @contact }
   

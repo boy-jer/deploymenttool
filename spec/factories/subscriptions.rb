@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :subscription do
+    send_list_id 1
+    contact_id 1
   end
 end

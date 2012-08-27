@@ -6,7 +6,8 @@ describe SendList do
     FactoryGirl.build(:send_list).should be_valid
   end
 
-  #it { should have_many(:contacts).through(:subscriptions) }
+  it { should have_many(:subscriptions) }
+  it { should have_many(:contacts).through(:subscriptions) }
   
   context "attribute is missing" do
   
