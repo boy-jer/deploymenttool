@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :version do
-    creative ""
-    audience_id ""
+    creative 'Foo'
+    audience_id 1
     subject_line ""
     from ""
     creative_approval ""

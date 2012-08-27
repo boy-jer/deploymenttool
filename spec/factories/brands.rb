@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :brand do
-    code ""
-    name ""
-    color ""
-    mid 1
+    code "FOOB"
+    name "Foo Bar"
+    color "FFFFFF"
+    mid "1234567"
   end
 end

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :send_list do
-    brand_id ""
+    brand_id 1
     list_type 1
   end
 end
