@@ -6,6 +6,12 @@ describe Brand do
     FactoryGirl.build(:brand).should be_valid
   end
   
+  before :each do
+    @brand = FactoryGirl.build(:brand)
+  end
+  
+  it { should have_many(:campaigns) }
+  
   context "attribute is missing" do
   
     required_attributes = [:code, :name, :color, :mid]

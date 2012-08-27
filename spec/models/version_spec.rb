@@ -9,6 +9,8 @@ describe Version do
   before :each do 
     @version = FactoryGirl.build(:version)
   end
+  
+  it { should belong_to(:campaign) }
 
   context "attribute is missing" do
   

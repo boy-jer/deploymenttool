@@ -3,6 +3,8 @@ class Campaign < ActiveRecord::Base
 
   validates :name, :drop_date, :brand_id, :round, :presence => true
   
+  has_many :versions
+  
   def proof_round
     'R' + round.to_s
   end

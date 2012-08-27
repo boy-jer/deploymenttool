@@ -10,6 +10,8 @@ describe Campaign do
     @campaign = FactoryGirl.build(:campaign)
   end
   
+  it { should have_many(:versions) }
+  
   subject { @campaign }
   
   it { should respond_to :proof_round }

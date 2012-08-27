@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120826233206) do
+ActiveRecord::Schema.define(:version => 20120827023710) do
 
   create_table "audiences", :force => true do |t|
     t.string   "code"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(:version => 20120826233206) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "send_list_id"
+    t.integer  "contact_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "subscriptions", ["send_list_id", "contact_id"], :name => "index_subscriptions_on_send_list_id_and_contact_id"
 
   create_table "versions", :force => true do |t|
     t.string   "creative"

@@ -5,4 +5,6 @@ class Brand < ActiveRecord::Base
   validates :color, :format => { :with => /^([a-zA-Z0-9]{6})+$/ }
   validates :mid, :format => { :with => /^([0-9]{7})+$/ }
   validates :code, :format => { :with => /^[a-zA-Z]+$/ }
+  
+  has_many :campaigns
 end
