@@ -5,4 +5,8 @@ class SendList < ActiveRecord::Base
   
   has_many :subscriptions
   has_many :contacts, :through => :subscriptions
+  
+  def addresses
+  
+  end
 end

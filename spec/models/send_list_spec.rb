@@ -5,6 +5,14 @@ describe SendList do
   it "has a valid factory" do
     FactoryGirl.build(:send_list).should be_valid
   end
+  
+  before :each do
+    @send_list = FactoryGirl.build(:send_list)
+  end
+  
+  subject { @send_list }
+  
+  it { should respond_to :addresses }
 
   it { should have_many(:subscriptions) }
   it { should have_many(:contacts).through(:subscriptions) }

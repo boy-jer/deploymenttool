@@ -11,6 +11,7 @@ describe Campaign do
   end
   
   it { should have_many(:versions) }
+  it { should belong_to(:brand) }
   
   subject { @campaign }
   
@@ -19,9 +20,9 @@ describe Campaign do
   it { should respond_to :month_day_date }
   it { should respond_to :client_responce_deadline }
   it { should respond_to :counts_total }
-    
+  it { should respond_to :treatment_name }
+
   context "required attribute is missing" do
-  
     required_attributes = [:name, :drop_date, :brand_id, :round, :counts_approval]
     
     required_attributes.each do |attribute|
@@ -29,7 +30,6 @@ describe Campaign do
         campaign = FactoryGirl.build(:campaign, attribute => '').should_not be_valid
       end
     end
-    
   end
   
   context "a new instance is created" do
@@ -82,6 +82,16 @@ describe Campaign do
       @campaign.versions << v1 << v2
     
       @campaign.counts_total.should == 23
+    end
+  end
+
+  describe "#treatment_name" do
+    it "returns corretly formated treatment name" do
+      brand = FactoryGirl.build(:brand, :code => 'FOOB')
+
+      @campaign = FactoryGirl.build(:campaign, :name => 'Foo Bar', :brand => brand, :drop_date => "2012-08-29")
+      
+      @campaign.treatment_name.should == '20120829_FOOB_FooBar'
     end
   end
 

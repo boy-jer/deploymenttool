@@ -13,4 +13,14 @@ describe Demographic do
   it { should belong_to(:segment) }
   it { should belong_to(:audience) }
 
+  context "required attribute is missing" do
+    required_attributes = [:segment_id, :audience_id]
+    
+    required_attributes.each do |attribute|
+      it "if #{attribute.to_s} is missing, it should be invalid" do
+        campaign = FactoryGirl.build(:demographic, attribute => '').should_not be_valid
+      end
+    end
+  end
+
 end

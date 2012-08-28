@@ -4,6 +4,7 @@ class Campaign < ActiveRecord::Base
   validates :name, :drop_date, :brand_id, :round, :counts_approval, :presence => true
   
   has_many :versions
+  belongs_to :brand
   
   after_initialize :init
   
@@ -17,6 +18,11 @@ class Campaign < ActiveRecord::Base
   
   def month_day_date
     drop_date.strftime('%-m/%d')
+  end
+  
+  #needs camelization.
+  def treatment_name
+    [date_code, brand.code, camel(name)].join('_')
   end
   
   # Logic is a work in progress here.
@@ -38,6 +44,10 @@ private
 
   def init
     self.counts_approval ||= FALSE #will set the default value only if it's nil
-  end  
+  end
+  
+  def camel(string)
+    string.split(' ').join('_').camelize
+  end
 
 end
