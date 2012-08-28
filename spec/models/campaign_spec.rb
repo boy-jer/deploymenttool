@@ -67,5 +67,22 @@ describe Campaign do
       1.should == 1
     end
   end
+  
+  describe "#counts_total" do
+    it 'should generate a total of all its constituent versions' do
+      v1 = FactoryGirl.build(:version)
+      v2 = FactoryGirl.build(:version)
+      
+      d1 = FactoryGirl.build(:demographic, :count => 10)
+      d2 = FactoryGirl.build(:demographic, :count => 13)
+      
+      v1.segment.demographics << d1
+      v2.segment.demographics << d2
+    
+      @campaign.versions << v1 << v2
+    
+      @campaign.counts_total.should == 23
+    end
+  end
 
 end
