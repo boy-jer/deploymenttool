@@ -1,7 +1,7 @@
 class Campaign < ActiveRecord::Base
   attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions
 
-  validates :name, :drop_date, :brand_id, :round, :counts_approval, :presence => true
+  validates :name, :drop_date, :brand_id, :round, :counts_approval, :brand, :presence => true
   
   has_many :versions
   belongs_to :brand

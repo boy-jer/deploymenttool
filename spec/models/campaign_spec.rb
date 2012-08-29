@@ -22,6 +22,10 @@ describe Campaign do
   it { should respond_to :counts_total }
   it { should respond_to :treatment_name }
 
+  it 'requires a brand be present' do
+    @campaign.brand.class == 'Brand' 
+  end
+
   context "required attribute is missing" do
     required_attributes = [:name, :drop_date, :brand_id, :round, :counts_approval]
     
@@ -57,14 +61,23 @@ describe Campaign do
     it { @month_day_date.should == @campaign.drop_date.strftime('%-m/%d') }
   end
 
-  describe "#client_responce_deadline" do
-    it "should return noon the next day when the drop time is 1 full business day away" do
+  describe '#client_responce_deadline' do
+    it 'returns noon the next day when the drop time is 1 full business day away' do
       @campaign = FactoryGirl.build(:campaign, :drop_date => DateTime.now.tomorrow)
       expected = DateTime.now.tomorrow.strftime('%A') + ' at 12:00pm'
       @campaign.client_responce_deadline.should == expected
     end
-    it "should return as soon as possible when the drop time is before noon on the drop day" do
-      1.should == 1
+    it 'returns "as soon as possible." when the drop time is before noon on the drop day' do
+      pending 'Undefined spec method.'
+    end
+    it 'when campaign is due after Monday and its currently Friday' do
+    
+    end
+    it 'when campaign is due on a Monday and it is currently Friday' do 
+      pending 'Undefined spec method'
+    end
+    it 'when campaign is full day away and the drop day is not Friday, Saturday or Sunday' do 
+      pending 'Undefined spec method.'
     end
   end
   
