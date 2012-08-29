@@ -20,6 +20,10 @@ class Campaign < ActiveRecord::Base
     drop_date.strftime('%-m/%d')
   end
   
+  def drop_time
+    drop_date.strftime('%-I:%M%P PST')
+  end
+  
   #needs camelization.
   def treatment_name
     [date_code, brand.code, camel(name)].join('_')

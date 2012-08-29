@@ -1,3 +1,7 @@
-<%  %>
+<% content for :column_headers %>
+  <% column_names = ['Treatment', 'Audience - creative', 
+  'Count', 'Epiphany', 'Invalids / Unsubs', 'Suppressions'] %>
+  <% columns_names.each { |n| "<td>#{n}</td>" } %>
+<% end %>
 
-<%  %>
+<% render 'table_head' %>

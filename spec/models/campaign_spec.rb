@@ -18,6 +18,7 @@ describe Campaign do
   it { should respond_to :proof_round }
   it { should respond_to :date_code }
   it { should respond_to :month_day_date }
+  it { should respond_to :drop_time }
   it { should respond_to :client_responce_deadline }
   it { should respond_to :counts_total }
   it { should respond_to :treatment_name }
@@ -45,6 +46,14 @@ describe Campaign do
       @proof_round = @campaign.proof_round
     end
     it { @proof_round.should == 'R' + @campaign.round.to_s }
+  end
+
+  # Note that the TimeZone is hard coded at the moment. This should be dynamic at some point.  
+  describe "#drop_time" do
+    it 'returns a correctly formated drop time.' do
+      @campaign = FactoryGirl.build(:campaign, :drop_date => "2012-08-29 02:30:00")
+      @campaign.drop_time.should == '2:30am PST'
+    end
   end
   
   describe "#date_code" do
