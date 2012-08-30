@@ -14,6 +14,7 @@ describe SendList do
   
   it { should respond_to :addresses }
 
+  it { should belong_to(:brand) }
   it { should have_many(:subscriptions) }
   it { should have_many(:contacts).through(:subscriptions) }
   

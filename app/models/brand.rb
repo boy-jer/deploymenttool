@@ -6,6 +6,7 @@ class Brand < ActiveRecord::Base
   validates :mid, :format => { :with => /^([0-9]{7})+$/ }
   validates :code, :format => { :with => /^[a-zA-Z]+$/ }
   
+  has_many :send_lists
   has_many :campaigns
   has_many :audiences
 end

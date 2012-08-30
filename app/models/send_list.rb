@@ -3,6 +3,7 @@ class SendList < ActiveRecord::Base
 
   validates :brand_id, :list_type, :presence => true
 
+  belongs_to :brand
   has_many :subscriptions
   has_many :contacts, :through => :subscriptions
 

@@ -10,6 +10,7 @@ describe Brand do
     @brand = FactoryGirl.build(:brand)
   end
 
+  it { should have_many(:send_lists) }
   it { should have_many(:audiences) }
   it { should have_many(:campaigns) }
   
