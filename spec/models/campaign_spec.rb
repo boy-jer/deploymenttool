@@ -16,12 +16,11 @@ describe Campaign do
   subject { @campaign }
   
   it { should respond_to :proof_round }
-  it { should respond_to :date_code }
-  it { should respond_to :month_day_date }
-  it { should respond_to :drop_time }
+  it { should respond_to :get_drop_date_as }
   it { should respond_to :client_responce_deadline }
   it { should respond_to :counts_total }
   it { should respond_to :treatment_name }
+  it { should respond_to :is_schedulable? }
 
   it 'requires a brand be present' do
     @campaign.brand.class == 'Brand' 
@@ -49,25 +48,44 @@ describe Campaign do
   end
 
   # Note that the TimeZone is hard coded at the moment. This should be dynamic at some point.  
-  describe "#drop_time" do
-    it 'returns a correctly formated drop time.' do
+  describe "#get_drop_date_as" do
+    before :each do
       @campaign = FactoryGirl.build(:campaign, :drop_date => "2012-08-29 02:30:00")
-      @campaign.drop_time.should == '2:30am PST'
+    end
+    subject { @campaign }
+    
+    context ':date_code is passed the argument' do
+      it { (@campaign.get_drop_date_as :date_code).should == '20120829' }
+    end
+    context ':month_and_day is passed the argument' do
+      it { (@campaign.get_drop_date_as :month_and_day).should == '8/29' }
+    end
+    context ':time is passed the argument' do
+      it { (@campaign.get_drop_date_as :time).should == '2:30am PST' }
     end
   end
   
-  describe "#date_code" do
-    before :each do
-      @date_code = @campaign.date_code
+  describe '#is_schedulable?' do
+    context 'all creatives and counts approvals are set to true' do
+      it 'should return true' do
+        campaign = FactoryGirl.build(:campaign, :counts_approval => TRUE)
+        v1 = FactoryGirl.build(:version, :creative_approval => TRUE)
+        v2 = FactoryGirl.build(:version, :creative_approval => TRUE)
+        campaign.versions << v1 << v2
+        
+        campaign.is_schedulable?.should be_true
+      end
     end
-    it { @date_code.should == @campaign.drop_date.strftime('%Y%m%d') }
-  end
-  
-  describe "#month_day_date" do
-    before :each do
-      @month_day_date = @campaign.month_day_date
+    context 'creative or counts approvals are not set to true' do
+      it 'should return false' do
+        campaign = FactoryGirl.build(:campaign, :counts_approval => FALSE)
+        v1 = FactoryGirl.build(:version, :creative_approval => TRUE)
+        v2 = FactoryGirl.build(:version, :creative_approval => FALSE)
+        campaign.versions << v1 << v2
+        
+        campaign.is_schedulable?.should be_false
+      end
     end
-    it { @month_day_date.should == @campaign.drop_date.strftime('%-m/%d') }
   end
 
   describe '#client_responce_deadline' do
