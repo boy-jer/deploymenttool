@@ -44,7 +44,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def counts_total
-    total = 0; versions.each { |version| total += version.counts_subtotal }; return total
+    total = 0; versions.each { |v| total += v.segment.counts_subtotal }; return total
   end
 
 private

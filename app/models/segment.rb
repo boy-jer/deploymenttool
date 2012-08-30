@@ -3,4 +3,8 @@ class Segment < ActiveRecord::Base
   
   has_many :demographics
   has_many :audiences, :through => :demographics
+
+  def counts_subtotal
+    subtotal = 0; demographics.each { |d| subtotal += d.count }; subtotal
+  end
 end
