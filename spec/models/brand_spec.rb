@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Brand do
 
+  #Check the types of campaigns that get brought up, should be lacking approval?
+
+
   it "has a valid factory" do
     FactoryGirl.build(:brand).should be_valid
   end

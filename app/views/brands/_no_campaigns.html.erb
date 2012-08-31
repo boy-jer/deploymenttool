@@ -1,0 +1,6 @@
+<%= render 'navigation', :name => 'Brands', :path => brands_path %>
+
+<div id="simple_message">
+  <%= @brand.name %> has no campaigns yet.
+</div>
+<%= link_to 'New', new_brand_campaign_path(@brand), :class => 'new' %>

@@ -1,0 +1,15 @@
+<%= render 'navigation', :name => 'Brands', :path => brands_path %>
+
+<div id="brand_show">
+  <%= link_to 'New', new_brand_campaign_path(@brand), :class => 'new' %>
+  <ul class="deletable">
+    <% i = 0 %>
+    <% @brand.campaigns.each do |campaign| %>
+      <li style="border-left:5px solid #<%= @brand.color %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
+        <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
+        <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %>
+      </li>
+      <% i += 1 %>
+    <% end %>
+  </ul>
+</div>

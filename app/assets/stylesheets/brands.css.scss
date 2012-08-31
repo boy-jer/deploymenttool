@@ -1,3 +1,70 @@
 // Place all the styles related to the brands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div#brand_show {
+  width:500px;
+  margin:50px auto;
+  text-align:center;
+}
+  div#brand_show ul {
+    list-style:none;
+  }
+    div#brand_show li {
+      background:#25272a;
+      color:#f0f0ed;
+      padding:10px;
+      margin-bottom:10px;
+      text-align:left;
+      position:relative;
+      font-weight:300;
+      font-size:12px;
+    }
+      div#brand_show li a {
+        color:#25272a;
+      }
+
+
+div.new_form {
+  width:500px;
+  margin:50px auto;
+  text-align:center;
+}
+  div.new_form h3 {
+    
+  }
+  div.new_form ul {
+    list-style:none;
+    margin-bottom:50px;
+  }
+    div.new_form ul li {
+      margin-bottom:10px;
+    }
+    div.new_form ul li input[type=text] {
+      padding:10px;
+      font-size:16px;
+    }
+
+div#brands_index {
+  width:500px;
+  margin:50px auto;
+}
+  div#brands_index ul {
+    list-style:none;
+    color:#f0f0ed;
+    font-family:sans-serif;
+  }
+    div#brands_index ul li {
+      font-size:12px;
+      padding:30px;
+      background:#33363b;
+      color:#33383d;
+      position:relative;
+      margin-bottom:20px;
+    }
+      div#brands_index ul li a {
+        font-size:26px;
+        color:#25272a;
+        font-weight:bold;
+      }

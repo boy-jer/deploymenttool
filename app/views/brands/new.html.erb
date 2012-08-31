@@ -1,0 +1,13 @@
+<%= render 'navigation', :name => 'Brands', :path => brands_path %>
+
+<div class="new_form">
+  <%= form_for @brand do |f| %>
+  <ul>
+    <li><%= f.text_field :name, :placeholder => 'Name' %></li>
+    <li><%= f.text_field :color, :placeholder => 'Color' %></li>
+    <li><%= f.text_field :mid, :placeholder => 'MID' %></li>
+    <li><%= f.text_field :code, :placeholder => 'Code' %></li>
+    <li><%= f.submit 'Add' %></li>
+  </ul>
+  <% end %>
+</div>

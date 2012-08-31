@@ -1,7 +1,8 @@
 class Campaign < ActiveRecord::Base
   attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions
 
-  validates :name, :drop_date, :brand_id, :round, :counts_approval, :presence => true
+  validates :name, :drop_date, :brand_id, :round, :presence => true
+  validates :counts_approval, :inclusion => {:in => [true, false]}
 
   has_many :versions
   belongs_to :brand
@@ -50,6 +51,7 @@ class Campaign < ActiveRecord::Base
 private
 
   def init
+    self.round ||= 0
     self.counts_approval ||= FALSE #will set the default value only if it's nil
   end
 

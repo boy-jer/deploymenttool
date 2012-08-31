@@ -1,0 +1,15 @@
+<div id="brands_index">
+
+  <%= link_to 'New', new_brand_path, :class => 'new' %>
+  <ul>
+    <% i = 0 %>
+    <% @brands.each do |brand| %>
+      <li style="border-left:10px solid #<%= brand.color %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>">
+        <%= button_to 'X', brand, :method => :delete, :class => 'delete' %>
+        <%= link_to brand.name, (brand_path brand) %></span>
+      </li>
+      <% i += 1 %>
+    <% end %>
+  </ul>
+
+</div><!-- /#brands_index -->

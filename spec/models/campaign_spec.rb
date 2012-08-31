@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe Campaign do
   
+  # Boolean approval checks
+  # Order of models, :order => name
+  
   it "has a valid factory" do
     FactoryGirl.build(:campaign).should be_valid
   end

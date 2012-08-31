@@ -13,6 +13,16 @@ Dst::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :brands do
+    resources :campaigns do
+      resources :versions do
+        resources :segments
+      end
+    end
+    resources :send_lists
+    resources :audiences
+  end
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do
