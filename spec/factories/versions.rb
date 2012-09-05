@@ -9,7 +9,6 @@ FactoryGirl.define do
     subject_line ''
     from ''
     campaign_id 1 
-    segment
   end
 
 end

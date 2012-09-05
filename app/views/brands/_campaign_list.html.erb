@@ -1,15 +1,31 @@
-<%= render 'navigation', :name => 'Brands', :path => brands_path %>
-
-<div id="brand_show">
-  <%= link_to 'New', new_brand_campaign_path(@brand), :class => 'new' %>
-  <ul class="deletable">
-    <% i = 0 %>
-    <% @brand.campaigns.each do |campaign| %>
-      <li style="border-left:5px solid #<%= @brand.color %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
+<div id="dst">
+  <ul>
+    <li id="header" class="campaign" style="border-left-color:#<%= @brand.color %>">
+      <h1><span class="highlight"><%= 'Campaign'.pluralize(@brand.campaigns.size) %></span> for the <span style="color:#<%= @brand.color %>;"><%= @brand.name %></span> <%= link_to 'brand.', brands_path %></h1>
+    </li>
+    <li id="new">
+      <%= link_to 'New Campaign', new_brand_campaign_path(@brand) %>
+    </li>    
+    <% i = 0; @brand.campaigns.each do |campaign| %>
+    
+    <% if campaign.is_approved?
+  css_class = 'approved'
+elsif campaign.scheduled
+  css_class = 'approved'
+end %>
+    
+      <li class="campaign" style="border-left:25px solid <%= i.even? ? '#' + @brand.color : @brand.darken_color(@brand.color) %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
         <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
         <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %>
       </li>
-      <% i += 1 %>
-    <% end %>
+    <% i += 1; end %>
+      <li id="new">
+        <%= link_to 'New Audience', new_brand_audience_path(@brand) %>
+      </li>
+      <% @brand.audiences.each do |audience| %>
+        <li class="audience">
+          <%= audience.code %>
+        </li>
+      <% end %>
   </ul>
 </div>

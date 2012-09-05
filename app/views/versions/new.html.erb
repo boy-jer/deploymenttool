@@ -1,0 +1,12 @@
+<div class="new_form">
+  <%= form_for [@brand, @campaign, @version] do |f| %>  
+  <ul>
+    <li><%= f.text_field :creative, :placeholder => 'Creative' %></li>
+  </ul>
+  <ul>
+    <li><%= f.text_field :subject_line, :placeholder => 'Subject Line' %></li>
+    <li><%= f.text_field :from, :placeholder => 'From' %></li>
+    <li><%= f.submit 'Add' %></li>
+  </ul>
+  <% end %>
+</div>

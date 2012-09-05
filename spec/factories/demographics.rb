@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :demographic do
-    segment_id 1
+    version_id 1
     audience_id 1
     count 1
   end

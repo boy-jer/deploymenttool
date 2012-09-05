@@ -23,19 +23,25 @@ describe Campaign do
   it { should respond_to :client_responce_deadline }
   it { should respond_to :counts_total }
   it { should respond_to :treatment_name }
-  it { should respond_to :is_schedulable? }
+  it { should respond_to :is_approved? }
 
   it 'requires a brand be present' do
     @campaign.brand.class == 'Brand' 
   end
 
   context "required attribute is missing" do
-    required_attributes = [:name, :drop_date, :brand_id, :round, :counts_approval]
+    required_attributes = [:name, :drop_date, :brand_id, :round, :counts_approval, :scheduled]
     
     required_attributes.each do |attribute|
       it "if #{attribute.to_s} is missing, it should be invalid" do
         campaign = FactoryGirl.build(:campaign, attribute => '').should_not be_valid
       end
+    end
+  end
+  
+  context 'a campaign is deleted' do
+    it 'should destory all of its versions' do
+      pending 'need to write spec'
     end
   end
   
@@ -68,7 +74,7 @@ describe Campaign do
     end
   end
   
-  describe '#is_schedulable?' do
+  describe '#is_approved?' do
     context 'all creatives and counts approvals are set to true' do
       it 'should return true' do
         campaign = FactoryGirl.build(:campaign, :counts_approval => TRUE)
@@ -76,7 +82,7 @@ describe Campaign do
         v2 = FactoryGirl.build(:version, :creative_approval => TRUE)
         campaign.versions << v1 << v2
         
-        campaign.is_schedulable?.should be_true
+        campaign.is_approved?.should be_true
       end
     end
     context 'creative or counts approvals are not set to true' do
@@ -86,7 +92,7 @@ describe Campaign do
         v2 = FactoryGirl.build(:version, :creative_approval => FALSE)
         campaign.versions << v1 << v2
         
-        campaign.is_schedulable?.should be_false
+        campaign.is_approved?.should be_false
       end
     end
   end
@@ -119,8 +125,8 @@ describe Campaign do
       d1 = FactoryGirl.build(:demographic, :count => 10)
       d2 = FactoryGirl.build(:demographic, :count => 13)
       
-      v1.segment.demographics << d1
-      v2.segment.demographics << d2
+      v1.demographics << d1
+      v2.demographics << d2
     
       @campaign.versions << v1 << v2
     

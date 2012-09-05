@@ -1,0 +1,12 @@
+<div id="dst">
+  
+  <ul>
+    <li id="header">
+      <h1><span class="highlight"><%= 'Audience'.pluralize(1) %></span> <span class="current"><%= @version.creative %></span> version of the <%= link_to @version.campaign.name, brand_campaign_path(@version.campaign.brand, @version.campaign) %> campaign in the <%= link_to @version.campaign.brand.name, brand_path(@version.campaign.brand) %> <%= link_to 'brand.', brands_path %></h1>
+    </li>
+    <li id="new">
+      <%= link_to 'Define Audience Segment', new_brand_campaign_version_segment_path(@version.campaign.brand, @version.campaign, @version) %>
+    </li>
+  </ul>
+  
+</div>

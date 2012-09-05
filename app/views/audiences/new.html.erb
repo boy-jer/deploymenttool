@@ -1,0 +1,6 @@
+<%= form_for [@brand, @audience] do |f| %>
+<ul>
+  <li><%= f.text_field :code, :placeholder => 'Code' %></li>
+  <li><%= f.submit 'Add' %></li>
+</ul>
+<% end %>

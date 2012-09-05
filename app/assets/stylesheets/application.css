@@ -28,30 +28,13 @@ input[type=submit].delete {
   border-radius:50%;
   border:2px solid #fff;
   position:absolute;
-  top:-10px;
-  right:-10px;
+  right:5px;
+  top:5px;
   font-weight:bold;
   display:none;
   -moz-box-shadow: 0px 0px 2px #222;
   -webkit-box-shadow: 0px 0px 2px #222;
   box-shadow: 0px 0px 2px #222;
-}
-a.new {
-  display:block;
-  padding:10px;
-  width:40px;
-  font-weight:bold;
-  background:#3b8dbd;
-  color:#f1f1ee;
-  text-align:center;
-  text-decoration:none;
-  margin: 0 auto;
-  font-size:14px;
-  border-bottom:3px solid #19567a;
-  border-right:2px solid #3d86b2;
-  border-left:2px solid #3d86b2;
-  border-top:1px solid #539eca;
-  text-shadow: -1px -1px 0px #1a4c6a;
 }
 div#simple_message {
   width:500px;
@@ -62,5 +45,92 @@ div#simple_message {
   margin-bottom:25px;
 }
 div#navigation {
-  padding:10px;
 }
+
+
+
+
+
+
+div#dst {
+  
+}
+  div#dst ul {
+    list-style:none;
+  }
+    div#dst ul li {
+      border-left:25px solid;
+      height:75px;
+      line-height:75px;
+      padding-left:25px;
+      font-size:22px;
+      font-weight:bold;
+      color:#d2ccc2;
+    }
+      div#dst ul li a {
+        font-size:22px;
+        font-weight:bold;
+      }
+      div#dst ul li#new {
+        background:#6ab71e;
+        border-left:25px solid #549514;
+      }
+        div#dst ul li#new a {
+          color:#f1f1ee;
+          display:block;
+          height:100%;
+          width:100%;
+        }
+      div#dst ul li.audience {
+        background:#25272a;
+        color:#848588;
+        border-left-color:#030303;
+      }
+      div#dst ul li#header {
+        padding:25px;
+        height:auto;
+        background:#e7e7e4
+      }
+        div#dst ul li#header h1 {
+          font-size:38px;
+          color:#d2ccc2;
+        }
+        div#dst ul li#header h1 a {
+          font-size:38px;
+          color:#d24d33
+        }
+        div#dst ul li#header h1 span.highlight {
+          color:#3194b9;
+        }
+        div#dst ul li#header h1 span.current {
+          color:#d24d33;
+        }
+div#dst ul li.brand a {
+  color:#393939;
+}
+div#dst ul li.campaign a {
+  color:#25272a;
+}
+div#dst ul li.version a {
+  color:#25272a;
+}
+div#dst ul li.version {
+  background:#3b8dbd;
+}
+  div#dst ul li.version.light {
+    background:#3b8dbd;
+    border-left-color:#195b82;
+  }
+  div#dst ul li.version.dark {
+    background:#2d78a4;
+    border-left-color:#114a6b;
+  }
+  div#dst ul li.version a {
+    color:#f1f1ee;
+  }
+
+
+
+
+
+

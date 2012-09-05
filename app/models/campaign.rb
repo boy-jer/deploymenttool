@@ -1,8 +1,8 @@
 class Campaign < ActiveRecord::Base
-  attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions
+  attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions, :scheduled
 
   validates :name, :drop_date, :brand_id, :round, :presence => true
-  validates :counts_approval, :inclusion => {:in => [true, false]}
+  validates :counts_approval, :scheduled, :inclusion => {:in => [true, false]}
 
   has_many :versions
   belongs_to :brand
@@ -19,7 +19,7 @@ class Campaign < ActiveRecord::Base
     'R' + round.to_s
   end
   
-  def is_schedulable?
+  def is_approved?
     if counts_approval
       versions.each do |v|
         return FALSE unless v.creative_approval
@@ -45,7 +45,7 @@ class Campaign < ActiveRecord::Base
   end
 
   def counts_total
-    total = 0; versions.each { |v| total += v.segment.counts_subtotal }; return total
+    total = 0; versions.each {|v| total += v.counts_subtotal}; total
   end
 
 private
@@ -53,6 +53,7 @@ private
   def init
     self.round ||= 0
     self.counts_approval ||= FALSE #will set the default value only if it's nil
+    self.scheduled ||= FALSE
   end
 
   def camel(string)

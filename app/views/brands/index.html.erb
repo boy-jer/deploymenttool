@@ -1,15 +1,13 @@
-<div id="brands_index">
+<div id="dst">
 
-  <%= link_to 'New', new_brand_path, :class => 'new' %>
   <ul>
-    <% i = 0 %>
-    <% @brands.each do |brand| %>
-      <li style="border-left:10px solid #<%= brand.color %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>">
+    <li id="new"> <%= link_to 'New Brand', new_brand_path %></li>
+    <% i = 0; @brands.each do |brand| %>
+      <li class="brand" style="border-left:25px solid <%= i.even? ? '#' + brand.color : brand.darken_color(brand.color) %>;background:#<%= i.even? ? 'e3dcce' : 'e9e4d8' %>">
         <%= button_to 'X', brand, :method => :delete, :class => 'delete' %>
         <%= link_to brand.name, (brand_path brand) %></span>
       </li>
-      <% i += 1 %>
-    <% end %>
+    <% i += 1; end %>
   </ul>
 
-</div><!-- /#brands_index -->
+</div><!-- /#dst -->

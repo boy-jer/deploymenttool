@@ -8,6 +8,7 @@ FactoryGirl.define do
     round 0
     brand_id 1
     counts_approval 1
+    scheduled TRUE
     brand
   end
 end

@@ -10,11 +10,11 @@ describe Demographic do
     @demographic =  FactoryGirl.build(:demographic)
   end
 
-  it { should belong_to(:segment) }
+  it { should belong_to(:version) }
   it { should belong_to(:audience) }
 
   context "required attribute is missing" do
-    required_attributes = [:segment_id, :audience_id]
+    required_attributes = [:version_id, :audience_id]
     
     required_attributes.each do |attribute|
       it "if #{attribute.to_s} is missing, it should be invalid" do
