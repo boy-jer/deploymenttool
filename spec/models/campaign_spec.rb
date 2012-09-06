@@ -23,6 +23,7 @@ describe Campaign do
   it { should respond_to :client_responce_deadline }
   it { should respond_to :counts_total }
   it { should respond_to :treatment_name }
+
   it { should respond_to :is_approved? }
 
   it 'requires a brand be present' do

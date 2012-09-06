@@ -5,4 +5,14 @@ class Demographic < ActiveRecord::Base
   
   belongs_to :version
   belongs_to :audience
+
+  after_initialize :init
+
+#test the init
+private
+
+  def init
+    self.count ||= 0
+  end
+
 end

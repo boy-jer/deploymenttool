@@ -15,8 +15,15 @@ Dst::Application.routes.draw do
 
   resources :brands do
     resources :campaigns do
+      member do
+        get 'counts'
+        get 'proof'
+        get 'final'
+        get 'scheduled'
+        get 'detials'
+      end
       resources :versions do
-        resources :segments
+        resources :demographics
       end
     end
     resources :send_lists

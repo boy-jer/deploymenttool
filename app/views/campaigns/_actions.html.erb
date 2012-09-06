@@ -1,0 +1,8 @@
+<li class="actions">
+  <div class="on">Proof</div>
+  <div class="on">Counts</div>
+  <div class="on">Final approval</div>
+  <div class="<%= @campaign.is_approved? ? 'on' : 'off' %>">Scheduled</div>
+  <div class="off">Send detials</div>
+  <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign), :class => 'new' %>      
+</li>

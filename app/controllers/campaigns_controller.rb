@@ -20,5 +20,9 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @campaign.destroy ? redirect_to(brand_path(params[:brand_id])) : redirect_to(new_brand_path)
   end
+  
+  def counts
+  
+  end
 
 end

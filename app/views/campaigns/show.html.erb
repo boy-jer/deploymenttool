@@ -1,15 +1,20 @@
 <div id="dst">
   <ul>
-    <li id="header" class="campaign" style="border-left-color:#<%= @campaign.brand.color %>">
-      <h1><span class="highlight"><%= 'Version'.pluralize(@campaign.versions.size) %></span> for the <span class="current"><%= @campaign.name %></span> campaign in the <%= link_to @campaign.brand.name, brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %> <%= link_to 'brand.', brands_path %></h1>
+    <li id="header" class="campaign">
+      <h1><span class="current"><%= @campaign.name + '.' %></span></h1> <h2><%= link_to @campaign.brand.name + '.', brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %></h2>
     </li>
-    <li id="new">
-      <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign) %>      
-    </li>
+    <%= render 'actions', :local => @campaign %>
     <% i = 0; @campaign.versions.each do |version| %>
     <li class="version <%= i.even? ? 'light' : 'dark' %>">
       <%= link_to version.creative, brand_campaign_version_path(@campaign.brand, @campaign, version) %>
+      <% version.demographics.each do |d| %>
+        <span class="audience"><%= d.audience.code %></span>
+      <% end %>
+      <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
     </li>
     <% i += 1; end %>
+    <li id="total">
+      <%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %>
+    </li>
   </ul>
 </div>
