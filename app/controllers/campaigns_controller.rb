@@ -22,7 +22,24 @@ class CampaignsController < ApplicationController
   end
   
   def counts
+    @campaign = Campaign.find(params[:id])
+  end
   
+  def proof
+    @campaign = Campaign.find(params[:id])
+  end
+  
+  def final
+    @campaign = Campaign.find(params[:id])
+  end
+  
+  def scheduled
+  end
+  
+  def detials
+  end
+  
+  def duplicate
   end
 
 end

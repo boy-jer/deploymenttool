@@ -73,6 +73,9 @@ describe Campaign do
     context ':time is passed the argument' do
       it { (@campaign.get_drop_date_as :time).should == '2:30am PST' }
     end
+    context ':full_drop_date' do
+      it { (@campaign.get_drop_date_as :full_drop_date).should == '8/29/2012 2:30am PST' }
+    end
   end
   
   describe '#is_approved?' do

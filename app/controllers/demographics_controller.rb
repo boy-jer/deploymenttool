@@ -18,5 +18,14 @@ class DemographicsController < ApplicationController
     @options = Hash.new
     @brand.audiences.each { |a| @options.merge!({a.code => a.id}) }
   end
+    
+  def edit
+    @demographic = Demographic.find params[:id]    
+  end
+  
+  def update
+    @demographic = Demographic.find params[:id]
+    @demographic.update_attributes params[:demographic]
+  end
 
 end

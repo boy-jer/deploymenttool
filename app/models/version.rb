@@ -15,6 +15,10 @@ class Version < ActiveRecord::Base
     subtotal = 0; demographics.each { |d| subtotal += d.count }; subtotal
   end
   
+  def audience_list
+    (demographics.collect { |d| d.audience.code }).join(', ')
+  end
+  
 private
 
   def init

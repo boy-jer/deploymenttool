@@ -11,8 +11,9 @@ class Campaign < ActiveRecord::Base
 
   def get_drop_date_as(formatting)
     return drop_date.strftime('%Y%m%d') if formatting == :date_code
-    return drop_date.strftime('%-m/%d') if formatting == :month_and_day
+    return drop_date.strftime('%-m/%-d') if formatting == :month_and_day
     return drop_date.strftime('%-I:%M%P PST') if formatting == :time
+    return drop_date.strftime('%-m/%-d/%Y %-I:%M%P PST') if formatting == :full_drop_date
   end
 
   def proof_round

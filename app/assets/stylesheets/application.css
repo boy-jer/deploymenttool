@@ -66,6 +66,17 @@ div#dst {
       color:#d2ccc2;
       padding:0 25px;
     }
+      div#dst ul li span.sub_item {
+        font-size:10px;
+        font-weight:bold;
+        border-radius:4px;
+        padding:7px;
+        margin-left:10px;
+      }
+      div#dst ul li span.sub_item a {
+        font-size:10px;
+        font-weight:bold;
+      }
       div#dst ul li a {
         font-size:22px;
         font-weight:bold;
@@ -110,14 +121,18 @@ div#dst {
         div#dst ul li.actions div.on {
           color:#ddd;
         }
+          div#dst ul li.actions div.on a {
+            color:#ddd;
+          }
         div#dst ul li.actions div.off {
           color:#6b6c6f;
         }
+          div#dst ul li.actions div.off a {
+            color:#6b6c6f;
+          }
       div#dst ul li span.count {
         float:right;
         font-size:20px;
-        color:#cce2ef;
-        text-shadow: -1px -1px #1d4e80;
       }
       div#dst ul li.audience {
         background:#25272a;
@@ -157,8 +172,21 @@ div#dst ul li.brand a {
   color:#393939;
 }
 div#dst ul li.campaign a {
-  color:#25272a;
+  color:#d24d33;
 }
+  div#dst ul li.campaign span.sub_item {
+    background:#3b8dbd;
+    color:#fafafa;
+    box-shadow: inset 0px 0px 1px #123d56;
+    text-shadow: -1px -1px #7a7a74;   
+  }
+  div#dst ul li.campaign span.sub_item a {
+    text-shadow: -1px -1px #22678f;
+    color:#e9eef1; 
+  }
+  div#dst ul li.campaign span.count {
+    color:#65655e;
+  }
 div#dst ul li.version a {
   color:#25272a;
 }
@@ -177,17 +205,17 @@ div#dst ul li.version {
     color:#f1f1ee;
     text-shadow: -1px -1px #1d4e80;
   }
-  div#dst ul li.version span.audience {
-    font-size:10px;
-    font-weight:bold;
+  div#dst ul li.version span.sub_item {
     color:#dae2e7;
     background:#236084;
-    border-radius:4px;
-    padding:7px;
-    margin-left:10px;
     box-shadow: inset 0px 0px 1px #333;
     text-shadow: -1px -1px #0f3850;
   }
+  div#dst ul li.version span.count {
+    color:#cce2ef;
+    text-shadow: -1px -1px #1d4e80;
+  }
+
 
 
 

@@ -1,7 +1,7 @@
 <div id="dst">
   <ul>
     <li id="header" class="campaign" style="border-left-color:#<%= @brand.color %>">
-      <h1><span class="highlight"><%= 'Campaign'.pluralize(@brand.campaigns.size) %></span> for the <span style="color:#<%= @brand.color %>;"><%= @brand.name %></span> <%= link_to 'brand.', brands_path %></h1>
+      <h1><span style="color:#<%= @brand.color %>;"><%= @brand.name %>.</span></h1> <h2><%= link_to 'Brands.', brands_path %></h2>
     </li>
     <li id="new">
       <%= link_to 'New Campaign', new_brand_campaign_path(@brand) %>
@@ -16,7 +16,10 @@ end %>
     
       <li class="campaign" style="border-left:25px solid <%= i.even? ? '#' + @brand.color : @brand.darken_color(@brand.color) %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
         <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
-        <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %>
+        <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %> - <%= link_to 'Clone', brands_path %>
+        <% campaign.versions.each do |v| %>
+          <span class="sub_item"><%= link_to v.creative, brand_campaign_version_path(@brand, campaign, v) %></span>
+        <% end %>
         <span class="count"><%= campaign.counts_total %></span>
       </li>
     <% i += 1; end %>
@@ -28,5 +31,8 @@ end %>
           <%= audience.code %>
         </li>
       <% end %>
+      <li id="new">
+        <%= link_to 'New Send List', new_brand_send_list_path(@brand) %>
+      </li>
   </ul>
 </div>

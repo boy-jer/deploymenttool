@@ -8,7 +8,7 @@
     <li class="version <%= i.even? ? 'light' : 'dark' %>">
       <%= link_to version.creative, brand_campaign_version_path(@campaign.brand, @campaign, version) %>
       <% version.demographics.each do |d| %>
-        <span class="audience"><%= d.audience.code %></span>
+        <span class="sub_item"><%= d.audience.code %> <%= best_in_place d, :count, :type => :input, :path => brand_campaign_version_demographic_path(@campaign, @campaign.brand, version, d) %></span>
       <% end %>
       <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
     </li>
