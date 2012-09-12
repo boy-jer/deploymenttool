@@ -21,7 +21,7 @@ Dst::Application.routes.draw do
         get 'final'
         get 'scheduled'
         get 'detials'
-        post 'duplicate'
+        get 'duplicate'
       end
       resources :versions do
         resources :demographics

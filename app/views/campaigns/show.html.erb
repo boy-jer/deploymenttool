@@ -5,10 +5,11 @@
     </li>
     <%= render 'actions', :local => @campaign %>
     <% i = 0; @campaign.versions.each do |version| %>
-    <li class="version <%= i.even? ? 'light' : 'dark' %>">
+    <li class="version <%= i.even? ? 'light' : 'dark' %> deletable">
+          <%= button_to 'X', brand_campaign_version_path(@campaign.brand, @campaign, version), :method => :delete, :class => 'delete' %>
       <%= link_to version.creative, brand_campaign_version_path(@campaign.brand, @campaign, version) %>
       <% version.demographics.each do |d| %>
-        <span class="sub_item"><%= d.audience.code %> <%= best_in_place d, :count, :type => :input, :path => brand_campaign_version_demographic_path(@campaign, @campaign.brand, version, d) %></span>
+        <span class="sub_item"><%= d.audience.code %> <span class="int"><%= best_in_place d, :count, :type => :input, :path => brand_campaign_version_demographic_path(@campaign, @campaign.brand, version, d) %></span></span>
       <% end %>
       <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
     </li>

@@ -20,5 +20,13 @@ class VersionsController < ApplicationController
 
     @version.save ? redirect_to(brand_campaign_path(@brand, @campaign)) : redirect_to(new_brand_campaign_version_path)
   end
+  
+  def destroy
+    @brand = Brand.find(params[:brand_id])
+    @campaign = @brand.campaigns.find params[:campaign_id]
+    @version = @campaign.versions.find params[:id]
+    
+    @version.destroy ? redirect_to(brand_campaign_path(params[:brand_id], params[:campaign_id])) : redirect_to(new_brand_path)
+  end
 
 end

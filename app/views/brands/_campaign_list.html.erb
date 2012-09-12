@@ -14,13 +14,13 @@ elsif campaign.scheduled
   css_class = 'approved'
 end %>
     
-      <li class="campaign" style="border-left:25px solid <%= i.even? ? '#' + @brand.color : @brand.darken_color(@brand.color) %>;background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
+      <li class="campaign deletable" style="background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
         <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
         <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %> - <%= link_to 'Clone', brands_path %>
         <% campaign.versions.each do |v| %>
           <span class="sub_item"><%= link_to v.creative, brand_campaign_version_path(@brand, campaign, v) %></span>
         <% end %>
-        <span class="count"><%= campaign.counts_total %></span>
+        <span class="count"><%= number_with_delimiter campaign.counts_total, :delimeter => ',' %></span>
       </li>
     <% i += 1; end %>
       <li id="new">

@@ -10,7 +10,7 @@ jQuery ->
     $('input', this).hide()
 
 
-  $('ul.deletable li').mouseover ->
-    $('input', this).show()
-  $('ul.deletable li').mouseout ->
-    $('input', this).hide()
+  $('li.deletable').mouseover ->
+    $('input.delete', this).show()
+  $('li.deletable').mouseout ->
+    $('input.delete', this).hide()

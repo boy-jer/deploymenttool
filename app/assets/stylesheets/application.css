@@ -18,24 +18,7 @@
   font-family:'Ubuntu', sans-serif;
   text-decoration:none;
 }
-input[type=submit].delete {
-  float:right;
-  background:#993838;
-  height:25px;
-  border:none;
-  width:25px;
-  color:#fff;
-  border-radius:50%;
-  border:2px solid #fff;
-  position:absolute;
-  right:5px;
-  top:5px;
-  font-weight:bold;
-  display:none;
-  -moz-box-shadow: 0px 0px 2px #222;
-  -webkit-box-shadow: 0px 0px 2px #222;
-  box-shadow: 0px 0px 2px #222;
-}
+
 div#simple_message {
   width:500px;
   margin:50px auto;
@@ -64,8 +47,25 @@ div#dst {
       font-size:22px;
       font-weight:bold;
       color:#d2ccc2;
-      padding:0 25px;
+      padding:0 50px;
+      position:relative;
     }
+      div#dst ul li input[type=submit].delete {
+        position:absolute;
+        left:12px;
+        top:25px;
+        border-radius:50%;
+        border:2px solid;
+        height:25px;
+        width:25px;
+        text-align:center;
+        font-weight:bold;
+        display:none;
+        opacity:0.5
+      }
+       div#dst ul li input[type=submit].delete:hover {
+        opacity:1.0
+      }     
       div#dst ul li span.sub_item {
         font-size:10px;
         font-weight:bold;
@@ -88,7 +88,6 @@ div#dst {
       }
       div#dst ul li#new {
         background:#6ab71e;
-        border-left:25px solid #549514;
       }
         div#dst ul li#new a {
           color:#f1f1ee;
@@ -140,7 +139,7 @@ div#dst {
         border-left-color:#030303;
       }
       div#dst ul li#header {
-        padding:25px;
+        padding:50px;
         height:auto;
         background:#e7e7e4;
         border:none;
@@ -174,15 +173,29 @@ div#dst ul li.brand a {
 div#dst ul li.campaign a {
   color:#d24d33;
 }
+      div#dst ul li.campaign input[type=submit].delete {
+        background:#d24d33;
+        box-shadow: 0px 0px 2px #194f6e;
+        color:#fff;
+        border-color:#fff;
+        text-shadow: 1px 1px #992f1a;
+      }
   div#dst ul li.campaign span.sub_item {
     background:#3b8dbd;
     color:#fafafa;
-    box-shadow: inset 0px 0px 1px #123d56;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-shadow: 0px 0px 2px #444;
+    border:2px solid #fff;
     text-shadow: -1px -1px #7a7a74;   
   }
+  div#dst ul li.campaign span.sub_item:hover {
+    background:#256c95;  
+  }  
   div#dst ul li.campaign span.sub_item a {
     text-shadow: -1px -1px #22678f;
     color:#e9eef1; 
+    font-size:11px;
   }
   div#dst ul li.campaign span.count {
     color:#65655e;
@@ -206,15 +219,27 @@ div#dst ul li.version {
     text-shadow: -1px -1px #1d4e80;
   }
   div#dst ul li.version span.sub_item {
-    color:#dae2e7;
+    color:#e4ebef;
     background:#236084;
     box-shadow: inset 0px 0px 1px #333;
     text-shadow: -1px -1px #0f3850;
   }
+    div#dst ul li.version span.sub_item span.int {
+      color:#f1f5f7;
+    }
+
+  
   div#dst ul li.version span.count {
     color:#cce2ef;
     text-shadow: -1px -1px #1d4e80;
   }
+      div#dst ul li.version input[type=submit].delete {
+        background:#d24d33;
+        box-shadow: 0px 0px 2px #194f6e;
+        color:#fff;
+        border-color:#fff;
+        text-shadow: 1px 1px #992f1a;
+      }
 
 
 
