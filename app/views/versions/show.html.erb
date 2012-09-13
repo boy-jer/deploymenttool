@@ -1,11 +1,13 @@
 <div id="dst">
   
   <ul>
-    <li id="header">
-      <h1><span class="highlight"><%= 'Demographics'.pluralize(1) %></span> for the <span class="current"><%= @version.creative %></span> version of the <%= link_to @version.campaign.name, brand_campaign_path(@version.campaign.brand, @version.campaign) %> campaign that belongs to the <%= link_to @version.campaign.brand.name, brand_path(@version.campaign.brand), :style => 'color:#' + @version.campaign.brand.color %> <%= link_to 'brand.', brands_path %></h1>
+    <li id="header" class="version">
+      <h1><span class="highlight"><%= @version.creative %></span></h1>
+      <h2>Subject: <%= @version.subject_line %></h2>
+      <h2>From: <%= @version.from %></h2>
     </li>
     <li id="new">
-      <%= link_to 'New Demographic', new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version) %>
+      <%= link_to 'Add Demographic', new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version) %>
     </li>
     <% @version.demographics.each do |demographic| %>
       <li><%= demographic.audience.code %></li>

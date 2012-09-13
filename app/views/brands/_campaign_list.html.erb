@@ -1,11 +1,9 @@
 <div id="dst">
   <ul>
-    <li id="header" class="campaign" style="border-left-color:#<%= @brand.color %>">
-      <h1><span style="color:#<%= @brand.color %>;"><%= @brand.name %>.</span></h1> <h2><%= link_to 'Brands.', brands_path %></h2>
+    <li id="header" class="brand" style="border-left-color:#<%= @brand.color %>">
+      <h1><span style="color:#<%= @brand.color %>;"><%= @brand.name %>.</span></h1> <h2><%= link_to '&larr; Brands.'.html_safe, brands_path %></h2>
     </li>
-    <li id="new">
-      <%= link_to 'New Campaign', new_brand_campaign_path(@brand) %>
-    </li>    
+    <%= render 'actions', :local => @brand %> 
     <% i = 0; @brand.campaigns.each do |campaign| %>
     
     <% if campaign.is_approved?
@@ -15,24 +13,19 @@ elsif campaign.scheduled
 end %>
     
       <li class="campaign deletable" style="background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
+
         <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
-        <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %> - <%= link_to 'Clone', brands_path %>
-        <% campaign.versions.each do |v| %>
+
+        <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %>
+                <% campaign.versions.each do |v| %>
           <span class="sub_item"><%= link_to v.creative, brand_campaign_version_path(@brand, campaign, v) %></span>
         <% end %>
+        <%= link_to '&#8225;'.html_safe, duplicate_brand_campaign_path(@brand, campaign), :class => 'clone' %>          
+
         <span class="count"><%= number_with_delimiter campaign.counts_total, :delimeter => ',' %></span>
       </li>
     <% i += 1; end %>
-      <li id="new">
-        <%= link_to 'New Audience', new_brand_audience_path(@brand) %>
-      </li>
-      <% @brand.audiences.each do |audience| %>
-        <li class="audience">
-          <%= audience.code %>
-        </li>
-      <% end %>
-      <li id="new">
-        <%= link_to 'New Send List', new_brand_send_list_path(@brand) %>
-      </li>
+
+
   </ul>
 </div>

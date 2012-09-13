@@ -61,16 +61,14 @@ div#dst {
         text-align:center;
         font-weight:bold;
         display:none;
-        opacity:0.5
       }
        div#dst ul li input[type=submit].delete:hover {
-        opacity:1.0
       }     
       div#dst ul li span.sub_item {
         font-size:10px;
         font-weight:bold;
-        border-radius:4px;
-        padding:7px;
+        border-radius:10px;
+        padding:5px 10px;
         margin-left:10px;
       }
       div#dst ul li span.sub_item a {
@@ -85,6 +83,18 @@ div#dst {
         text-align:right;
         color:#25272a;
         font-size:28px;
+      }
+      div#dst ul li#total input[type=checkbox]
+      {
+        float:none;
+      }
+      div#dst ul li input[type=checkbox]
+      {
+        float:left;
+        margin-top:19px;
+        height:35px;
+        width:35px;
+        margin-right:5px;
       }
       div#dst ul li#new {
         background:#6ab71e;
@@ -111,6 +121,7 @@ div#dst {
         color:#f1f1ee;
         text-shadow: -1px -1px #49850f;
       }
+
         div#dst ul li.actions div {
           float:left;
           height:50px;
@@ -135,13 +146,12 @@ div#dst {
       }
       div#dst ul li.audience {
         background:#25272a;
-        color:#848588;
+        color:#bbb;
         border-left-color:#030303;
       }
       div#dst ul li#header {
         padding:50px;
         height:auto;
-        background:#e7e7e4;
         border:none;
       }
         div#dst ul li#header h1 {
@@ -158,7 +168,7 @@ div#dst {
           line-height:32px;
         }
           div#dst ul li#header h2 a {
-            color:#3194b9;
+            color:#ddd;
             font-size:32px;
           }
         div#dst ul li#header h1 span.highlight {
@@ -167,11 +177,22 @@ div#dst {
         div#dst ul li#header h1 span.current {
           color:#d24d33;
         }
+        
+div#dst ul li#header.brand {
+  background:#25272a;
+  text-shadow: -1px -1px #0e0f10;
+}
 div#dst ul li.brand a {
   color:#393939;
 }
 div#dst ul li.campaign a {
   color:#d24d33;
+}
+div#dst ul li.campaign a.clone {
+  border-radius:50%;
+  padding:10px;
+  font-size:10px;
+  color:#999;
 }
       div#dst ul li.campaign input[type=submit].delete {
         background:#d24d33;
@@ -185,8 +206,7 @@ div#dst ul li.campaign a {
     color:#fafafa;
     padding-right: 15px;
     padding-left: 15px;
-    box-shadow: 0px 0px 2px #444;
-    border:2px solid #fff;
+    box-shadow: inset 0px 0px 3px #113b53;
     text-shadow: -1px -1px #7a7a74;   
   }
   div#dst ul li.campaign span.sub_item:hover {
@@ -200,8 +220,15 @@ div#dst ul li.campaign a {
   div#dst ul li.campaign span.count {
     color:#65655e;
   }
+  
+  
+  
+  
 div#dst ul li.version a {
   color:#25272a;
+}
+div#dst ul li#header.campaign {
+  background:#e7e7e4;
 }
 div#dst ul li.version {
   background:#3b8dbd;
@@ -222,10 +249,10 @@ div#dst ul li.version {
     color:#e4ebef;
     background:#236084;
     box-shadow: inset 0px 0px 1px #333;
-    text-shadow: -1px -1px #0f3850;
   }
     div#dst ul li.version span.sub_item span.int {
       color:#f1f5f7;
+      text-shadow: 1px 1px #0f3850;
     }
 
   

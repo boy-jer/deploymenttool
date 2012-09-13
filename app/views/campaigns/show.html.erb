@@ -1,21 +1,42 @@
 <div id="dst">
+
   <ul>
+
     <li id="header" class="campaign">
-      <h1><span class="current"><%= @campaign.name + '.' %></span></h1> <h2><%= link_to @campaign.brand.name + '.', brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %></h2>
-    </li>
+      <h1>
+        <span class="current"><%= @campaign.name + '.' %></span>
+      </h1>
+      <h2>
+        <%= link_to '&larr; '.html_safe + @campaign.brand.name + '.', brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %>
+      </h2>
+    </li><!-- /#header -->
+
     <%= render 'actions', :local => @campaign %>
+
     <% i = 0; @campaign.versions.each do |version| %>
     <li class="version <%= i.even? ? 'light' : 'dark' %> deletable">
-          <%= button_to 'X', brand_campaign_version_path(@campaign.brand, @campaign, version), :method => :delete, :class => 'delete' %>
+    <%= form_tag edit_brand_campaign_version_path(@campaign.brand, @campaign, version) do |f| %>
+      <%= check_box_tag 'version[creative_approval]', version.creative_approval, version.creative_approval %>
+    <% end %>
+
+
+ <%= button_to 'X', brand_campaign_version_path(@campaign.brand, @campaign, version), :method => :delete, :class => 'delete' %>
       <%= link_to version.creative, brand_campaign_version_path(@campaign.brand, @campaign, version) %>
       <% version.demographics.each do |d| %>
         <span class="sub_item"><%= d.audience.code %> <span class="int"><%= best_in_place d, :count, :type => :input, :path => brand_campaign_version_demographic_path(@campaign, @campaign.brand, version, d) %></span></span>
       <% end %>
+      
       <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
     </li>
     <% i += 1; end %>
+
     <li id="total">
+    <%= form_tag edit_brand_campaign_path(@campaign.brand, @campaign) do |f| %>
+      <%= check_box_tag 'campaign[counts_approval]', @campaign.counts_approval, @campaign.counts_approval %>
+    <% end %>
       <%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %>
-    </li>
+    </li><!-- /#total -->
+
   </ul>
+
 </div>

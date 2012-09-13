@@ -11,5 +11,9 @@ class AudiencesController < ApplicationController
     
     @audience.save ? redirect_to(brand_path(@brand)) : NIL
   end
+  
+  def index
+    @brand = Brand.find(params[:brand_id])
+  end
 
 end

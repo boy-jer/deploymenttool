@@ -22,6 +22,7 @@ Dst::Application.routes.draw do
         get 'scheduled'
         get 'detials'
         get 'duplicate'
+        put 'create_duplicate'
       end
       resources :versions do
         resources :demographics
@@ -29,6 +30,8 @@ Dst::Application.routes.draw do
     end
     resources :send_lists
     resources :audiences
+  end
+  resources :contacts do
   end
   
   # Sample resource route with options:

@@ -4,5 +4,5 @@
   <div class="on"><%= link_to 'Final Approval', final_brand_campaign_path(@campaign.brand, @campaign) %></div>
   <div class="<%= @campaign.is_approved? ? 'on' : 'off' %>">Scheduled</div>
   <div class="off">Send detials</div>
-  <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign), :class => 'new' %>      
+  <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign), :class => 'new' %>  
 </li>

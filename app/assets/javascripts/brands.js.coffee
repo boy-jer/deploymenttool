@@ -4,13 +4,8 @@
 
 jQuery ->
 
-  $('div#brands_index ul li').mouseover ->
-    $('input', this).show()
-  $('div#brands_index ul li').mouseout ->
-    $('input', this).hide()
-
-
   $('li.deletable').mouseover ->
     $('input.delete', this).show()
   $('li.deletable').mouseout ->
     $('input.delete', this).hide()
+    
