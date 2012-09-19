@@ -46,16 +46,33 @@ class CampaignsController < ApplicationController
     # There is a vulnerability here, could post data, consider another post method.
     @campaign.name = NIL
     @campaign.drop_date = NIL
-    @campaign.round = 0
-    @campaign.counts_approval = FALSE
-    @campaign.scheduled = FALSE
   end
   
   def create_duplicate
     @brand = Brand.find(params[:brand_id])
-    @campaign = @brand.campaigns.find(params[:id]) # duplicate active record?
-    @campaign.name = params[:name]
-    @campaign.drop_date = params[:drop_date]
+    @campaign = @brand.campaigns.find(params[:id])
+    
+    @campaign = @campaign.dup
+
+    @campaign.round = 0
+    @campaign.counts_approval = FALSE
+    @campaign.scheduled = FALSE
+    
+    @campaign.update_attributes params[:campaign]
+    @campaign.save
+  end
+
+  def update
+    @brand = Brand.find params[:brand_id]
+    
+    @campaign = @brand.campaigns.find params[:id]
+
+    # Hack, can't get the false version to update without this. It returns nothing when submitted...
+    params[:campaign] = {:counts_approval => 0} if params[:campaign] == NIL
+
+    @campaign.update_attributes params[:campaign]
+    
+    redirect_to( brand_campaign_path(@brand, @campaign) )
   end
 
 end

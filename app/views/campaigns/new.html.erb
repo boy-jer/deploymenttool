@@ -1,6 +1,6 @@
 <%= render 'navigation', :name => @brand.name, :path => brand_path(@brand) %>
 
-<div class="new_form">
+<div class="form">
   <%= form_for [@brand, @campaign] do |f| %>  
   <ul>
     <li><%= f.text_field :name, :placeholder => 'Name' %></li>

@@ -15,8 +15,8 @@
 
     <% i = 0; @campaign.versions.each do |version| %>
     <li class="version <%= i.even? ? 'light' : 'dark' %> deletable">
-    <%= form_tag edit_brand_campaign_version_path(@campaign.brand, @campaign, version) do |f| %>
-      <%= check_box_tag 'version[creative_approval]', version.creative_approval, version.creative_approval %>
+    <%= form_tag brand_campaign_version_path(@campaign.brand, @campaign, version), :method => 'put' do |f| %>
+      <%= check_box_tag 'version[creative_approval]', (version.creative_approval == false ? 1 : 0), version.creative_approval %>
     <% end %>
 
 
@@ -31,10 +31,10 @@
     <% i += 1; end %>
 
     <li id="total">
-    <%= form_tag edit_brand_campaign_path(@campaign.brand, @campaign) do |f| %>
-      <%= check_box_tag 'campaign[counts_approval]', @campaign.counts_approval, @campaign.counts_approval %>
+    <%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %>
+    <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
+      <%= check_box_tag 'campaign[counts_approval]', (@campaign.counts_approval == false ? 1 : 0), @campaign.counts_approval %>
     <% end %>
-      <%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %>
     </li><!-- /#total -->
 
   </ul>

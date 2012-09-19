@@ -34,6 +34,9 @@ Dst::Application.routes.draw do
   resources :contacts do
   end
   
+  resources :trackers do
+  end
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do

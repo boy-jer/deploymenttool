@@ -18,6 +18,7 @@ describe Version do
   
   it { should respond_to :counts_subtotal }
   it { should respond_to :audience_list }
+  it { should respond_to :all_audiences_have_counts? }
 
   context "attribute is missing" do
     required_attributes = [:creative, :campaign_id, :creative_approval]

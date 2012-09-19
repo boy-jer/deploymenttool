@@ -25,6 +25,7 @@ describe Campaign do
   it { should respond_to :treatment_name }
 
   it { should respond_to :is_approved? }
+  it { should respond_to :counts_provided? }
 
   it 'requires a brand be present' do
     @campaign.brand.class == 'Brand' 

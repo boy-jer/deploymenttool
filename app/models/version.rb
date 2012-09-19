@@ -19,6 +19,10 @@ class Version < ActiveRecord::Base
     (demographics.collect { |d| d.audience.code }).join(', ')
   end
   
+  def all_audiences_have_counts?
+    demographics.each { |d| return FALSE if d.count == 0 }
+  end
+  
 private
 
   def init

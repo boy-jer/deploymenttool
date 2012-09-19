@@ -30,6 +30,10 @@ class Campaign < ActiveRecord::Base
     end
     return TRUE
   end
+  
+  def counts_provided?
+    versions.each { |v| return FALSE if !v.all_audiences_have_counts? }
+  end
 
   #needs camelization.
   def treatment_name

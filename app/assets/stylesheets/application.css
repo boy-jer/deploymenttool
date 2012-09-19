@@ -11,7 +11,41 @@
  *= require_self
  *= require_tree .
  */
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+div.form {
+  padding:25px;
+  background:#efefec;
+  width:325px;
+  margin:0 auto;
+  border-radius:10px;
+  border:1px solid #fff;
+  box-shadow: 0px 1px 5px #777;
+} 
+div.form ul {
+  list-style:none;
+}
+div.form ul li {
+  text-align:center;
+}
+div.form input[type=text] {
+  padding:10px;
+  width:300px;
+  margin-bottom:20px;
+}
+ 
+ 
+ 
+ 
+ 
+div.clear {
+  clear:both;
+}
 * {
   padding:0;
   margin:0;
@@ -32,7 +66,205 @@ div#navigation {
 
 
 
+div#tracker {
+  margin: 0 50px;
+  min-width:800px;
+}
+div#tracker div.now {
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  background-color:#fff;
+  float:left;
+  line-height:100px;
+  border:1px solid #d7d7cf;
+  text-align:center;
+  font-size:34px;
+  font-weight:bold;
+  margin-right:25px;
+  margin-top:100px;
+  color:#d24d33;
+  box-shadow: inset 0px 0px 3px #999;
+}
+  div#tracker div.holder {
+    background:#f1f1ef; 
+    padding:8px;
+    float:left;
+  }
+  div#tracker div.campaign {
+    float:left;
+    width:275px;
+    height:275px;
+    border-radius:10px;
+    text-align:left;
+  }
+  div#tracker div.campaign div.container {
+    border-top:1px solid #d7d7cf;
+    padding-top:25px;
+  }
+    div#tracker div.campaign div.brand h1 {
+      font-size:16px;
+      font-weight:bold;
+      text-align:left;
+      clear:both;
+      line-height:12px;
+    }
+  div#tracker div.campaign div.brand h1 a {
+    color:#fff;
+    text-shadow: 1px 1px #222;
+  }
+  div#tracker div.campaign div.brand h2 {
+    text-align:left;
+  }
+  div#tracker div.campaign div.brand h2 a {
+    font-size:11px;
+    color:#fff;
+    font-weight:400;
+    text-shadow:none;
+  }
+  
+  div#tracker div.campaign div.int {
+    width:175px;
+    margin:25px auto;
+    text-align:center;
+    font-size:11px;
+    color:#3b8dbd;
+    text-shadow: 1px 1px #fff;
+  }
+  div#tracker div.campaign div.date {
+    width:175px;
+    margin:25px auto;
+    text-align:center;
+    font-size:11px;
+    color:#3b8dbd;
+    text-shadow: 1px 1px #fff;
+  }
+  
+    div#tracker div.campaign ul {
+      list-style:none;
+      margin:0 auto;
+      display:block;
+      width:200px;
+    }
+    div#tracker div.campaign ul li {
+      font-size:10px;
+      font-weight:bold;
+      border-radius:10px;
+      padding:5px 10px;
+    background:-webkit-linear-gradient(top, #777, #222);
+      color:#fafafa;
+      margin-bottom:5px;
+      box-shadow: 0px 0px 3px #113b53;
+      text-shadow: -1px -1px #000;
+      border:2px solid #fff;
+    }
+    div#tracker div.campaign ul li.approved {
+      background:#f1f1ef;
+      color:#737371;
+      text-shadow:none;
+      box-shadow: inset 0px 0px 2px #a7a7a4;
+      text-shadow: 1px 1px #fff;
+    }
+    
+    
+      div#tracker div.campaign ul li span.count {
+        font-weight:300;
+        margin-left:5px;
+      }
+      div#tracker div.campaign ul li span.approved {
+        float:right;
+        display:block;
+        border-radius:50%;
+        background:#5dab1e;
+        height:10px;
+        width:10px;
+        text-align:center;
+        font-size:8px;
+        color:#fff;
+        font-weight:normal;
+        border:1px solid #fff;
+        text-shadow:none;
+        box-shadow: 0px 0px 3px #24440b;
+      }
 
+      div#tracker div.campaign ul li:hover {
+    background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
+      }
+      div#tracker div.campaign ul li.approved:hover {
+        background:#e5e5e2;
+      }
+  
+    div#tracker div.campaign.pending {
+      background:-webkit-linear-gradient(top, #fff, #e4e4e2);
+      border:1px solid #d7d7cf;
+    }
+  div#tracker div.campaign div.brand {
+    font-size:12px;
+    font-weight:300;
+    padding: 15px 20px;
+    background:#efefec;
+    text-shadow: 1px 1px #000;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom:1px solid #fff;
+    position:relative;
+  }
+  div#tracker div.campaign div.brand div.counts {
+    position:absolute;
+    background:-webkit-linear-gradient(top, #777, #222);
+    border-radius:10px;
+    padding:4px 8px;
+    top:-8px;
+    color:#fff;
+    font-weight:bold;
+    text-shadow:-1px -1px #000;
+    right:-8px;
+    text-shadow:none;
+    border:1px solid #fff;
+    box-shadow: 0px 1px 3px #000;
+  }
+  div#tracker div.campaign div.brand div.counts:hover {
+    background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
+  }
+  div#tracker div.campaign div.brand div.counts.approved {
+      background:-webkit-linear-gradient(top, #fff, #e4e4e2);
+      color:#737371;
+  }
+      div#tracker div.campaign div.brand div.counts span.approved {
+        border-radius:50%;
+        background:#5dab1e;
+        height:10px;
+        width:10px;
+        display:block;
+        float:right;
+        text-align:center;
+        font-size:8px;
+        color:#fff;
+        font-weight:normal;
+        border:1px solid #fff;
+        text-shadow:none;
+        margin-left:10px;
+        box-shadow: 0px 0px 3px #24440b;
+      }
+
+
+    div#tracker div.campaign.approved {
+      box-shadow: 0px 2px 6px #2e5013;
+      border:1px solid #fff;
+      background:-webkit-linear-gradient(bottom, #4c7e23, #76b246);
+    }
+    div#tracker div.campaign.approved div.container {
+      border-top:1px solid #4c7e23;
+    }
+    div#tracker div.campaign.approved {
+      
+    }
+    div#tracker div.campaign.approved {
+      
+    }
+
+    
+    
 
 
 div#dst {
@@ -84,9 +316,10 @@ div#dst {
         color:#25272a;
         font-size:28px;
       }
-      div#dst ul li#total input[type=checkbox]
+      div#dst ul li#total form
       {
-        float:none;
+        float:right;
+       margin-left:25px;
       }
       div#dst ul li input[type=checkbox]
       {
@@ -98,12 +331,15 @@ div#dst {
       }
       div#dst ul li#new {
         background:#6ab71e;
+        height:50px;
+        line-height:50px;
       }
         div#dst ul li#new a {
           color:#f1f1ee;
           display:block;
-          height:100%;
+          height:50px;
           width:100%;
+          text-shadow: 1px 1px #3a690b;
         }
       div#dst ul li.actions {
         background:#3f4145;
@@ -119,14 +355,14 @@ div#dst {
         padding: 0 25px;
         display:block;
         color:#f1f1ee;
-        text-shadow: -1px -1px #49850f;
+        text-shadow: 1px 1px #49850f;
       }
 
         div#dst ul li.actions div {
           float:left;
           height:50px;
           margin-right:25px;
-          text-shadow: -1px -1px #111;
+          text-shadow: 1px 1px #111;
         }
         div#dst ul li.actions div.on {
           color:#ddd;
@@ -148,6 +384,7 @@ div#dst {
         background:#25272a;
         color:#bbb;
         border-left-color:#030303;
+        text-shadow: -1px -1px #000;
       }
       div#dst ul li#header {
         padding:50px;
@@ -156,12 +393,10 @@ div#dst {
       }
         div#dst ul li#header h1 {
           font-size:52px;
-          color:#d2ccc2;
           line-height:62px;
         }
           div#dst ul li#header h1 a {
             font-size:42px;
-            color:#3194b9;
           }
         div#dst ul li#header h2 {
           font-size:32px;
@@ -181,6 +416,8 @@ div#dst {
 div#dst ul li#header.brand {
   background:#25272a;
   text-shadow: -1px -1px #0e0f10;
+  background:-webkit-linear-gradient(top, #25272a, #111);
+  border-bottom:1px solid #777;
 }
 div#dst ul li.brand a {
   color:#393939;
@@ -210,25 +447,28 @@ div#dst ul li.campaign a.clone {
     text-shadow: -1px -1px #7a7a74;   
   }
   div#dst ul li.campaign span.sub_item:hover {
-    background:#256c95;  
   }  
   div#dst ul li.campaign span.sub_item a {
-    text-shadow: -1px -1px #22678f;
+    text-shadow: 1px 1px #22678f;
     color:#e9eef1; 
     font-size:11px;
   }
   div#dst ul li.campaign span.count {
-    color:#65655e;
+    color:#ababa4;
   }
   
   
-  
-  
+div#dst ul li#header.audience {
+  text-shadow: 1px 1px #000;
+}  
+
 div#dst ul li.version a {
   color:#25272a;
 }
 div#dst ul li#header.campaign {
-  background:#e7e7e4;
+  background:-webkit-linear-gradient(bottom, #dcdcd9, #fff);
+  border-bottom:1px solid #b9b9b6;
+
 }
 div#dst ul li.version {
   background:#3b8dbd;
@@ -248,14 +488,23 @@ div#dst ul li.version {
   div#dst ul li.version span.sub_item {
     color:#e4ebef;
     background:#236084;
+      text-shadow: 1px 1px #0f3850;
     box-shadow: inset 0px 0px 1px #333;
   }
     div#dst ul li.version span.sub_item span.int {
       color:#f1f5f7;
+      font-weight:300;
+      margin-left:3px;
       text-shadow: 1px 1px #0f3850;
     }
 
-  
+  div#dst ul li#header.version {
+    background:#1c628b;
+  }
+  div#dst ul li#header.version h1 {
+    color:#fff;
+    text-shadow: -1px -1px #0b3249;
+  }
   div#dst ul li.version span.count {
     color:#cce2ef;
     text-shadow: -1px -1px #1d4e80;

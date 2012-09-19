@@ -2,7 +2,7 @@
   
   <ul>
     <li id="header" class="version">
-      <h1><span class="highlight"><%= @version.creative %></span></h1>
+      <h1><%= @version.creative %></h1>
       <h2>Subject: <%= @version.subject_line %></h2>
       <h2>From: <%= @version.from %></h2>
     </li>
@@ -10,7 +10,7 @@
       <%= link_to 'Add Demographic', new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version) %>
     </li>
     <% @version.demographics.each do |demographic| %>
-      <li><%= demographic.audience.code %></li>
+      <li class="audience"><%= demographic.audience.code %></li>
     <% end %>
   </ul>
   

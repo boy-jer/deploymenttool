@@ -1,4 +1,8 @@
+<div class="form">
 <%= form_for [@brand, @send_list] do |f| %>
-  <%= f.select :id, @options %>
-  <%= f.submit 'Add Demographic' %>
+  <ul>
+    <li><%= f.select :id, @options %></li>
+    <li><%= f.submit 'Add Demographic' %></li>
+  </ul>
 <% end %>
+</div>

@@ -1,6 +1,19 @@
-<%= link_to 'New List', new_brand_send_list_path(params[:brand_id]) %>
+<div id="dst">
 
+  <ul>
+    
+    <li id="header" class="send_lists">
+      <h1>Send lists.</h1>
+    </li>
+    
+    <li id="new">
+      <%= link_to 'New List', new_brand_send_list_path(params[:brand_id]) %>
+    </li>
+    
+    <% @send_lists.each do |send_list| %>
+      <li><%= send_list.list_type %></li>
+    <% end %>
+    
+  </ul>
 
-<% @send_lists.each do |send_list| %>
-  <%= send_list.list_type %><br/>
-<% end %>
+</div>
