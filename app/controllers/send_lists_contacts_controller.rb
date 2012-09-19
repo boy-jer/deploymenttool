@@ -1,0 +1,2 @@
+class SendListsContactsController < ApplicationController
+end

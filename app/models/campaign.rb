@@ -7,6 +7,12 @@ class Campaign < ActiveRecord::Base
 
   has_many :versions
   belongs_to :brand
+  
+  amoeba do
+    enable
+    clone [:versions]
+    set :counts_approval => FALSE
+  end
 
   after_initialize :init
 

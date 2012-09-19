@@ -4,8 +4,9 @@
 
     <li id="header" class="version">
       <h1><%= @version.creative %></h1>
-      <h2>Subject: <%= @version.subject_line %></h2>
-      <h2>From: <%= @version.from %></h2>
+      <h2><%= link_to @version.campaign.name, brand_campaign_path(@version.campaign.brand, @version.campaign) %></h2>
+      <h2>Subject: <%= best_in_place @version, :subject_line, :type => :input, :path => brand_campaign_version_path(@version.campaign, @version.campaign.brand, @version) %></h2>
+      <h2>From: <%= best_in_place @version, :from, :type => :input, :path => brand_campaign_version_path(@version.campaign, @version.campaign.brand, @version) %></h2>
     </li>
 
     <li id="new">

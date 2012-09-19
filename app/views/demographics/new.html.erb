@@ -1,4 +1,6 @@
+<div class="form">
 <%= form_for [@brand, @campaign, @version, @demographic] do |f| %>
   <%= f.select :audience_id, @options %>
   <%= f.submit 'Add Demographic' %>
 <% end %>
+</div>

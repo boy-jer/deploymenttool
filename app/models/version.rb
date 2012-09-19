@@ -9,6 +9,11 @@ class Version < ActiveRecord::Base
   has_many :demographics
   has_many :audiences, :through => :demographics
 
+  amoeba do
+    enable
+    clone [:demographics]
+    set :creative_approval => FALSE
+  end
 
   after_initialize :init
   
