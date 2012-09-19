@@ -5,16 +5,18 @@
     <li id="header" class="audience">
       <h1>Audiences</h1>
       <h2><%= link_to '&larr; '.html_safe + @brand.name, brand_path(@brand) %></h2>
-    </li> 
+    </li>
+
     <li id="new">
       <%= link_to 'New Audience', new_brand_audience_path(@brand) %>
     </li>
-  <% @brand.audiences.each do |audience| %>
-    <li class="audience deletable">
+
+    <% i = 0; @brand.audiences.each do |audience| %>
+    <li class="audience deletable <%= i.even? ? 'light' : 'dark' %>">
       <%= button_to 'X', brand_audience_path(@brand, audience), :method => :delete, :class => 'delete' %>
       <%= audience.code %>
     </li> 
-  <% end %>
+    <% i += 1; end %>
 
   </ul>
   

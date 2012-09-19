@@ -383,11 +383,16 @@ div#dst {
       div#dst ul li.audience {
         background:#25272a;
         color:#bbb;
-        border-left-color:#030303;
         text-shadow: -1px -1px #000;
       }
+        div#dst ul li.audience.light {
+          background:#25272a;
+        }
+        div#dst ul li.audience.dark {
+          background:#191a1c;
+        }
       div#dst ul li#header {
-        padding:50px;
+        padding:75px;
         height:auto;
         border:none;
       }
@@ -411,6 +416,7 @@ div#dst {
         }
         div#dst ul li#header h1 span.current {
           color:#d24d33;
+          text-shadow: 1px 1px #fff;
         }
         
 div#dst ul li#header.brand {
@@ -466,8 +472,8 @@ div#dst ul li.version a {
   color:#25272a;
 }
 div#dst ul li#header.campaign {
-  background:-webkit-linear-gradient(bottom, #dcdcd9, #fff);
-  border-bottom:1px solid #b9b9b6;
+  background:-webkit-linear-gradient(bottom, #c5c5c3, #fff);
+  border-bottom:1px solid #eee;
 
 }
 div#dst ul li.version {
@@ -499,16 +505,24 @@ div#dst ul li.version {
     }
 
   div#dst ul li#header.version {
-    background:#1c628b;
+  background:-webkit-linear-gradient(top, #1c628b, #134c6d);
+  border-bottom:1px solid #b7d3e3;
   }
   div#dst ul li#header.version h1 {
     color:#fff;
     text-shadow: -1px -1px #0b3249;
   }
+  div#dst ul li#header.version h2 {
+    color:#fff;
+    font-size:22px;
+    font-weight:300;
+    text-shadow: 1px 1px #09182f;
+  }
   div#dst ul li.version span.count {
     color:#cce2ef;
     text-shadow: -1px -1px #1d4e80;
   }
+
       div#dst ul li.version input[type=submit].delete {
         background:#d24d33;
         box-shadow: 0px 0px 2px #194f6e;

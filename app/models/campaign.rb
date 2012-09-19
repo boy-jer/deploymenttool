@@ -1,4 +1,5 @@
 class Campaign < ActiveRecord::Base
+
   attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions, :scheduled
 
   validates :name, :drop_date, :brand_id, :round, :presence => true
@@ -35,12 +36,10 @@ class Campaign < ActiveRecord::Base
     versions.each { |v| return FALSE if !v.all_audiences_have_counts? }
   end
 
-  #needs camelization.
   def treatment_name
     [get_drop_date_as(:date_code), brand.code, camel(name)].join('_')
   end
 
-  # Logic is a work in progress here.
   def client_responce_deadline
     return DateTime.now.tomorrow.strftime('%A') + ' at 12:00pm' if drop_date.yesterday.past?
     

@@ -1,17 +1,21 @@
 <div id="dst">
   
   <ul>
+
     <li id="header" class="version">
       <h1><%= @version.creative %></h1>
       <h2>Subject: <%= @version.subject_line %></h2>
       <h2>From: <%= @version.from %></h2>
     </li>
+
     <li id="new">
       <%= link_to 'Add Demographic', new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version) %>
     </li>
-    <% @version.demographics.each do |demographic| %>
-      <li class="audience"><%= demographic.audience.code %></li>
-    <% end %>
+
+    <% i = 0; @version.demographics.each do |demographic| %>
+      <li class="audience deletable <%= i.even? ? 'light' : 'dark' %>"><%= demographic.audience.code %></li>
+    <% i += 1; end %>
+
   </ul>
   
 </div>
