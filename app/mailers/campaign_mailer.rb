@@ -16,6 +16,15 @@ class CampaignMailer < ActionMailer::Base
     mail( :to => to, :subject => subject )    
   end
 
+  # REMOVE THIS KEEP IT IN THE HELPER
+  def get_subject_line(mail_type, campaign)
+    return "#{campaign.proof_round} PROOFS FROM ET:" if mail_type == :proof
+    return "COUNTS FOR APPROVAL: #{campaign.treatment_name}" if mail_type == :counts
+    return "REQUESTING FINAL APPROVAL: #{campaign.treatment_name}" if mail_type == :approval
+    return "SCHEDULED BY ET: #{campaign.treatment_name}" if mail_type == :scheduled
+    return "SEND DETIALS: #{campaign.treatment_name}" if mail_type == :send_detials
+  end
+
 private
 
   # Returns true if the method called is a valid format for the CampaignMailer to work with.
@@ -26,14 +35,6 @@ private
   # Returns everything before the last underscore as a symbol. I laughed when I wrote this bad boy....
   def get_mail_type(method_name)
      method_name.reverse.split('_', 2).last.reverse.to_sym
-  end
-
-  def get_subject_line(mail_type, campaign)
-    return "#{campaign.proof_round} PROOFS FROM ET:" if mail_type == :proof
-    return "COUNTS FOR APPROVAL: #{campaign.treatment_name}" if mail_type == :counts
-    return "REQUESTING FINAL APPROVAL: #{campaign.treatment_name}" if mail_type == :approval
-    return "SCHEDULED BY ET: #{campaign.treatment_name}" if mail_type == :scheduled
-    return "SEND DETIALS: #{campaign.treatment_name}" if mail_type == :send_detials
   end
 
 end

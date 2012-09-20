@@ -15,6 +15,14 @@ module CampaignMailerHelper
     view_folder + '/footers/' + footer + '_footer'
   end
 
+  def get_subject_line(mail_type, campaign)
+    return "#{campaign.brand.code} #{campaign.proof_round} Proofs for Approval: #{campaign.treatment_name}" if mail_type == :proof
+    return "#{campaign.brand.code} Counts for Approval: #{campaign.treatment_name}" if mail_type == :counts
+    return "#{campaign.brand.code} FINAL APPROVAL: #{campaign.treatment_name}" if mail_type == :approval
+    return "#{campaign.brand.code} SCHEDULED: #{campaign.treatment_name}" if mail_type == :scheduled
+    return "#{campaign.brand.code} Send Details: #{campaign.treatment_name}" if mail_type == :send_detials
+  end
+
 private
 
   def view_folder

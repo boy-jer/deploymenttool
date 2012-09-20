@@ -12,7 +12,7 @@ class Version < ActiveRecord::Base
   amoeba do
     enable
     clone [:demographics]
-    set :creative_approval => FALSE
+    set :creative_approval => 0
   end
 
   after_initialize :init

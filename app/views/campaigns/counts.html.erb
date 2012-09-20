@@ -1,1 +1,11 @@
-<%= render :template => 'campaign_mailer/counts_email' %>
+<% CampaignMailerHelper %>
+
+<% content_for :email do %>
+  <% render :template => 'campaign_mailer/counts_email' %>
+<% end %>
+
+<% content_for :subject_line do %>
+  <% get_subject_line(:counts, @campaign) %>
+<% end %>
+
+<%= render 'email' %>

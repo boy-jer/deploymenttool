@@ -10,7 +10,7 @@
   <% number_of_rows += v.demographics.size + 1 %>
 <% number_of_rows.to_s; end %>
 
-<table cellpadding="0" cellspacing="0">
+<table cellpadding="0" cellspacing="0" width="100%">
   <%= render table 'table_head' %>  
   <% i = 0; @campaign.versions.each do |v| %>
     <% v.demographics.each do |d| %>

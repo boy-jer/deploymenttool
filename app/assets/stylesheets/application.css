@@ -13,9 +13,73 @@
  */
  
  
- 
- 
- 
+div.email {
+  margin: 0 auto;
+  width:750px;
+  border-radius:10px;
+  background:-webkit-linear-gradient(top, #fff, #fafaf8);
+  box-shadow: 0px 1px 5px #777;
+  margin-top:25px;
+}
+  div.email div.config {
+    background:#f2f4f4;
+    padding:25px;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    border-bottom:1px dotted silver;
+  }
+  div.email div.container {
+    padding:25px;
+  }
+  div.email h1 {
+    font-size:12px;
+    font-weight:300;
+    padding:10px 25px;
+    background:#fff;
+    border:1px solid #dededb;
+    float:left;
+    margin-bottom:15px;
+    color:#666;
+    margin-top:25px;
+    border-radius:10px;
+    box-shadow: inset 0px 1px 1px #777;
+    border-radius:1px solid #fff;
+  }
+  div.email ul.send_list {
+    list-style:none;
+    display:block;
+    clear:both;
+  }
+    div.email ul.send_list li {
+      border-radius:10px;
+      padding:5px 10px;
+      float:left;
+      margin-right:10px;   
+      margin-bottom:10px; 
+      font-size:11px;
+      box-shadow: 0px 0px 2px #777;  
+      border-top:1px solid;
+      border-right:1px solid;
+      border-left:1px solid;
+      border-bottom:1px solid;
+    }
+    div.email ul.send_list.to li {
+      color:#fff;
+      background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
+      border-top-color:#5298ac;
+      border-right-color:#317689;
+      border-left-color:#317689;
+      border-bottom-color:#1e5778;
+    }
+    div.email ul.send_list.cc li {
+      color:#fff;
+      background:-webkit-linear-gradient(top, #333, #111);
+      border-top-color:#5298ac;
+      border-right-color:#317689;
+      border-left-color:#317689;
+      border-bottom-color:#1e5778;
+    }
+
  
  
 div.form {

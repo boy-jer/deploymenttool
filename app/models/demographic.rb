@@ -8,6 +8,11 @@ class Demographic < ActiveRecord::Base
 
   after_initialize :init
 
+  amoeba do
+    enable
+    nullify :count
+  end
+
 #test the init
 private
 

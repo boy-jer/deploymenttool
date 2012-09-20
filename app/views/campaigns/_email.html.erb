@@ -1,0 +1,21 @@
+<div class="email">
+
+  <div class="config">
+    <ul class="send_list to">
+      <li>Nicolas Feigenbaum</li>
+      <li>John McCarthy</li>
+      <li>Andrew Jackson</li>
+    </ul>
+    <ul class="send_list cc">
+      <li>Athleta Deployment</li>
+    </ul>
+    <div class="clear"></div>
+    <h1><%= yield :subject_line %></h1>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="container">
+    <%= yield :email %>
+  </div>
+  
+</div>

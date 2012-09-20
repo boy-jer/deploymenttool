@@ -11,7 +11,9 @@ class Campaign < ActiveRecord::Base
   amoeba do
     enable
     clone [:versions]
-    set :counts_approval => FALSE
+    set :counts_approval => 0
+    set :scheduled => 0
+    set :round => 0
   end
 
   after_initialize :init

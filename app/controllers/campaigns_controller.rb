@@ -34,6 +34,7 @@ class CampaignsController < ApplicationController
   end
   
   def scheduled
+    @campaign = Campaign.find(params[:id])
   end
   
   def detials
@@ -54,11 +55,8 @@ class CampaignsController < ApplicationController
     
     @campaign = @campaign.dup
 
-    @campaign.round = 0
-    @campaign.counts_approval = FALSE
-    @campaign.scheduled = FALSE
+    @campaign.update_attributes(:name => params[:campaign][:name], :drop_date => params[:campaign][:drop_date])
     
-    @campaign.update_attributes params[:campaign]
     @campaign.save
   end
 
