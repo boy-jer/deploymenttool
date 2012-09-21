@@ -11,5 +11,17 @@ require 'spec_helper'
 #   end
 # end
 describe CampaignsHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  subject { helper }
+  
+  it { should respond_to :toggle_row_bg_color}
+
+  describe "toggle_row_bg_color" do
+    it "toggles between two colors" do
+      color_1 = helper.toggle_row_bg_color
+      color_2 = helper.toggle_row_bg_color
+      
+      color_1.should_not == color_2
+    end
+  end
 end

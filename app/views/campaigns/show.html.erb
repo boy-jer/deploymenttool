@@ -1,42 +1,39 @@
-<div id="dst">
+<div id='dst' class='campaign'>
 
-  <ul>
-
-    <li id="header" class="campaign">
-      <h1>
-        <span class="current"><%= @campaign.name + '.' %></span>
-      </h1>
-      <h2>
-        <%= link_to '&larr; '.html_safe + @campaign.brand.name + '.', brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %>
-      </h2>
-    </li><!-- /#header -->
+    <div id="header">
+      <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign), :class => 'new' %>  
+      <h1><span class="current"><%= @campaign.name + '.' %></span></h1>
+      <h2><%= link_to '&larr; '.html_safe + @campaign.brand.name + '.', brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %></h2>
+    </div><!-- /#header, .campaign -->
 
     <%= render 'actions', :local => @campaign %>
 
     <% i = 0; @campaign.versions.each do |version| %>
-    <li class="version <%= i.even? ? 'light' : 'dark' %> deletable">
+    <div class="record deletable <%= toggle_row_bg_color %>">
     <%= form_tag brand_campaign_version_path(@campaign.brand, @campaign, version), :method => 'put' do |f| %>
       <%= check_box_tag 'version[creative_approval]', (version.creative_approval == false ? 1 : 0), version.creative_approval %>
     <% end %>
 
 
  <%= button_to 'X', brand_campaign_version_path(@campaign.brand, @campaign, version), :method => :delete, :class => 'delete' %>
-      <%= link_to version.creative, brand_campaign_version_path(@campaign.brand, @campaign, version) %>
+      <h1><%= link_to version.creative, brand_campaign_version_path(@campaign.brand, @campaign, version) %></h1>
+      
+      <ul class="sub_items">
       <% version.demographics.each do |d| %>
-        <span class="sub_item"><%= d.audience.code %> <span class="int"><%= best_in_place d, :count, :type => :input, :path => brand_campaign_version_demographic_path(@campaign, @campaign.brand, version, d) %></span></span>
+        <li><%= d.audience.code %> <span class="int"><%= best_in_place d, :count, :type => :input, :path => brand_campaign_version_demographic_path(@campaign, @campaign.brand, version, d) %></span></li>
       <% end %>
+      </ul>
+      
       
       <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
-    </li>
+    </div>
     <% i += 1; end %>
 
-    <li id="total">
+    <div class="record total">
     <%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %>
     <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
       <%= check_box_tag 'campaign[counts_approval]', (@campaign.counts_approval == false ? 1 : 0), @campaign.counts_approval %>
     <% end %>
-    </li><!-- /#total -->
-
-  </ul>
+    </div><!-- /#total -->
 
 </div>

@@ -1,24 +1,20 @@
-<div id="dst">
+<div id="dst" class="audiences">
   
-  <ul>
-  
-    <li id="header" class="audience">
+    <div id="header">
       <h1>Audiences</h1>
       <h2><%= link_to '&larr; '.html_safe + @brand.name, brand_path(@brand) %></h2>
-    </li>
+    </div>
 
-    <li id="new">
-      <%= link_to 'New Audience', new_brand_audience_path(@brand) %>
-    </li>
+    <div id="new">
+      <%= link_to 'Add Audience', new_brand_audience_path(@brand) %>
+    </div>
 
     <% i = 0; @brand.audiences.each do |audience| %>
-    <li class="audience deletable <%= i.even? ? 'light' : 'dark' %>">
+    <div class="record deletable <%= i.even? ? 'light' : 'dark' %>">
       <%= button_to 'X', brand_audience_path(@brand, audience), :method => :delete, :class => 'delete' %>
       <%= audience.code %>
-    </li> 
+    </div> 
     <% i += 1; end %>
-
-  </ul>
   
-</div>
+</div><!-- /#dst, .audiences -->
 

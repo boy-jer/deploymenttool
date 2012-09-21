@@ -3,6 +3,9 @@ class CampaignsController < ApplicationController
   def new
     @brand = Brand.find(params[:brand_id])
     @campaign = @brand.campaigns.build
+    respond_to do |format|
+      format.js
+    end
   end
   
   def create
@@ -13,7 +16,7 @@ class CampaignsController < ApplicationController
   end
   
   def show
-    @campaign = Campaign.find(params[:id])
+    @campaign = Campaign.find params[:id]
   end
   
   def destroy
@@ -36,7 +39,7 @@ class CampaignsController < ApplicationController
   def scheduled
     @campaign = Campaign.find(params[:id])
   end
-  
+
   def detials
   end
   

@@ -19,7 +19,10 @@ class SendListsController < ApplicationController
   end
   
   def create
-    
+    @brand = Brand.find params[:brand_id]
+    @send_list = @brand.send_lists.new params[:send_list]
+
+    @send_list.save ? redirect_to(brand_campaign_path(@brand, @campaign)) : redirect_to(new_brand_campaign_version_path)    
   end
 
 end

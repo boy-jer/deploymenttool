@@ -10,7 +10,7 @@
 
     <div class="campaign <%= campaign.is_approved? ? 'approved' : 'pending' %>">
 
-      <div class="brand" style="background:-webkit-linear-gradient(top, #<%= campaign.brand.color %>, <%= campaign.brand.darken_color('#' + campaign.brand.color) %>);">
+      <div class="brand" style="background:#444;background:-webkit-linear-gradient(top, #<%= campaign.brand.color %>, <%= campaign.brand.darken_color('#' + campaign.brand.color) %>);">
       
       
       

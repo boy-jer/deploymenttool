@@ -1,31 +1,31 @@
-<div id="dst">
-  <ul>
-    <li id="header" class="brand" style="border-left-color:#<%= @brand.color %>">
-      <h1><span style="color:#<%= @brand.color %>;"><%= @brand.name %>.</span></h1> <h2><%= link_to '&larr; Brands.'.html_safe, brands_path %></h2>
-    </li>
-    <%= render 'actions', :local => @brand %> 
-    <% i = 0; @brand.campaigns.each do |campaign| %>
-    
-    <% if campaign.is_approved?
-  css_class = 'approved'
-elsif campaign.scheduled
-  css_class = 'approved'
-end %>
-    
-      <li class="campaign deletable" style="background:#<%= i.even? ? 'f0f0ed' : 'e7e7e4' %>;">
+<div id="dst" class="brand">
 
-        <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
+  <div id="header" class="brand">
+    <%= link_to 'New Campaign', new_brand_campaign_path(@brand), :class => 'new' %>
+    <h1><span style="color:#<%= @brand.color %>;"><%= @brand.name %>.</span></h1>
+    <h2><%= link_to '&larr; Brands.'.html_safe, brands_path %></h2>
+  </div><!-- /#header -->
 
-        <%= link_to campaign.name, brand_campaign_path(@brand, campaign) %>
-                <% campaign.versions.each do |v| %>
-          <span class="sub_item"><%= link_to v.creative, brand_campaign_version_path(@brand, campaign, v) %></span>
-        <% end %>
-        <%= link_to '&#8225;'.html_safe, duplicate_brand_campaign_path(@brand, campaign), :class => 'clone' %>          
+  <%= render 'actions', :local => @brand %>
 
-        <span class="count"><%= number_with_delimiter campaign.counts_total, :delimeter => ',' %></span>
-      </li>
-    <% i += 1; end %>
+  <% i = 0; @brand.campaigns.each do |campaign| %>
 
+  <!-- Start campaign: #<%= campaign.id %> -->
+  <div class="record deletable <%= toggle_row_bg_color %>">
 
-  </ul>
-</div>
+    <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
+    <h1><%= link_to campaign.name, brand_campaign_path(@brand, campaign) %></h1>
+    <ul class="sub_items">
+    <% campaign.versions.each do |v| %>
+      <li><%= link_to v.creative, brand_campaign_version_path(@brand, campaign, v) %><%= approved_badge(v.creative_approval) %></li>
+    <% end %>
+    </ul>
+    <%= link_to '&#10043;'.html_safe, duplicate_brand_campaign_path(@brand, campaign), :class => 'clone' %>          
+    <span class="count"><%= number_with_delimiter campaign.counts_total, :delimeter => ',' %></span>
+
+  </div>
+  <!-- End campaign: #<%= campaign.id %> -->
+
+  <% i += 1; end %>
+
+</div><!-- /#dst, .brand -->

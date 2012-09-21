@@ -15,6 +15,7 @@ describe Campaign do
   
   it { should have_many(:versions) }
   it { should belong_to(:brand) }
+  it { should have_one(:segment) }
   
   subject { @campaign }
   

@@ -1,3 +1,82 @@
 // Place all the styles related to the brands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//
+//       Brand Page Styling
+//
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+// --------------------
+//        Header
+// --------------------
+
+div#dst.brand div#header {
+  background:#25272a;
+  text-shadow: -1px -1px #0e0f10;
+  background:-webkit-linear-gradient(top, #25272a, #111);
+}
+
+// --------------------
+//        Record
+// --------------------
+
+div#dst.brand div.record {
+  
+}
+  div#dst.brand div.record.light {
+    background:#e6e6e2;
+  }
+  div#dst.brand div.record.dark {
+    background:#dededb;
+  }
+  div#dst.brand div.record a {
+    color:#d24d33;
+  }
+    div#dst.brand div.record a.clone {
+      font-size:34px;
+      color:#bbb;
+      text-shadow: 1px 1px 0px #fff;
+      display:block;
+      float:left;
+      margin-left:10px;
+      font-weight:bold;
+      margin-top:12px;
+    }
+      div#dst.brand div.record a.clone:hover {
+        color:#189e57;
+      }
+  div#dst.brand div.record input[type=submit].delete {
+    background:#d6d6d3;
+    color:#fff;
+    border-color:#cacac8;
+    text-shadow: none;
+  }
+  div#dst.brand div.record input[type=submit].delete:hover {
+    background:#d24d33;
+    box-shadow: 0px 0px 2px #194f6e;
+    color:#fff;
+    border-color:#fff;
+    text-shadow: 1px 1px #992f1a;
+  }
+  div#dst.brand div.record ul.sub_items li {
+    background:#3b8dbd;
+    color:#fafafa;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-shadow: inset 0px 1px 3px #113b53;
+    text-shadow: -1px -1px #7a7a74;
+    background:-webkit-linear-gradient(top, #31769f, #3b8dbd);
+    border:1px solid #aaa;
+  }
+  div#dst.brand div.record ul.sub_items li span.approved {
+    margin-right:-8px;
+  }
+    div#dst.brand div ul.sub_items li a {
+      text-shadow: 1px 1px #22678f;
+      color:#e9eef1; 
+    }
+  div#dst.brand div.record span.count {
+    color:#969690;
+  }

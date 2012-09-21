@@ -6,6 +6,9 @@ describe CampaignMailerHelper do
     include CampaignMailerHelper
   end
   
+  it '' do
+  end
+  
   describe '#message' do
     it 'should return the path to a partial found in the messages folder' do
       partial_path = message 'test'

@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :segment do
-    version_id 1
+    campaign_id 1
   end
 end

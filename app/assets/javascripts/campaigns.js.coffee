@@ -3,8 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
+
 jQuery ->
   $('.best_in_place').best_in_place()
 
   $(':checkbox').live('click', ->
     $(this).closest('form').submit())
+
+  $("#body").prepend('<%= escape_javascript(render \'campaign/new.html.erb\') %>');

@@ -7,6 +7,7 @@ class Campaign < ActiveRecord::Base
 
   has_many :versions
   belongs_to :brand
+  has_one :segment
   
   amoeba do
     enable

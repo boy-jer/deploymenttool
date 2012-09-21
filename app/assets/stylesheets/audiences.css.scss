@@ -1,3 +1,37 @@
 // Place all the styles related to the audiences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//
+//     Audiences Page Styling
+//
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+// --------------------
+//        Header
+// --------------------
+
+div#dst.audiences div#header {
+  background:#25272a;
+  text-shadow: -1px -1px #0e0f10;
+  background:-webkit-linear-gradient(top, #25272a, #111);
+}
+  div#dst.audiences div#header h1 {
+    color:#444;
+  }
+
+// --------------------
+//        Record
+// --------------------
+
+div#dst.audiences div.record {
+  height:75px;
+  line-height:75px; 
+}
+  div#dst.audiences div.record.light {
+    background:#222;
+  }
+  div#dst.audiences div.record.dark {
+    background:#111;
+  }

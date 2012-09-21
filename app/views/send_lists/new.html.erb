@@ -1,8 +1,8 @@
 <div class="form">
 <%= form_for [@brand, @send_list] do |f| %>
   <ul>
-    <li><%= f.select :id, @options %></li>
-    <li><%= f.submit 'Add Demographic' %></li>
+    <li><%= f.text_field :list_type, :placeholder => 'List Name' %></li>
+    <li><%= f.submit 'Add Listr' %></li>
   </ul>
 <%= f.hidden_field :brand_id %>
 <% end %>

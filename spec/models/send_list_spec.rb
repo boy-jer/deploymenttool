@@ -19,12 +19,18 @@ describe SendList do
   it { should have_many(:contacts).through(:subscriptions) }
   
   context "attribute is missing" do
-    required_attributes = [:brand_id, :list_type]
+    required_attributes = [:brand_id, :list_name]
     
     required_attributes.each do |attribute|
       it "if #{attribute.to_s} is missing, it should be invalid" do
         campaign = FactoryGirl.build(:send_list, attribute => '').should_not be_valid
       end
+    end
+  end
+  
+  describe 'TYPES' do
+    it "have a constant named TYPES" do
+      pending 'Check for Types'
     end
   end
   

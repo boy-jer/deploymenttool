@@ -1,19 +1,17 @@
-<div id="dst">
+<div id='dst' class='send_lists'>
 
-  <ul>
-    
-    <li id="header" class="send_lists">
-      <h1>Send lists.</h1>
-    </li>
-    
-    <li id="new">
-      <%= link_to 'New List', new_brand_send_list_path(params[:brand_id]) %>
-    </li>
-    
-    <% @send_lists.each do |send_list| %>
-      <li><%= send_list.list_type %></li>
-    <% end %>
-    
-  </ul>
+  <div id='header'>
+    <h1>Send lists.</h1>
+  </div>
+  
+  <div id='new'>
+    <%= link_to 'New List', new_brand_send_list_path(params[:brand_id]) %>
+  </div>
+  
+  <% @send_lists.each do |send_list| %>
+  <div class='record'>
+    <%= send_list.list_type %>
+  </div>
+  <% end %>
 
-</div>
+</div><!-- /#dst, .send_lists -->

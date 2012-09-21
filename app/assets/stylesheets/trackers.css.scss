@@ -1,3 +1,201 @@
 // Place all the styles related to the trackers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div#tracker {
+  margin: 0 50px;
+  min-width:800px;
+}
+div#tracker div.now {
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  background-color:#fff;
+  float:left;
+  line-height:100px;
+  border:1px solid #d7d7cf;
+  text-align:center;
+  font-size:34px;
+  font-weight:bold;
+  margin-right:25px;
+  margin-top:100px;
+  color:#d24d33;
+  box-shadow: inset 0px 0px 3px #999;
+}
+  div#tracker div.holder {
+    padding:8px;
+    float:left;
+  }
+  div#tracker div.campaign {
+    float:left;
+    width:275px;
+    height:275px;
+    border-radius:10px;
+    text-align:left;
+  }
+  div#tracker div.campaign div.container {
+    border-top:1px solid #d7d7cf;
+    padding-top:25px;
+  }
+    div#tracker div.campaign div.brand h1 {
+      font-size:16px;
+      font-weight:bold;
+      text-align:left;
+      clear:both;
+      line-height:12px;
+    }
+  div#tracker div.campaign div.brand h1 a {
+    color:#fff;
+    text-shadow: 1px 1px #222;
+  }
+  div#tracker div.campaign div.brand h2 {
+    text-align:left;
+  }
+  div#tracker div.campaign div.brand h2 a {
+    font-size:11px;
+    color:#fff;
+    font-weight:400;
+    text-shadow:none;
+  }
+  
+  div#tracker div.campaign div.int {
+    width:175px;
+    margin:25px auto;
+    text-align:center;
+    font-size:11px;
+    color:#3b8dbd;
+    text-shadow: 1px 1px #fff;
+  }
+  div#tracker div.campaign div.date {
+    width:175px;
+    margin:25px auto;
+    text-align:center;
+    font-size:11px;
+    color:#3b8dbd;
+    text-shadow: 1px 1px #fff;
+  }
+  
+    div#tracker div.campaign ul {
+      list-style:none;
+      margin:0 auto;
+      display:block;
+      width:200px;
+    }
+    div#tracker div.campaign ul li {
+      font-size:10px;
+      font-weight:bold;
+      border-radius:10px;
+      padding:5px 10px;
+    background:-webkit-linear-gradient(top, #777, #222);
+      color:#fafafa;
+      margin-bottom:5px;
+      box-shadow: 0px 0px 3px #113b53;
+      text-shadow: -1px -1px #000;
+      border:2px solid #fff;
+    }
+    div#tracker div.campaign ul li.approved {
+      background:#f1f1ef;
+      color:#737371;
+      text-shadow:none;
+      box-shadow: inset 0px 0px 2px #a7a7a4;
+      text-shadow: 1px 1px #fff;
+    }
+    
+    
+      div#tracker div.campaign ul li span.count {
+        font-weight:300;
+        margin-left:5px;
+      }
+      div#tracker div.campaign ul li span.approved {
+        float:right;
+        display:block;
+        border-radius:50%;
+        background:#5dab1e;
+        height:10px;
+        width:10px;
+        text-align:center;
+        font-size:8px;
+        color:#fff;
+        font-weight:normal;
+        border:1px solid #fff;
+        text-shadow:none;
+        box-shadow: 0px 0px 3px #24440b;
+      }
+
+      div#tracker div.campaign ul li:hover {
+    background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
+      }
+      div#tracker div.campaign ul li.approved:hover {
+        background:#e5e5e2;
+      }
+  
+    div#tracker div.campaign.pending {
+      background:#e4e4e2;
+      background:-webkit-linear-gradient(top, #fff, #e4e4e2);
+      border:1px solid #d7d7cf;
+    }
+  div#tracker div.campaign div.brand {
+    font-size:12px;
+    font-weight:300;
+    padding: 15px 20px;
+    background:#efefec;
+    text-shadow: 1px 1px #000;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom:1px solid #fff;
+    position:relative;
+  }
+  div#tracker div.campaign div.brand div.counts {
+    position:absolute;
+    background:-webkit-linear-gradient(top, #777, #222);
+    border-radius:10px;
+    padding:4px 8px;
+    top:-8px;
+    color:#fff;
+    font-weight:bold;
+    text-shadow:-1px -1px #000;
+    right:-8px;
+    text-shadow:none;
+    border:1px solid #fff;
+    box-shadow: 0px 1px 3px #000;
+  }
+  div#tracker div.campaign div.brand div.counts:hover {
+    background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
+  }
+  div#tracker div.campaign div.brand div.counts.approved {
+      background:-webkit-linear-gradient(top, #fff, #e4e4e2);
+      color:#737371;
+  }
+      div#tracker div.campaign div.brand div.counts span.approved {
+        border-radius:50%;
+        background:#5dab1e;
+        height:10px;
+        width:10px;
+        display:block;
+        float:right;
+        text-align:center;
+        font-size:8px;
+        color:#fff;
+        font-weight:normal;
+        border:1px solid #fff;
+        text-shadow:none;
+        margin-left:10px;
+        box-shadow: 0px 0px 3px #24440b;
+      }
+
+
+    div#tracker div.campaign.approved {
+      box-shadow: 0px 2px 6px #193f0c;
+      border:1px solid #fff;
+      background:-webkit-linear-gradient(bottom, #4c7e23, #76b246);
+    }
+    div#tracker div.campaign.approved div.container {
+      border-top:1px solid #4c7e23;
+    }
+    div#tracker div.campaign.approved {
+      
+    }
+    div#tracker div.campaign.approved {
+      
+    }

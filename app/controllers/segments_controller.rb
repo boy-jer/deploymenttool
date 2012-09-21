@@ -7,7 +7,6 @@ class SegmentsController < ApplicationController
   def new
     @brand = Brand.find params[:brand_id]
     @campaign = @brand.campaigns.find params[:campaign_id]
-    @version = @campaign.versions.find params[:version_id]
     @demographic = @version.segment.demographics.new
     
     @options = Hash.new
@@ -18,6 +17,12 @@ class SegmentsController < ApplicationController
   
   def create
   
+  end
+  
+  def index
+    @brand = Brand.find params[:brand_id]
+    @campaign = @brand.campaigns.find params[:campaign_id]
+    @segment = @campaign.segment :all
   end
 
 end

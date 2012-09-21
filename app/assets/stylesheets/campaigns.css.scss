@@ -1,3 +1,90 @@
 // Place all the styles related to the campaigns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//
+//       Brand Page Styling
+//
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+// --------------------
+//        Header
+// --------------------
+
+div#dst.campaign div#header {
+  background:-webkit-linear-gradient(bottom, #c5c5c3, #fff);
+}
+
+// --------------------
+//        Record
+// --------------------
+
+div#dst.campaign div.record a {
+  color:#25272a;
+}
+div#dst.campaign div.record {
+  background:#3b8dbd;
+}
+  div#dst.campaign div.record.total {
+    background:#143d55;
+    text-align:right;
+    line-height:75px;
+    text-shadow: -1px -1px 0px #0d2837;
+    color:#fff;
+    border-top:2px solid #092333;
+    border-bottom:1px solid #327094;
+    height:75px;
+  }
+  div#dst.campaign div.record.total form {
+    display:inline;
+  }
+  div#dst.campaign  div.record.light {
+    background:#3b8dbd;
+  }
+  div#dst.campaign  div.record.dark {
+    background:#2d78a4;
+  }
+  div#dst.campaign  div.record a {
+    color:#f1f1ee;
+    text-shadow: -1px -1px #1d4e80;
+  }
+  div#dst.campaign  div.record ul.sub_items li {
+    color:#e4ebef;
+    background:#333;
+    text-shadow: 1px 1px #0f3850;
+    box-shadow: inset 0px 1px 3px #000;
+    border:1px solid #000;
+  }
+    div#dst.campaign  div.record ul.sub_items span.int {
+      color:#f1f5f7;
+      font-weight:300;
+      margin-left:3px;
+      text-shadow: 1px 1px #0f3850;
+    }
+
+  div#dst.campaign  div#header.version {
+  background:-webkit-linear-gradient(top, #1c628b, #134c6d);
+  }
+  div#dst.campaign  div#header.version h1 {
+    color:#fff;
+    text-shadow: -1px -1px #0b3249;
+  }
+  div#dst.campaign  div#header.version h2 {
+    color:#fff;
+    font-size:22px;
+    font-weight:300;
+    text-shadow: 1px 1px #09182f;
+  }
+  div#dst.campaign  div span.count {
+    color:#afcddf;
+    text-shadow: -1px -1px #386985;
+  }
+
+      div#dst.campaign  div input[type=submit].delete {
+        background:#d24d33;
+        box-shadow: 0px 0px 2px #194f6e;
+        color:#fff;
+        border-color:#fff;
+        text-shadow: 1px 1px #992f1a;
+      }

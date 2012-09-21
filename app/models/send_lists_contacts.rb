@@ -1,3 +1,6 @@
 class SendListsContacts < ActiveRecord::Base
-  # attr_accessible :title, :body
+  
+  belongs_to :send_list
+  belongs_to :contact
+  
 end
