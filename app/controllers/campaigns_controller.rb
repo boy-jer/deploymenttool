@@ -26,18 +26,22 @@ class CampaignsController < ApplicationController
   
   def counts
     @campaign = Campaign.find(params[:id])
+    @send_list = @campaign.brand.send_lists.find_by_list_name('Counts')
   end
   
   def proof
     @campaign = Campaign.find(params[:id])
+    @send_list = @campaign.brand.send_lists.find_by_list_name('Proofs')
   end
   
   def final
     @campaign = Campaign.find(params[:id])
+    @send_list = @campaign.brand.send_lists.find_by_list_name('Final Approval')
   end
   
   def scheduled
     @campaign = Campaign.find(params[:id])
+    @send_list = @campaign.brand.send_lists.find_by_list_name('Scheduled')
   end
 
   def detials

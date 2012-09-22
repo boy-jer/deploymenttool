@@ -13,15 +13,48 @@
 // --------------------
 
 div#dst.send_lists div#header {
-  background:#25272a;
+  background:#7c7a77;
+  color:#fff;
   text-shadow: -1px -1px #0e0f10;
-  background:-webkit-linear-gradient(top, #25272a, #111);
+  background:-webkit-linear-gradient(top, #7c7a77, #585654);
 }
+  div#dst.send_lists div#header div.sticky {
+    float:right;
+    box-shadow:1px 2px 5px #222;
+    background:#e5d41a;
+    background:-webkit-linear-gradient(top, #e5d41a, #d2c214);
+    height:175px;
+    width:175px;
+    margin-top:-55px;
+    padding:15px;
+    font-size:15px;
+    color:#000;
+    line-height:14px;
+    text-shadow:none;
+  }
+    div#dst.send_lists div#header div.sticky ul {
+      margin-left:10px;
+    }
+      div#dst.send_lists div#header div.sticky ul li {
+      }
 
 // --------------------
 //        Record
 // --------------------
 
 div#dst.send_lists div.record {
-  
+  color:#444;
 }
+  div#dst.send_lists div.record a {
+    color:#666;
+  }
+  div#dst.send_lists div.record.light {
+    background:#d6d2cd;
+  }
+  div#dst.send_lists div.record.dark {
+    background:#c8c5c0;
+  }
+  div#dst.send_lists span.count {
+    color:#999;
+    text-shadow:1px 1px 0 #dededb;
+  }

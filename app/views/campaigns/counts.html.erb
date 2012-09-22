@@ -8,4 +8,12 @@
   <% get_subject_line(:counts, @campaign) %>
 <% end %>
 
+<% content_for :contacts do %>
+  <ul class="send_list to">
+  <% @send_list.contacts.each do |contact| %>
+    <li><%= contact.name %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <%= render 'email' %>

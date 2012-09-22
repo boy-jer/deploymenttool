@@ -162,7 +162,7 @@ div#dst {
 }
   div#dst div.record {
     height:100px;
-    line-height:85px;
+    line-height:100px;
     font-size:22px;
     font-weight:bold;
     color:#d2ccc2;
@@ -176,8 +176,8 @@ div#dst {
     }
     div#dst div.record h1 {
       float:left;
-      height:50px;
-      line-height:inherit;
+      height:100px;
+      line-height:85px;
       margin-right:25px;
     }
    div#dst div.record input[type=submit].delete {

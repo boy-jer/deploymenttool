@@ -8,14 +8,14 @@ class SendListsController < ApplicationController
   def new
     @brand = Brand.find params[:brand_id]
     @send_list = @brand.send_lists.new
-    
-    @options = Hash.new
-    Contact.find(:all).each { |c| @options.merge!({c.name => c.id}) }
-
   end
   
   def show
-  
+    @brand = Brand.find params[:brand_id]
+    @send_list = @brand.send_lists.find params[:id]
+    @send_lists_contact = @send_list.send_lists_contacts.new
+    @options = Hash.new
+    Contact.find(:all).each { |c| @options.merge!({c.name => c.id}) }
   end
   
   def create

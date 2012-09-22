@@ -15,8 +15,8 @@ describe SendList do
   it { should respond_to :addresses }
 
   it { should belong_to(:brand) }
-  it { should have_many(:subscriptions) }
-  it { should have_many(:contacts).through(:subscriptions) }
+  it { should have_many(:send_lists_contacts) }
+  it { should have_many(:contacts).through(:send_lists_contacts) }
   
   context "attribute is missing" do
     required_attributes = [:brand_id, :list_name]

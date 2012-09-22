@@ -30,7 +30,8 @@
     <% i += 1; end %>
 
     <div class="record total">
-    <%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %>
+          <div><%= number_with_delimiter @campaign.counts_total, :delimeter => ','  %></div>
+
     <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
       <%= check_box_tag 'campaign[counts_approval]', (@campaign.counts_approval == false ? 1 : 0), @campaign.counts_approval %>
     <% end %>

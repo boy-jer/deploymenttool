@@ -10,8 +10,8 @@ describe Contact do
     @contact =  FactoryGirl.build(:contact)
   end
 
-  it { should have_many(:subscriptions) }
-  it { should have_many(:send_lists).through(:subscriptions) }
+  it { should have_many(:send_lists_contacts) }
+  it { should have_many(:send_lists).through(:send_lists_contacts) }
 
   subject { @contact }
 

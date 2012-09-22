@@ -12,7 +12,6 @@
 
   <!-- Start campaign: #<%= campaign.id %> -->
   <div class="record deletable <%= toggle_row_bg_color %>">
-
     <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
     <h1><%= link_to campaign.name, brand_campaign_path(@brand, campaign) %></h1>
     <ul class="sub_items">

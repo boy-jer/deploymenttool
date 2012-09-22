@@ -4,8 +4,8 @@ class SendList < ActiveRecord::Base
   validates :brand_id, :list_name, :presence => true
 
   belongs_to :brand
-  has_many :subscriptions
-  has_many :contacts, :through => :subscriptions
+  has_many :send_lists_contacts
+  has_many :contacts, :through => :send_lists_contacts
 
   TYPES = [:proof, :count, :final_approval, :scheduled, :send_detials]
 

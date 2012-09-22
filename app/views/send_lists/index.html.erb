@@ -1,7 +1,19 @@
 <div id='dst' class='send_lists'>
 
   <div id='header'>
+    <div class='sticky'>
+      Conventions,<br/><br/>
+      Lists named:<br/>
+      <ul>
+        <li>Proof</li>
+        <li>Counts</li>
+        <li>Scheduled</li>
+        <li>Final Approval</li>
+      </ul>
+    will automatically apply to their respective process.
+    </div>
     <h1>Send lists.</h1>
+    <h2><%= link_to "&larr; #{@brand.name}".html_safe, brand_path(@brand) %></h2>
   </div>
   
   <div id='new'>
@@ -9,8 +21,9 @@
   </div>
   
   <% @send_lists.each do |send_list| %>
-  <div class='record'>
-    <%= send_list.list_type %>
+  <div class='record deletable <%= toggle_row_bg_color %>'>
+    <%= link_to send_list.list_name, brand_send_list_path(@brand, send_list) %>
+    <span class='count'><%= send_list.send_lists_contacts.size > 0 ? send_list.send_lists_contacts.size : 'Empty'  %></span>
   </div>
   <% end %>
 

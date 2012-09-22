@@ -30,7 +30,9 @@ Dst::Application.routes.draw do
       resources :segments do
       end
     end
-    resources :send_lists
+    resources :send_lists do
+      resources :send_lists_contacts
+    end
     resources :audiences
   end
   resources :contacts do

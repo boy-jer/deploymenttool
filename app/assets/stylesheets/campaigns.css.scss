@@ -27,23 +27,33 @@ div#dst.campaign div.record {
   background:#3b8dbd;
 }
   div#dst.campaign div.record.total {
-    background:#143d55;
+    background:#d1ccc2;
     text-align:right;
-    line-height:75px;
-    text-shadow: -1px -1px 0px #0d2837;
-    color:#fff;
-    border-top:2px solid #092333;
-    border-bottom:1px solid #327094;
-    height:75px;
+    text-shadow: 1px 1px 0px #f2efe9;
+    color:#585040;
+    border-top:2px solid #7d7668;
+    border-bottom:1px solid #fff;
+    height:50px;
+    line-height:50px;
   }
   div#dst.campaign div.record.total form {
     display:inline;
+    text-align:right;
+  }
+  div#dst.campaign div.record.total div {
+    float:right;
+  }
+  div#dst.campaign div.record.total input[type=checkbox] {
+    margin:0;
+    padding:0;
+    float:right;
+    margin-top:7px;
   }
   div#dst.campaign  div.record.light {
     background:#3b8dbd;
   }
   div#dst.campaign  div.record.dark {
-    background:#2d78a4;
+    background:#347eaa;
   }
   div#dst.campaign  div.record a {
     color:#f1f1ee;
@@ -81,10 +91,16 @@ div#dst.campaign div.record {
     text-shadow: -1px -1px #386985;
   }
 
-      div#dst.campaign  div input[type=submit].delete {
-        background:#d24d33;
-        box-shadow: 0px 0px 2px #194f6e;
-        color:#fff;
-        border-color:#fff;
-        text-shadow: 1px 1px #992f1a;
+      div#dst.campaign  div.record input[type=submit].delete {
+        background:#286f98;
+        color:#c6ddeb;
+        border-color:#23678f;
+        text-shadow:none;
       }
+        div#dst.campaign  div.record input[type=submit]:hover {
+          background:#d24d33;
+          box-shadow: 0px 0px 2px #194f6e;
+          color:#fff;
+          border-color:#fff;
+          text-shadow: 1px 1px #992f1a;
+        }

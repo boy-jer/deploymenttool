@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe SendListsContacts do
+describe SendListsContact do
 
   it "has a valid factory" do
-    FactoryGirl.build(:send_lists_contacts).should be_valid
+    FactoryGirl.build(:send_lists_contact).should be_valid
   end
   
   before :each do 
-    @send_list = FactoryGirl.build(:send_lists_contacts)
+    @send_list = FactoryGirl.build(:send_lists_contact)
   end
   
   it { should belong_to(:send_list) }
