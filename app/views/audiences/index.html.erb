@@ -1,20 +1,29 @@
 <div id="dst" class="audiences">
   
     <div id="header">
+      <%= link_to 'Add Audience', new_brand_audience_path(@brand), :class => 'new' %>
       <h1>Audiences</h1>
       <h2><%= link_to '&larr; '.html_safe + @brand.name, brand_path(@brand) %></h2>
     </div>
 
-    <div id="new">
-      <%= link_to 'Add Audience', new_brand_audience_path(@brand) %>
+    <div id="actions">
+      <ul>
+        <li class="on"><%= link_to 'Campaigns', brand_path(@brand) %></li>
+        <li class="on"><%= link_to 'Send Lists', brand_send_lists_path(@brand) %></li>
+      </ul>
     </div>
 
-    <% i = 0; @brand.audiences.each do |audience| %>
-    <div class="record deletable <%= i.even? ? 'light' : 'dark' %>">
-      <%= button_to 'X', brand_audience_path(@brand, audience), :method => :delete, :class => 'delete' %>
-      <%= audience.code %>
-    </div> 
-    <% i += 1; end %>
+    <% if @brand.audiences.size == 0 %>
+      <%= render 'empty' %>
+    <% else %>
+      <% @brand.audiences.each do |audience| %>
+      <div class="record deletable <%= toggle_row_bg_color %>">
+        <%= button_to 'X', brand_audience_path(@brand, audience), :method => :delete, :class => 'delete' %>
+        <%= audience.code %>
+      </div>
+      <% end %>
+    <% end %>
+
   
 </div><!-- /#dst, .audiences -->
 

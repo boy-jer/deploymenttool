@@ -11,7 +11,83 @@
  *= require_self
  *= require_tree .
  */
- 
+
+
+
+
+
+
+div#dst.account div#header {
+  background:#f79821;
+  background:-webkit-linear-gradient(bottom, #f79821, #ec9e3b);
+
+}
+
+  div#dst.account div#header h1 {
+    color:#333;
+    font-size:78px;
+    text-shadow:1px 1px 0px #f8c17c;
+  }
+  div#dst.account div#header h2 {
+    font-size:20px;
+    color:#fff;
+    font-weight:300;
+    margin-top:-15px;
+    text-shadow:1px 1px 0px #b2680a;
+  }
+    div#dst.account div#header h1 span.highlight {
+      color:#fff;
+      text-shadow:-1px -1px 0px #985f17;
+    }
+    div#dst.account div#header h1 span.trademark {
+      font-size:18px;
+      font-weight:300;
+      text-shadow:-1px -1px 0px #623f14;
+    }
+
+div#dst.account div.record {
+}
+
+  div#dst.account div.record div.hole {
+    float:left;
+    margin-right:25px;
+    height:50px;
+    width:50px;
+    box-shadow: 0px 0px 3px #000;
+    border-radius:50%;
+    margin-top:25px;
+    border-top:1px solid #aaa;
+    text-align:center;
+    color:#fff;
+    font-size:16px;
+    line-height:53px;
+    text-shadow:-1px -1px 0px #000;
+  }
+div#dst.account div.record a {
+  color:#999;
+  text-shadow:1px 1px 0px #000;
+}
+div#dst.account div.record a:hover {
+  color:#fff;
+}
+div#dst.account div.record.light {
+  background:#333;
+  box-shadow:inset -2px 3px 5px #111;
+}
+div#dst.account div.record.dark {
+  background:#252525;
+}
+
+
+
+
+
+
+
+
+
+
+
  
 span.approved {
   float:right;
@@ -106,13 +182,20 @@ div.email {
  
 div.form {
   padding:25px;
+  width:500px;
+  border-radius:15px;
   background:#efefec;
-  width:325px;
-  margin:0 auto;
-  border-radius:10px;
+  background:-webkit-linear-gradient(top, #efefec, #e4e4e1);
+  margin:100px auto;
   border:1px solid #fff;
   box-shadow: 0px 1px 5px #777;
 } 
+div.form h1 {
+  color:#555;
+  font-size:18px;
+  text-shadow:1px 1px 0px #fff;
+  margin-bottom:25px;
+}
 div.form ul {
   list-style:none;
 }
@@ -168,8 +251,13 @@ div#dst {
     color:#d2ccc2;
     padding:0 50px;
     position:relative;
-    box-shadow: 0px 3px 6px #888;
+    box-shadow: 0px 3px 6px #000;
   }
+  div#dst div.record.empty {
+    color:#fff;
+    text-align:center;
+  }
+
     div#dst div.record a {
       font-size:22px;
       font-weight:bold;
@@ -177,8 +265,9 @@ div#dst {
     div#dst div.record h1 {
       float:left;
       height:100px;
-      line-height:85px;
+      line-height:100px;
       margin-right:25px;
+      font-size:22px;
     }
    div#dst div.record input[type=submit].delete {
       position:absolute;
@@ -192,6 +281,13 @@ div#dst {
       font-weight:bold;
       display:none;
     }
+      div#dst div.record input[type=submit].delete:hover {
+        background:#d24d33;
+        box-shadow: 0px 0px 2px #194f6e;
+        color:#fff;
+        border-color:#fff;
+        text-shadow: 1px 1px #992f1a;
+      }
     div#dst div.record ul.sub_items {
       list-style:none;
       margin-top:38px;
@@ -292,8 +388,44 @@ div#dst {
       div#dst div#header {
         padding:75px 50px;
         height:auto;
+    
         border:none;
       }
+      
+  div#dst div#header div.button {
+    float:left;
+    margin-right:25px;
+    height:100px;
+    width:100px;
+    box-shadow: 0px 0px 3px #000;
+    border-radius:50%;
+    margin-top:25px;
+    border-top:1px solid #aaa;
+    text-align:center;
+    color:#fff;
+    font-weight:bold;
+    font-size:46px;
+    line-height:100px;
+    text-shadow:-1px -1px 0px #000;
+  }
+      
+ div#dst div#header div#search_box {
+    padding:25px;
+    background:#efefec;
+    width:325px;
+    margin:0 auto;
+    border-radius:10px;
+    border:1px solid #fff;
+    box-shadow: 0px 1px 4px #777;
+    height:38px;
+  }
+  
+       div#dst div#header div#search_box input[type=text]  {
+      padding:10px;
+      width:300px;
+      margin-bottom:0px;
+      outline:none;
+    }
       div#dst div#header a.new {
         background:#6ab71e;
         float:right;
@@ -317,6 +449,8 @@ div#dst {
       }
         div#dst div#header h1 {
           font-size:62px;
+          color:#fff;
+          margin-bottom:15px;
         }
           div#dst div#header h1 a {
             font-size:42px;

@@ -1,3 +1,104 @@
 // Place all the styles related to the send_lists_contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#dst.send_lists_contacts div#header {
+  background:#e6e6e2;
+  background:-webkit-linear-gradient(top, #e6e6e2, #cfcfcc);
+  border-bottom:2px solid #aaa;
+}
+
+
+
+  div#dst.send_lists_contacts div#header h1 {
+    color:#444;
+    text-shadow: 1px 1px 0px #fff;
+  }
+  div#dst.send_lists_contacts div#header h2 a {
+    color:#444;
+    text-shadow: 1px 1px 0px #fff;
+  }
+
+  div#dst.send_lists_contacts div#header div#search_box {
+
+    float:right;
+  }
+    div#dst.send_lists_contacts div#header div#search_box input[type=text]  {
+  
+    }
+ div#dst.send_lists_contacts div.record {
+  color:#fff;
+  background:#295981;
+ }
+ div#dst.send_lists_contacts div.record.light {
+  background:#295981;
+ }
+ div#dst.send_lists_contacts div.record.dark {
+  background:#224c6f;
+ }
+ 
+ 
+ div#dst.send_lists_contacts div.record span {
+  font-size:14px;
+  font-weight:300;
+ }
+
+      div#dst.send_lists_contacts  div.record input[type=submit].delete {
+        background:#1f4565;
+        color:#c6ddeb;
+        border-color:#1b3d59;
+        text-shadow:none;
+      }
+        div#dst.send_lists_contacts  div.record input[type=submit]:hover {
+          background:#d24d33;
+          box-shadow: 0px 0px 2px #194f6e;
+          color:#fff;
+          border-color:#fff;
+          text-shadow: 1px 1px #992f1a;
+        }
+
+
+
+// --------------------
+//     Search Results
+// --------------------
+div#search_results {
+z-index:100;
+}
+
+  div#search_results ul {
+    list-style:none;
+    width:324px;
+    z-index:100;
+    position:fixed;
+  }
+    div#search_results ul li {
+      padding:15px;
+      font-size:16px;
+      z-index:100;
+      font-weight:bold;
+      background:#222;
+      background:-webkit-linear-gradient(top, #444, #111);
+      text-align:left;
+      color:#fff;
+      border-top:1px solid #777;
+      border-right:1px solid #222;
+      text-shadow:-1px -1px 0px #000;
+      border-left:1px solid #222;
+      border-bottom:1px solid #000;
+      box-shadow:0px 2px 4px #000;
+    }
+      div#search_results ul li:hover {
+        background:#2966a5;
+        background:-webkit-linear-gradient(top, #2966a5, #164575);
+        border-top:1px solid #5c8ec1;
+        border-right:1px solid #26507a;
+        border-left:1px solid #26507a;
+        border-bottom:1px solid #0e2e4e;
+      }
+      div#search_results ul li span{
+        font-size:9px;
+        line-height:12px;
+        font-weight:300;
+        color:#ccc;
+      }

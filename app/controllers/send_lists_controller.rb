@@ -14,15 +14,19 @@ class SendListsController < ApplicationController
     @brand = Brand.find params[:brand_id]
     @send_list = @brand.send_lists.find params[:id]
     @send_lists_contact = @send_list.send_lists_contacts.new
-    @options = Hash.new
-    Contact.find(:all).each { |c| @options.merge!({c.name => c.id}) }
   end
   
   def create
     @brand = Brand.find params[:brand_id]
     @send_list = @brand.send_lists.new params[:send_list]
 
-    @send_list.save ? redirect_to(brand_campaign_path(@brand, @campaign)) : redirect_to(new_brand_campaign_version_path)    
+    @send_list.save ? redirect_to(brand_send_lists_path(@brand)) : redirect_to(new_brand_campaign_version_path)    
+  end
+  
+  def destroy
+    @brand = Brand.find(params[:brand_id])
+    @send_list = @brand.send_lists.find params[:id]
+    @send_list.destroy ? redirect_to(brand_send_lists_path(@brand)) : redirect_to(new_brand_path)
   end
 
 end

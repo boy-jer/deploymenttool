@@ -1,3 +1,41 @@
 // Place all the styles related to the contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div#dst.contacts div#header {
+  background:#f79821;
+  background:-webkit-linear-gradient(bottom, #f79821, #ec9e3b);
+}
+  div#dst.contacts div#header h1 {
+    color:#333;
+    text-shadow:1px 1px 0px #f8c17c;  
+  }
+  
+div#dst.contacts div.record {
+  color:#fff;
+}
+  div#dst.contacts div.record.light {
+    background:#295981;
+    box-shadow:inset 0px 3px 5px #222;
+  }
+  div#dst.contacts div.record.dark {
+    background:#224c6f;
+  }
+   div#dst.contacts div.record span {
+    font-size:14px;
+    font-weight:300;
+   }
+  
+      div#dst.contacts  div.record input[type=submit].delete {
+        background:#1f4565;
+        color:#c6ddeb;
+        border-color:#1b3d59;
+        text-shadow:none;
+      }
+        div#dst.contacts  div.record input[type=submit]:hover {
+          background:#d24d33;
+          box-shadow: 0px 0px 2px #194f6e;
+          color:#fff;
+          border-color:#fff;
+          text-shadow: 1px 1px #992f1a;
+        }

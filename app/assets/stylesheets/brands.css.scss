@@ -13,23 +13,27 @@
 // --------------------
 
 div#dst.brand div#header {
-  background:#25272a;
+  background:#222;
   text-shadow: -1px -1px #0e0f10;
-  background:-webkit-linear-gradient(top, #25272a, #111);
 }
+
 
 // --------------------
 //        Record
 // --------------------
 
 div#dst.brand div.record {
-  
+
 }
   div#dst.brand div.record.light {
     background:#e6e6e2;
   }
   div#dst.brand div.record.dark {
     background:#dededb;
+  }
+  div#dst.brand div.record.empty {
+    background:#e6e6e2;
+    color:#d24d33;
   }
   div#dst.brand div.record a {
     color:#d24d33;
@@ -47,9 +51,9 @@ div#dst.brand div.record {
         color:#189e57;
       }
   div#dst.brand div.record input[type=submit].delete {
-    background:#d6d6d3;
+    background:#cacac8;
     color:#fff;
-    border-color:#cacac8;
+    border-color:#d6d6d3;
     text-shadow: none;
   }
   div#dst.brand div.record input[type=submit].delete:hover {
@@ -60,12 +64,13 @@ div#dst.brand div.record {
     text-shadow: 1px 1px #992f1a;
   }
   div#dst.brand div.record ul.sub_items li {
-    background:#3b8dbd;
+
     color:#fafafa;
     padding-right: 15px;
     padding-left: 15px;
     box-shadow: inset 0px 1px 3px #113b53;
     text-shadow: -1px -1px #7a7a74;
+    background:#31769f;
     background:-webkit-linear-gradient(top, #31769f, #3b8dbd);
     border:1px solid #aaa;
   }

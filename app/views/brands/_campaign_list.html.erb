@@ -8,7 +8,7 @@
 
   <%= render 'actions', :local => @brand %>
 
-  <% i = 0; @brand.campaigns.each do |campaign| %>
+  <% i = 0; @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC').each do |campaign| %>
 
   <!-- Start campaign: #<%= campaign.id %> -->
   <div class="record deletable <%= toggle_row_bg_color %>">
@@ -20,7 +20,7 @@
     <% end %>
     </ul>
     <%= link_to '&#10043;'.html_safe, duplicate_brand_campaign_path(@brand, campaign), :class => 'clone' %>          
-    <span class="count"><%= number_with_delimiter campaign.counts_total, :delimeter => ',' %></span>
+    <span class="count"><%= distance_of_time_in_words_to_now(campaign.drop_date.to_time).capitalize %></span>
 
   </div>
   <!-- End campaign: #<%= campaign.id %> -->

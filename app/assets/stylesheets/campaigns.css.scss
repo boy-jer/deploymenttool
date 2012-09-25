@@ -13,7 +13,8 @@
 // --------------------
 
 div#dst.campaign div#header {
-  background:-webkit-linear-gradient(bottom, #c5c5c3, #fff);
+  background:#e6e6e2;
+  background:-webkit-linear-gradient(top, #e6e6e2, #cfcfcc);
 }
 
 // --------------------
@@ -27,12 +28,12 @@ div#dst.campaign div.record {
   background:#3b8dbd;
 }
   div#dst.campaign div.record.total {
-    background:#d1ccc2;
+    background:#dededb;
     text-align:right;
     text-shadow: 1px 1px 0px #f2efe9;
     color:#585040;
-    border-top:2px solid #7d7668;
-    border-bottom:1px solid #fff;
+    border-top:2px solid #306b87;
+    border-bottom:1px solid #ccc;
     height:50px;
     line-height:50px;
   }
@@ -47,7 +48,7 @@ div#dst.campaign div.record {
     margin:0;
     padding:0;
     float:right;
-    margin-top:7px;
+    margin-top:9px;
   }
   div#dst.campaign  div.record.light {
     background:#3b8dbd;
@@ -59,19 +60,30 @@ div#dst.campaign div.record {
     color:#f1f1ee;
     text-shadow: -1px -1px #1d4e80;
   }
+
   div#dst.campaign  div.record ul.sub_items li {
-    color:#e4ebef;
-    background:#333;
-    text-shadow: 1px 1px #0f3850;
-    box-shadow: inset 0px 1px 3px #000;
-    border:1px solid #000;
+    color:#555;
+    background:#dededb;
+    text-shadow: 1px 1px #eee;
+    box-shadow: inset 0px 1px 3px #888;
+    border:1px solid #317da4;
   }
     div#dst.campaign  div.record ul.sub_items span.int {
-      color:#f1f5f7;
+      color:#555;
       font-weight:300;
       margin-left:3px;
-      text-shadow: 1px 1px #0f3850;
+    text-shadow: 1px 1px #eee;
     }
+      div#dst.campaign  div.record ul.sub_items span.int input[type=text] {
+        outline:none;
+        border:none;
+        border-radius:2px;
+        margin-top:-3px;
+        background:transparent;
+        color:#fff;
+        font-size:14px;
+        font-weight:300;
+      }
 
   div#dst.campaign  div#header.version {
   background:-webkit-linear-gradient(top, #1c628b, #134c6d);
@@ -92,9 +104,9 @@ div#dst.campaign div.record {
   }
 
       div#dst.campaign  div.record input[type=submit].delete {
-        background:#286f98;
+        background:#23678f;
         color:#c6ddeb;
-        border-color:#23678f;
+        border-color:#286f98;
         text-shadow:none;
       }
         div#dst.campaign  div.record input[type=submit]:hover {

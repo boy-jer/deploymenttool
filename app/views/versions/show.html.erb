@@ -1,19 +1,20 @@
 <div id="dst" class="version">
 
     <div id="header">
+      <%= link_to 'Assign Demographic', new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version), :class => 'new' %>
       <%= link_to '<b>&darr;</b> Assets'.html_safe, new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version), :class => 'assets' %>
       <h1><%= @version.creative %></h1>
       <h2><%= link_to @version.campaign.name, brand_campaign_path(@version.campaign.brand, @version.campaign) %></h2>
       <h3>Subject: <%= best_in_place @version, :subject_line, :type => :input, :path => brand_campaign_version_path(@version.campaign, @version.campaign.brand, @version) %></h3>
       <h3>From: <%= best_in_place @version, :from, :type => :input, :path => brand_campaign_version_path(@version.campaign, @version.campaign.brand, @version) %></h3>
     </div>
-
-    <div id="new">
-      <%= link_to 'Add Demographic', new_brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version) %>
-    </div>
-
-    <% i = 0; @version.demographics.each do |demographic| %>
-      <div class="record deletable <%= toggle_row_bg_color %>"><%= demographic.audience.code %></div>
-    <% i += 1; end %>
+    
+    <% if @version.demographics.size == 0 %>
+      <%= render 'empty' %>
+    <% else %>
+      <% i = 0; @version.demographics.each do |demographic| %>
+        <div class="record deletable <%= toggle_row_bg_color %>"><%= demographic.audience.code %></div>
+      <% i += 1; end %>
+    <% end %>
   
 </div>

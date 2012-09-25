@@ -8,4 +8,12 @@
   <% get_subject_line(:approval, @campaign) %>
 <% end %>
 
+<% content_for :contacts do %>
+  <ul class="send_list to">
+  <% @send_list.contacts.each do |contact| %>
+    <li><%= contact.name %></li>
+  <% end if @send_list. != NIL %>
+  </ul>
+<% end %>
+
 <%= render 'email' %>

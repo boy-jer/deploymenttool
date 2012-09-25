@@ -1,1 +1,26 @@
-<%= @brand.campaigns.empty? ? (render 'no_campaigns', :local => @brand) : (render 'campaign_list', :local => @brand) %>
+
+
+<div id="dst" class="brand">
+
+  <% @campaigns = @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC') %>
+
+  <div id="header" class="brand">
+    <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
+"><%= @campaigns.size %></div>
+    <%= link_to 'New Campaign', new_brand_campaign_path(@brand), :class => 'new' %>
+    <h1><%= @brand.name %>.</h1>
+    <h2><%= link_to '&larr; Brands.'.html_safe, brands_path %></h2>
+  </div><!-- /#header -->
+
+  <%= render 'actions', :local => @brand %>
+
+
+  <% if @campaigns.size == 0 %>
+    <%= render 'empty' %>
+  <% else %>
+    <% i = 0; @campaigns.each do |campaign| %>
+      <%= render 'campaign_record', :campaign => campaign %>
+    <% i += 1; end %>
+  <% end %>
+
+</div><!-- /#dst, .brand -->

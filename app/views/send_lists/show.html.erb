@@ -1,9 +1,28 @@
-<div class="form">
-<%= form_for [@brand, @send_list, @send_lists_contact] do |f| %>
-  <ul>
-    <li><%= f.select :contact_id, @options %></li>
-    <li><%= f.submit 'Add Contact To list' %></li>
-  </ul>
-<%= f.hidden_field :send_list_id %>
-<% end %>
+<div id='dst' class='send_lists_contacts'>
+
+  <div id='header'>
+    <div id="search_box">
+      <form method="get" action="<%= search_contacts_path %>">
+        <input id="send_lists_contact_contact_id" name="name" type="text" autocomplete='off'/>
+        <input type="hidden" name="send_list_id" type="text" value='<%= @send_list.id %>'/>
+      </form>
+      <div style="z-index:100;" id="search_results"></div>
+    </div>
+    <h1><%= @send_list.list_name %></h1>
+    <h2><%= link_to 'Send Lists.', brand_send_lists_path(@brand) %></h2>
+  </div>
+  
+
+  <% if @send_list.contacts.size == 0 %>
+    <%= render 'empty_send_list' %>
+  <% else %>
+    <% @send_list.contacts.each do |contact| %>  
+      <div class='record deletable <%= toggle_row_bg_color %>'>
+      <% id = contact.send_lists_contacts.find_by_send_list_id(@send_list.id).id %>
+   <%= button_to 'X', brand_send_list_send_lists_contact_path(@brand, @send_list, id ), :method => :delete, :class => 'delete' %>
+        <h1><%= contact.name %></h1> <span><%= contact.email %></span>
+      </div>
+    <% end %>
+  <% end %>
+  
 </div>

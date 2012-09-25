@@ -18,7 +18,7 @@ div#dst.audiences div#header {
   background:-webkit-linear-gradient(top, #25272a, #111);
 }
   div#dst.audiences div#header h1 {
-    color:#444;
+    color:#555;
   }
 
 // --------------------
@@ -26,12 +26,28 @@ div#dst.audiences div#header {
 // --------------------
 
 div#dst.audiences div.record {
-  height:75px;
-  line-height:75px; 
+  color:#26a096;
 }
+  div#dst.audiences div.record.empty {
+    background:#e6e6e2;
+  }
   div#dst.audiences div.record.light {
-    background:#222;
+    background:#e6e6e2;
   }
   div#dst.audiences div.record.dark {
-    background:#111;
+    background:#dededb;
+  }
+
+  div#dst.audiences div.record input[type=submit].delete {
+    background:#cacac8;
+    color:#fff;
+    border-color:#d6d6d3;
+    text-shadow: none;
+  }
+  div#dst.audiences div.record input[type=submit].delete:hover {
+    background:#d24d33;
+    box-shadow: 0px 0px 2px #194f6e;
+    color:#fff;
+    border-color:#fff;
+    text-shadow: 1px 1px #992f1a;
   }

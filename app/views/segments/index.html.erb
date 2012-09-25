@@ -1,9 +1,14 @@
 <div id="dst" class="segmentation">
 
     <div id="header">
+      <%= link_to 'Add Segment', new_brand_campaign_segment_path(@brand, @campaign), :class => 'new' %>  
       <h1>Segments</h1>
+      <h2>Data File: <%= @campaign.segment.data_file %></h2>
+      <h2>Suppressions: <%= @campaign.segment.suppressions %></h2>
     </div>
-    
-    <div id="new"><%= link_to 'Add Segment', new_brand_campaign_segment_path(@brand, @campaign) %></div>
+
+    <div class="record">
+      <%= @campaign.segment.segmentation %>
+    </div>
 
 </div>

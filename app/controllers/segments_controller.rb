@@ -22,7 +22,7 @@ class SegmentsController < ApplicationController
   def index
     @brand = Brand.find params[:brand_id]
     @campaign = @brand.campaigns.find params[:campaign_id]
-    @segment = @campaign.segment :all
+    @segment = @campaign.segment
   end
 
 end

@@ -10,6 +10,6 @@ describe Segment do
     @segment = FactoryGirl.build(:segment)
   end
 
-  it { should belong_to(:campaign) }
+  it { should belong_to(:segmentation) }
 
 end

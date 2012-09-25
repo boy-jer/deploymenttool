@@ -4,50 +4,99 @@
 
 
 div#tracker {
-  margin: 0 50px;
   min-width:800px;
+  padding:25px;
 }
-div#tracker div.now {
+
+div#tracker div.day_0 {
+}
+div#tracker div.day_1 {
+  background: #3cc37f;
+}
+div#tracker div.day_2 {
+  background:#6ea2ce;
+}
+div#tracker div.day_3 {
+  background:orange;
+}
+div#tracker div.day_4 {
+  background:black;
+}
+div#tracker div.day_5 {
+  background:violet;
+}
+div#tracker div.day_6 {
+  background:green;
+}
+
+div#tracker div.today {
   border-radius:50%;
   width:100px;
   height:100px;
-  background-color:#fff;
   float:left;
   line-height:100px;
-  border:1px solid #d7d7cf;
+  border:2px solid #f3d898;
   text-align:center;
-  font-size:34px;
+  font-size:16px;
   font-weight:bold;
   margin-right:25px;
-  margin-top:100px;
-  color:#d24d33;
-  box-shadow: inset 0px 0px 3px #999;
+  margin-top:150px;
+  color:#fff;
+  text-shadow:1px 1px 0px #b48e34;
+  box-shadow: 0px 0px 10px #f3cc6f;
+  background-color:#ebc059;
+  background:-webkit-linear-gradient(top, #ebc059, #ebaf59);
+}
+div#tracker div.tomorrow {
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  background-color:#e3e3e3;
+  background:-webkit-linear-gradient(top, #e3e3e3, #bbb);
+  float:left;
+  line-height:100px;
+  border:2px solid #f5f5f5;
+  text-align:center;
+  font-size:16px;
+  font-weight:bold;
+  margin-right:25px;
+  margin-left:0px;
+  margin-top:150px;
+  color:#666;
+  text-shadow:1px 1px 0px #fff;
+  box-shadow: 0px 0px 10px #f2f2f2;
 }
   div#tracker div.holder {
-    padding:8px;
+    padding:25px;
+    padding-left:0px;
     float:left;
   }
   div#tracker div.campaign {
     float:left;
     width:275px;
     height:275px;
-    border-radius:10px;
+      background:#e6e6e2;
+
+      border-bottom:2px solid #a3a3a1;
+    border-radius:20px;
     text-align:left;
+    position:relative;
+    box-shadow: 0px 2px 6px #000;
   }
   div#tracker div.campaign div.container {
-    border-top:1px solid #d7d7cf;
-    padding-top:25px;
+    padding:15px;
+    border-top:1px solid #fff;
   }
     div#tracker div.campaign div.brand h1 {
       font-size:16px;
       font-weight:bold;
       text-align:left;
-      clear:both;
-      line-height:12px;
+      margin:0;
+      padding:0;
     }
-  div#tracker div.campaign div.brand h1 a {
+  div#tracker div.campaign div.brand a {
     color:#fff;
-    text-shadow: 1px 1px #222;
+    text-shadow: 1px 1px 0px #194159;
   }
   div#tracker div.campaign div.brand h2 {
     text-align:left;
@@ -56,7 +105,6 @@ div#tracker div.now {
     font-size:11px;
     color:#fff;
     font-weight:400;
-    text-shadow:none;
   }
   
   div#tracker div.campaign div.int {
@@ -80,27 +128,24 @@ div#tracker div.now {
       list-style:none;
       margin:0 auto;
       display:block;
-      width:200px;
     }
+
+
     div#tracker div.campaign ul li {
-      font-size:10px;
+      font-size:12px;
       font-weight:bold;
-      border-radius:10px;
-      padding:5px 10px;
-    background:-webkit-linear-gradient(top, #777, #222);
-      color:#fafafa;
+      border-radius:15px;
+      padding:4px 10px;
+    background:#31769f;
+      height:20px;
+      line-height:20px;
       margin-bottom:5px;
-      box-shadow: 0px 0px 3px #113b53;
-      text-shadow: -1px -1px #000;
-      border:2px solid #fff;
+      text-shadow: 1px 1px #22678f;
+      color:#e9eef1;           
+border-top:1px solid #0e3048;
+box-shadow: inset 0px 2px 4px #18415e;
     }
-    div#tracker div.campaign ul li.approved {
-      background:#f1f1ef;
-      color:#737371;
-      text-shadow:none;
-      box-shadow: inset 0px 0px 2px #a7a7a4;
-      text-shadow: 1px 1px #fff;
-    }
+
     
     
       div#tracker div.campaign ul li span.count {
@@ -112,90 +157,102 @@ div#tracker div.now {
         display:block;
         border-radius:50%;
         background:#5dab1e;
-        height:10px;
-        width:10px;
         text-align:center;
         font-size:8px;
         color:#fff;
         font-weight:normal;
-        border:1px solid #fff;
         text-shadow:none;
         box-shadow: 0px 0px 3px #24440b;
       }
 
-      div#tracker div.campaign ul li:hover {
-    background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
-      }
-      div#tracker div.campaign ul li.approved:hover {
-        background:#e5e5e2;
-      }
-  
-    div#tracker div.campaign.pending {
-      background:#e4e4e2;
-      background:-webkit-linear-gradient(top, #fff, #e4e4e2);
-      border:1px solid #d7d7cf;
-    }
+
+
   div#tracker div.campaign div.brand {
     font-size:12px;
     font-weight:300;
     padding: 15px 20px;
-    background:#efefec;
-    text-shadow: 1px 1px #000;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    border-bottom:1px solid #fff;
+      box-shadow: 0px 2px 3px #999;
+    background:#347eaa;
+      background:-webkit-linear-gradient(top, #347eaa, #3589ab);
+
+    border-top-left-radius: 19px;
+    border-top-right-radius: 19px;
     position:relative;
+    border-bottom:2px solid #194965;
+    border-top:1px solid #82b4d1;
   }
+  
+    div#tracker div.campaign ul li.approved {
+      background:#4ca75e;
+      color:#fff;
+      text-shadow:none;
+      box-shadow: inset 0px 0px 2px #a7a7a4;
+      text-shadow: 1px 1px #2e753d;
+      border-top:2px solid #2e753d;
+      border-bottom:1px solid #86bf92;
+    }  
+  
   div#tracker div.campaign div.brand div.counts {
     position:absolute;
-    background:-webkit-linear-gradient(top, #777, #222);
-    border-radius:10px;
-    padding:4px 8px;
+    background:-webkit-linear-gradient(top, #e6e6e2, #e8e8df);
+    border-radius:15px;
+    padding:5px 12px;
     top:-8px;
-    color:#fff;
+    font-size:14px;
+    color:#444;
+    line-height:20px;
     font-weight:bold;
-    text-shadow:-1px -1px #000;
+    text-shadow:1px 1px #fff;
     right:-8px;
-    text-shadow:none;
-    border:1px solid #fff;
-    box-shadow: 0px 1px 3px #000;
+    border-bottom:1px solid #000;
+    border-top:1px solid #fff;
+    box-shadow: 0px 1px 3px #333;
   }
-  div#tracker div.campaign div.brand div.counts:hover {
-    background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
+  div#tracker div.time {
+    text-align:center;
+    margin-bottom:10px;
+    font-weight:400;
+    font-size:14px;
+font-family: 'Coda', sans-serif;
+    text-shadow:1px 1px 0px #000;
+    color:#ccc;
   }
-  div#tracker div.campaign div.brand div.counts.approved {
-      background:-webkit-linear-gradient(top, #fff, #e4e4e2);
-      color:#737371;
-  }
-      div#tracker div.campaign div.brand div.counts span.approved {
-        border-radius:50%;
-        background:#5dab1e;
-        height:10px;
-        width:10px;
-        display:block;
-        float:right;
-        text-align:center;
-        font-size:8px;
-        color:#fff;
-        font-weight:normal;
-        border:1px solid #fff;
-        text-shadow:none;
-        margin-left:10px;
-        box-shadow: 0px 0px 3px #24440b;
-      }
 
 
-    div#tracker div.campaign.approved {
-      box-shadow: 0px 2px 6px #193f0c;
-      border:1px solid #fff;
-      background:-webkit-linear-gradient(bottom, #4c7e23, #76b246);
+    div#tracker div.campaign.approved div.brand {
+      background:#ecc346;
+      background:-webkit-linear-gradient(top, #ecc346, #edb647);
+      border-bottom:2px solid #d6ab27;
+      border-top:1px solid #edd17c;
     }
+      div#tracker div.campaign.approved div.brand a {
+        text-shadow: 1px 1px 1px #836817;
+      }
     div#tracker div.campaign.approved div.container {
       border-top:1px solid #4c7e23;
     }
-    div#tracker div.campaign.approved {
-      
+    div#tracker div.campaign.approved ul li {
+      background:#ecc346;
+      box-shadow: inset 0px 2px 4px #9c7e22;
+        text-shadow: 1px 1px 1px #836817;
+      border-top:1px solid #90741d;
+
     }
-    div#tracker div.campaign.approved {
-      
+
+
+
+
+    div#tracker div.campaign.scheduled div.brand {
+      background:#4ca75e;
+      background:-webkit-linear-gradient(top, #4ca75e, #4ca657);
+      border-bottom:2px solid #2e753d;
+      border-top:1px solid #86bf92;
     }
+        div#tracker div.campaign.scheduled ul li {
+      background:#4ca75e;
+      box-shadow: inset 0px 2px 4px #2a773a;
+        text-shadow: 1px 1px 1px #836817;
+      border-top:1px solid #1f5c2b;
+
+    }
+

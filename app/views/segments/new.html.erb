@@ -1,3 +1,13 @@
-<h1>Define The Segment</h1>
-<%= select 'audience_selection', 'sdsdf', @options %>
-<%= hidden_field 'segment_id', 'segment_id'  %>
+<div class="form">
+
+  <h1>New Segment</h1>
+
+  <%= form_for [@brand, @campaign, @segmentation, @segment] do |f| %>
+    <ul>
+      <li><%= f.text_field :list_name, :placeholder => 'List Name' %></li>
+      <li><%= f.submit 'Add List' %></li>
+    </ul>
+  <%= f.hidden_field :brand_id %>
+  <% end %>
+
+</div>

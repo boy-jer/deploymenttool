@@ -5,7 +5,7 @@ class Audience < ActiveRecord::Base
   validates :code, :brand_id, :presence => true
   
   belongs_to :brand
-  has_many :demographics
+  has_many :demographics, :dependent => :destroy
   has_many :versions, :through => :demographics
 
 end

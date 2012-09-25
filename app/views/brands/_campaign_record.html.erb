@@ -1,0 +1,14 @@
+<!-- Start campaign: #<%= campaign.id %> -->
+<div class="record deletable <%= toggle_row_bg_color %>">
+  <%= button_to 'X', brand_campaign_path(@brand, campaign), :method => :delete, :class => 'delete' %>
+  <h1><%= link_to campaign.name, brand_campaign_path(@brand, campaign) %></h1>
+  <ul class="sub_items">
+  <% campaign.versions.each do |v| %>
+    <li><%= link_to v.creative, brand_campaign_version_path(@brand, campaign, v) %><%= approved_badge(v.creative_approval) %></li>
+  <% end %>
+  </ul>
+  <%= link_to '&#10043;'.html_safe, duplicate_brand_campaign_path(@brand, campaign), :class => 'clone' %>          
+  <span class="count"><%= distance_of_time_in_words_to_now(campaign.drop_date.to_time).capitalize %></span>
+
+</div>
+<!-- End campaign: #<%= campaign.id %> -->

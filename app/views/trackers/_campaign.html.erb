@@ -1,0 +1,43 @@
+<div class="holder">
+
+    <div class="time"> <%= distance_of_time_in_words_to_now(campaign.drop_date.to_time).capitalize %> </div>
+
+
+<div class="campaign
+<% if campaign.scheduled %>
+  <%= 'scheduled' %>
+<% elsif campaign.is_approved? %>
+  <%= 'approved' %>
+<% else %>
+  <%= 'pending' %>
+<% end %>
+">
+
+
+  <div class="brand">
+
+    <h1><%= link_to campaign.name, brand_campaign_path(campaign.brand, campaign) %></h1>
+    <h2><%= link_to campaign.brand.name, brand_path(campaign.brand) %></h2>
+    <div class="counts <%= 'approved'.html_safe if campaign.counts_approval %>">
+      <%= number_with_delimiter campaign.counts_total, :delimeter => ',' %><%= '<span class="approved">&#10003;</span>'.html_safe if campaign.counts_approval %>
+    </div>
+
+  </div>
+              
+  <div class="container">
+    <ul>
+    <% campaign.versions.sort_by! {|a| a.creative_approval ? 1 : 0} %>
+    <% campaign.versions.each do |version| %>
+      <li> 
+        <%= version.creative %>
+        <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
+        <%= '<span class="approved">&#10003;</span>'.html_safe if version.creative_approval %>
+      </li>
+    <% end %>
+    </ul>
+    <div class="clear"></div>
+  </div>
+
+</div><!-- /.campaign -->
+
+</div>

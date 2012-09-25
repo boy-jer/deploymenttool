@@ -1,16 +1,28 @@
-<div id="dst">
+<div id='dst' class='account'>
 
-  <ul>
-    <li id="new"> <%= link_to 'New Brand', new_brand_path %></li>
+  <div id='header'>
+    <%= link_to 'New Brand', new_brand_path(), :class => 'new' %>  
+    <h1>Exact<span class='highlight'>Target</span><sup><span class='trademark'>&trade;</span></sup></h1>
+    <h2>Campaign deployment tool.</h2>
+  </div>
+
+  <div id='actions'>
+    <ul>
+      <li class='on'><%= link_to 'Tracker', trackers_path() %></li>
+      <li class='on'><%= link_to 'Contacts', contacts_path() %></li>
+    </ul>
+  </div>
+
     <% i = 0; @brands.each do |brand| %>
-      <li class="brand" style="border-left:25px solid <%= i.even? ? '#' + brand.color : brand.darken_color(brand.color) %>;background:#<%= i.even? ? 'e3dcce' : 'e9e4d8' %>">
+    
+      <% campaign_count = brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC').size %>
+    
+      <div class="record <%= toggle_row_bg_color  %>">
+        <div class="hole" style="background:#<%= brand.color %>;background:-webkit-linear-gradient(top, #<%= brand.color %>, <%= brand.darken_color(brand.color, 0.75) %>);border-bottom:2px solid <%= brand.darken_color(brand.color, 0.50) %>;
+"><%= campaign_count %></div>
         <%= button_to 'X', brand, :method => :delete, :class => 'delete' %>
         <%= link_to brand.name, (brand_path brand) %></span>
-      </li>
+      </div>
     <% i += 1; end %>
-    <li id="new">
-      <%= link_to 'New Contact', new_contact_path %>
-    </li>
-  </ul>
 
 </div><!-- /#dst -->

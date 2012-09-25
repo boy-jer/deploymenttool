@@ -1,7 +1,7 @@
 class Segment < ActiveRecord::Base
 
-  attr_accessible :version_id
+  attr_accessible :version_id, :suppressions, :data_file
 
-  belongs_to :campaign
+  belongs_to :segmentation
 
 end

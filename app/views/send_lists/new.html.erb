@@ -1,8 +1,9 @@
 <div class="form">
-<%= form_for [@brand, @send_lists] do |f| %>
+<h1>New Send List</h1>
+<%= form_for [@brand, @send_list] do |f| %>
   <ul>
-    <li><%= f.text_field :list_type, :placeholder => 'List Name' %></li>
-    <li><%= f.submit 'Add Listr' %></li>
+    <li><%= f.text_field :list_name, :placeholder => 'List Name' %></li>
+    <li><%= f.submit 'Add List' %></li>
   </ul>
 <%= f.hidden_field :brand_id %>
 <% end %>

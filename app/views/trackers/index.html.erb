@@ -1,49 +1,29 @@
+<div id='dst'>
+  <div id='actions'>
+    <ul>
+      <li class='on'><%= link_to 'Brands', brands_path %></li>
+      <li class='on'><%= link_to 'Contacts', contacts_path %></li>
+    </ul>
+  </div>
+</div>
 <div id="tracker">
 
-  <div class="now">
-    4
+
+  <div class="today">
+    Today
   </div>
 
+
+
+<% compare_time = ((Date.tomorrow).to_datetime - 12.hours) %>
+
+<% day_code = 0 %>
+<% moon_it = true %>
   <% @campaigns.each do |campaign| %>
-  <div class="holder">
-  <div style="border:1px solid #fff;border-radius:10px;">
-
-    <div class="campaign <%= campaign.is_approved? ? 'approved' : 'pending' %>">
-
-      <div class="brand" style="background:#444;background:-webkit-linear-gradient(top, #<%= campaign.brand.color %>, <%= campaign.brand.darken_color('#' + campaign.brand.color) %>);">
-      
-      
-      
-        <div class="counts <%= 'approved'.html_safe if campaign.counts_approval %>">
-          <%= number_with_delimiter campaign.counts_total, :delimeter => ',' %><%= '<span class="approved">&#10003;</span>'.html_safe if campaign.counts_approval %>
-        </div>
-        
-        
-        <h1><%= link_to campaign.name, brand_campaign_path(campaign.brand, campaign) %></h1>
-        <h2><%= link_to campaign.brand.name, brand_path(campaign.brand) %></h2>
-      </div>
-       <div class="container">
-                <!-- <div class="date">
-          <%= campaign.get_drop_date_as :full_drop_date %>
-        </div> -->
-        <ul>
-        <% campaign.versions.sort_by! {|a| a.creative_approval ? 1 : 0} %>
-        <% campaign.versions.each do |version| %>
-          <li <%= 'class="approved"'.html_safe if version.creative_approval %>> 
-            <%= version.creative %>
-            <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
-            <%= '<span class="approved">&#10003;</span>'.html_safe if version.creative_approval %>
-          </li>
-        <% end %>
-        </ul>
-        <div class="clear"></div>
-      </div>
-    </div><!-- /.campaign -->
-  
-          <div class="clear"></div>
-
-  </div>
-  </div>
+    <%= render 'campaign', :campaign => campaign %>    
+      <% if campaign_is_due_tomorrow_relative_to_pointer(campaign.drop_date, compare_time) && moon_it %>
+        <%= "<div class='tomorrow'>Tomorrow</div>".html_safe %>
+        <% moon_it = false %>
+      <% end %>
   <% end %>
-
 </div><!-- /#tracker -->

@@ -18,4 +18,22 @@
 $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();
+  
+  $("input#send_lists_contact_contact_id").bind("keyup", function() {
+    var form = $("input#send_lists_contact_contact_id").closest("form"); // Grab the Entire Form.
+    var url = "/contacts/search"; // The Controller URL for returning Data. 
+    var formData = form.serialize(); // The Data in the Form.
+  
+    $.get(url, formData, function(html) { // perform an AJAX get
+      $("#search_results").html(html); // replace the "results" div with the results=
+    });
+  
+  });  
+  
+  $("div#search_box li").live("click", function() {
+    //$(this).children('form').submit();
+    $('form',this).submit()
+  });
+  
+  
 });

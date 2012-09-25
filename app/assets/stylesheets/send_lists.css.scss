@@ -13,29 +13,34 @@
 // --------------------
 
 div#dst.send_lists div#header {
-  background:#7c7a77;
+  background:#25272a;
+  text-shadow: -1px -1px #000;
   color:#fff;
-  text-shadow: -1px -1px #0e0f10;
-  background:-webkit-linear-gradient(top, #7c7a77, #585654);
+  background:-webkit-linear-gradient(top, #25272a, #111);
+  border-bottom:2px solid #000;
+}
+div#dst.send_lists div#header h1 {
+  color:#555;
 }
   div#dst.send_lists div#header div.sticky {
     float:right;
     box-shadow:1px 2px 5px #222;
     background:#e5d41a;
-    background:-webkit-linear-gradient(top, #e5d41a, #d2c214);
+    background:-webkit-linear-gradient(top, #e5d41a, #b9a311);
     height:175px;
     width:175px;
     margin-top:-55px;
     padding:15px;
-    font-size:15px;
+    font-size:12px;
     color:#000;
-    line-height:14px;
-    text-shadow:none;
+    font-family: 'Pacifico', cursive;    text-shadow:none;
   }
     div#dst.send_lists div#header div.sticky ul {
-      margin-left:10px;
+      margin-left:25px;
+      list-style:none;
     }
       div#dst.send_lists div#header div.sticky ul li {
+        font-family: 'Shadows Into Light', cursive;
       }
 
 // --------------------
@@ -44,17 +49,32 @@ div#dst.send_lists div#header {
 
 div#dst.send_lists div.record {
   color:#444;
+  background:#e6e6e2;
 }
   div#dst.send_lists div.record a {
-    color:#666;
+    color:#444;
+    text-shadow:1px 1px 0px #fff;
   }
   div#dst.send_lists div.record.light {
-    background:#d6d2cd;
+    background:#e6e6e2;
   }
   div#dst.send_lists div.record.dark {
-    background:#c8c5c0;
+    background:#dededb;
   }
   div#dst.send_lists span.count {
     color:#999;
     text-shadow:1px 1px 0 #dededb;
   }
+      div#dst.send_lists  div.record input[type=submit].delete {
+        background:#bcb9b3;
+        color:#eee;
+        border-color:#b5b2ac;
+        text-shadow:none;
+      }
+        div#dst.send_lists  div.record input[type=submit]:hover {
+          background:#d24d33;
+          box-shadow: 0px 0px 2px #194f6e;
+          color:#fff;
+          border-color:#fff;
+          text-shadow: 1px 1px #992f1a;
+        }

@@ -1,0 +1,32 @@
+<div id='dst' class='contacts'>
+  
+  <div id='header'>
+  <!--
+    <div id="search_box">
+      <form method="get" action="<%= search_contacts_path %>">
+        <input id="send_lists_contact_contact_id" name="name" type="text" autocomplete='off'/>
+      </form>
+      <div style="z-index:100;" id="search_results"></div>
+    </div>
+    -->
+    <%= link_to 'New Contact', new_contact_path(), :class => 'new' %>  
+    <h1>Contacts</h1>
+
+  </div><!-- /#header -->
+  
+  <div id='actions'>
+    <ul>
+      <li class='on'><%= link_to 'Brands', brands_path %></li>
+      <li class='on'><%= link_to 'Tracker', trackers_path %></li>
+    </ul>
+  </div><!-- /#actions -->
+  
+  
+  <% @contacts.each do |contact| %>
+  <div class='record deletable <%= toggle_row_bg_color %>'>
+    <%= button_to 'X', contact_path(contact), :method => :delete, :class => 'delete' %>
+    <%= contact.name %> <span><%= contact.email %></span>
+  </div>
+  <% end %>
+  
+</div>

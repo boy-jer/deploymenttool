@@ -3,9 +3,6 @@ class CampaignsController < ApplicationController
   def new
     @brand = Brand.find(params[:brand_id])
     @campaign = @brand.campaigns.build
-    respond_to do |format|
-      format.js
-    end
   end
   
   def create
@@ -26,22 +23,26 @@ class CampaignsController < ApplicationController
   
   def counts
     @campaign = Campaign.find(params[:id])
-    @send_list = @campaign.brand.send_lists.find_by_list_name('Counts')
+    @send_list = @campaign.brand.send_lists.find(:first, :conditions => ['lower(list_name) = ?', 'counts'])
+    render :layout => 'email'
   end
   
   def proof
     @campaign = Campaign.find(params[:id])
-    @send_list = @campaign.brand.send_lists.find_by_list_name('Proofs')
+    @send_list = @campaign.brand.send_lists.find(:first, :conditions => ['lower(list_name) = ?', 'proofs'])
+    render :layout => 'email'
   end
   
   def final
     @campaign = Campaign.find(params[:id])
-    @send_list = @campaign.brand.send_lists.find_by_list_name('Final Approval')
+    @send_list = @campaign.brand.send_lists.find(:first, :conditions => ['lower(list_name) = ?', 'approvals'])
+    render :layout => 'email'
   end
   
   def scheduled
     @campaign = Campaign.find(params[:id])
-    @send_list = @campaign.brand.send_lists.find_by_list_name('Scheduled')
+    @send_list = @campaign.brand.send_lists.find(:first, :conditions => ['lower(list_name) = ?', 'scheduling'])
+    render :layout => 'email'
   end
 
   def detials
@@ -64,7 +65,7 @@ class CampaignsController < ApplicationController
 
     @campaign.update_attributes(:name => params[:campaign][:name], :drop_date => params[:campaign][:drop_date])
     
-    @campaign.save
+    @campaign.save ? redirect_to(brand_path(@brand)) : redirect_to(brand_path(@brand))
   end
 
   def update
@@ -72,8 +73,15 @@ class CampaignsController < ApplicationController
     
     @campaign = @brand.campaigns.find params[:id]
 
-    # Hack, can't get the false version to update without this. It returns nothing when submitted...
+    if params[:updater]
+        params[:campaign] = {:scheduled => 0} if params[:campaign] == NIL
+    else
+        # Hack, can't get the false version to update without this. It returns nothing when submitted...
     params[:campaign] = {:counts_approval => 0} if params[:campaign] == NIL
+    end
+    
+
+
 
     @campaign.update_attributes params[:campaign]
     

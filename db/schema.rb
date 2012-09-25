@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120921221443) do
+ActiveRecord::Schema.define(:version => 20120923193541) do
 
   create_table "audiences", :force => true do |t|
     t.string   "code"
@@ -31,14 +31,12 @@ ActiveRecord::Schema.define(:version => 20120921221443) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
-    t.string   "data_file"
     t.datetime "drop_date"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "round"
     t.integer  "brand_id"
     t.boolean  "counts_approval"
-    t.string   "suppressions"
     t.boolean  "scheduled"
   end
 
@@ -59,10 +57,20 @@ ActiveRecord::Schema.define(:version => 20120921221443) do
 
   add_index "demographics", ["version_id", "audience_id"], :name => "index_demographics_on_version_id_and_audience_id"
 
-  create_table "segments", :force => true do |t|
+  create_table "segmentations", :force => true do |t|
+    t.integer  "campaign_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "segments", :force => true do |t|
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "campaign_id"
+    t.text     "segmentation"
+    t.string   "suppressions"
+    t.string   "data_file"
+    t.integer  "segmentation_id"
   end
 
   create_table "send_lists", :force => true do |t|

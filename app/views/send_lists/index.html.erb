@@ -1,30 +1,34 @@
 <div id='dst' class='send_lists'>
 
   <div id='header'>
-    <div class='sticky'>
+  
+  
+    <%= link_to 'New Send List',  new_brand_send_list_path(params[:brand_id]), :class => 'new' %>  
+    <!--<div class='sticky'>
       Conventions,<br/><br/>
-      Lists named:<br/>
-      <ul>
-        <li>Proof</li>
-        <li>Counts</li>
-        <li>Scheduled</li>
-        <li>Final Approval</li>
-      </ul>
-    will automatically apply to their respective process.
-    </div>
+      Simply name your list after what part of the deployment process those people belong to. For example a list named counts would automatically become the standard set of people to send counts to.
+    </div>-->
     <h1>Send lists.</h1>
     <h2><%= link_to "&larr; #{@brand.name}".html_safe, brand_path(@brand) %></h2>
   </div>
   
-  <div id='new'>
-    <%= link_to 'New List', new_brand_send_list_path(params[:brand_id]) %>
+  <div id="actions">
+    <ul>
+      <li class="on"><%= link_to 'Campaigns', brand_path(@brand) %></li>
+      <li class="on"><%= link_to 'Audiences', brand_audiences_path(@brand) %></li>
+    </ul>
   </div>
-  
-  <% @send_lists.each do |send_list| %>
-  <div class='record deletable <%= toggle_row_bg_color %>'>
-    <%= link_to send_list.list_name, brand_send_list_path(@brand, send_list) %>
-    <span class='count'><%= send_list.send_lists_contacts.size > 0 ? send_list.send_lists_contacts.size : 'Empty'  %></span>
-  </div>
+
+  <% if @send_lists.size == 0 %>
+    <%= render 'empty' %>
+  <% else %>
+    <% @send_lists.each do |send_list| %>
+    <div class='record deletable <%= toggle_row_bg_color %>'>
+     <%= button_to 'X', brand_send_list_path(@brand, send_list), :method => :delete, :class => 'delete' %>
+      <%= link_to send_list.list_name, brand_send_list_path(@brand, send_list) %>
+      <span class='count'><%= send_list.send_lists_contacts.size > 0 ? send_list.send_lists_contacts.size : 'Empty'  %></span>
+    </div>
+    <% end %>
   <% end %>
 
 </div><!-- /#dst, .send_lists -->

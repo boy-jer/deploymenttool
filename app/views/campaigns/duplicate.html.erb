@@ -1,12 +1,11 @@
 <div class="form">
+  <h1>Create Clone</h1>
   <%= form_for [@brand, @campaign], :url => create_duplicate_brand_campaign_path(@brand, @campaign) do |f| %>  
   <ul>
     <li><%= f.text_field :name, :placeholder => 'Name' %></li>
     <li><%= f.text_field :drop_date, :placeholder => 'Drop Date' %></li>
   </ul>
   <ul>
-    <li><%= f.text_field :suppressions, :placeholder => 'Suppressions' %></li>
-    <li><%= f.text_field :data_file, :placeholder => 'Data File' %></li>
     <li><%= f.submit 'Add' %></li>
   </ul>
   <% end %>

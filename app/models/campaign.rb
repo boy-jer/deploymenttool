@@ -5,9 +5,9 @@ class Campaign < ActiveRecord::Base
   validates :name, :drop_date, :brand_id, :round, :presence => true
   validates :counts_approval, :scheduled, :inclusion => {:in => [true, false]}
 
-  has_many :versions
+  has_many :versions, :dependent => :destroy
   belongs_to :brand
-  has_one :segment
+  has_one :segmentation
   
   amoeba do
     enable
