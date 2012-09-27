@@ -1,7 +1,7 @@
-<% column_names = ['Treatment', 'Audience - creative', 'Count', 'Epiphany', 'Invalids / Unsubs', 'Suppressions'] %>
+<% column_names = ['EMAIL VERSION', 'AUDIENCE', 'COUNTS', 'SUPPRESSION FILES'] %>
 <% content_for :column_headers do %>
   <% column_names.each do |n| %>
-    <td style="padding:10px;color:#fff;text-align:center;border-bottom:5px solid <%= @campaign.brand.darken_color(@campaign.brand.color) %>;font-size:12px;font-weight:bold;background:#<%= @campaign.brand.color %>"><%= n %></td>
+    <td height='30' style="padding:10px;color:#1f499f;text-align:center;font-size:12px;font-weight:bold;background:#eeece1"><%= n %></td>
   <% end %>
 <% end %>
 
@@ -10,26 +10,22 @@
   <% number_of_rows += v.demographics.size + 1 %>
 <% number_of_rows.to_s; end %>
 
-<table cellpadding="0" cellspacing="0" width="100%">
+<table border='1' style='border-collapse:collapse;font-family:sans-serif; font-size:12px;' bordercolor='grey' cellpadding="0" cellspacing="0" width="700">
   <%= render table 'table_head' %>  
   <% i = 0; @campaign.versions.each do |v| %>
-    <% v.demographics.each do |d| %>
       <tr>
-        <%= (i == 0) ? "<td style=\"padding:10px; text-align:center; font-size:11px;\" rowspan=#{number_of_rows}>#{@campaign.treatment_name}<br></br>#{@campaign.get_drop_date_as :full_drop_date}</td>".html_safe : NIL %>
-        <td style="padding:10px;font-size:11px; font-size:11px; background:#f0f0ed;font-size:11px;"><%= d.audience.code %> - <%= v.creative %></td>
-        <td style="padding:10px; text-align:right; font-size:11px; background:#f0f0ed;"><%= d.count %></td>
-        <%= (i == 0) ? "<td style=\"padding:10px;\" rowspan=#{number_of_rows}></td>".html_safe : NIL %>
-        <%= (i == 0) ? "<td style=\"padding:10px; background:#d24d33;\" rowspan=#{number_of_rows}></td>".html_safe : NIL %>
-        <%= (i == 0) ? "<td style=\"padding:10px; background:#b0361e;\" rowspan=#{number_of_rows}></td>".html_safe : NIL %>
+        <td style='padding:10px;'><%= @campaign.treatment_name %><br/><br/><%= @campaign.get_drop_date_as :full_drop_date %></td>
+        <td style='padding:35px 10px; text-align:center'><%= v.audience_list %></td>
+        <td style='padding:10px; text-align:right'><%= v.counts_subtotal %></td>
+        <td style='padding:10px;'></td>
       </tr>
-    <% i += 1; end %>
       <tr>
-        <td style="padding:10px; background:#b4d2ea; color:#fff;font-size:11px;">Subtotal</td>
-        <td style="padding:10px; background:#b4d2ea; color:#fff; text-align:right;font-size:11px;"><%= v.counts_subtotal %></td>
       </tr>
   <% end %>
       <tr>
-        <td style="padding:10px; background:#407096; color:#fff;font-size:11px;">Total</td>
-        <td style="padding:10px; background:#407096; color:#fff;font-size:11px;"><%= @campaign.counts_total %></td>
+        <td height='30' style='background:#ddd9c3;'></td>
+        <td height='30' style="padding:10px; background:#ddd9c3; color:#333;font-size:11px;">GRAND TOTAL</td>
+        <td height='30' style="padding:10px; background:#ddd9c3; color:#333;font-size:14px; text-align:right; font-weight:bold;"><%= @campaign.counts_total %></td>
+        <td height='30' style='background:#ddd9c3;'></td>
       </tr>
 </table>

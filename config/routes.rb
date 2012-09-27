@@ -15,6 +15,8 @@ Dst::Application.routes.draw do
 
   root :to => 'brands#index'
 
+  match 'search/:id' => 'campaigns#search'
+
   resources :brands do
     resources :campaigns do
       member do

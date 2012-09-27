@@ -1,21 +1,20 @@
 <div id='dst' class='send_lists'>
-
+  <% @campaigns = @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC') %>
   <div id='header'>
-  
+    <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
+"><%= @campaigns.size %></div>
   
     <%= link_to 'New Send List',  new_brand_send_list_path(params[:brand_id]), :class => 'new' %>  
-    <!--<div class='sticky'>
-      Conventions,<br/><br/>
-      Simply name your list after what part of the deployment process those people belong to. For example a list named counts would automatically become the standard set of people to send counts to.
-    </div>-->
+
     <h1>Send lists.</h1>
-    <h2><%= link_to "&larr; #{@brand.name}".html_safe, brand_path(@brand) %></h2>
+    <h2><%= link_to "#{@brand.name}".html_safe, brand_path(@brand) %></h2>
   </div>
   
   <div id="actions">
     <ul>
       <li class="on"><%= link_to 'Campaigns', brand_path(@brand) %></li>
       <li class="on"><%= link_to 'Audiences', brand_audiences_path(@brand) %></li>
+      <li class="on"><%= link_to 'Track', tracker_path(@brand) %></li>
     </ul>
   </div>
 

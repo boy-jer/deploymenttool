@@ -3,20 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div#dst.contacts div#header {
-  background:#f79821;
-  background:-webkit-linear-gradient(bottom, #f79821, #ec9e3b);
+  background:#eee;
+  background:-webkit-linear-gradient(top, #eee, #ddd);
 }
   div#dst.contacts div#header h1 {
     color:#333;
-    text-shadow:1px 1px 0px #f8c17c;  
+    text-shadow:1px 1px 0px #fff;
   }
   
 div#dst.contacts div.record {
   color:#fff;
+  text-shadow:-1px -1px 0px #172d44;
 }
   div#dst.contacts div.record.light {
     background:#295981;
-    box-shadow:inset 0px 3px 5px #222;
+    box-shadow:inset 0px 2px 3px #172d44;
   }
   div#dst.contacts div.record.dark {
     background:#224c6f;

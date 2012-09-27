@@ -14,9 +14,15 @@
 
 div#dst.campaign div#header {
   background:#e6e6e2;
-  background:-webkit-linear-gradient(top, #e6e6e2, #cfcfcc);
+  box-shadow:inset 0px 2px 4px #777;
 }
-
+div#dst.campaign div#header div.button {
+  font-size:22px;
+  line-height:105px;
+}
+div#dst.campaign div#header h1 {
+  margin-top:18px;
+}
 // --------------------
 //        Record
 // --------------------

@@ -1,13 +1,9 @@
 module TrackersHelper
 
-  attr_accessor :day_code
+  attr_accessor :day_code, :time_pointer
   
-  def campaign_is_due_tomorrow_relative_to_pointer(drop_date, compare_time)
-    return TRUE if (drop_date > compare_time) else FALSE
-  end
-  
-  def campaign_is_due_today_relative_to_pointer(drop_date, compare_time)
-    return TRUE if (drop_date < compare_time) else FALSE
+  def due_tomorrow(drop_date, time_marker)
+    return TRUE if (drop_date >= time_marker) else FALSE
   end
 
 end

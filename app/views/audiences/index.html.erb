@@ -1,6 +1,8 @@
 <div id="dst" class="audiences">
-  
+    <% @campaigns = @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC') %>
     <div id="header">
+        <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
+"><%= @campaigns.size %></div>
       <%= link_to 'Add Audience', new_brand_audience_path(@brand), :class => 'new' %>
       <h1>Audiences</h1>
       <h2><%= link_to '&larr; '.html_safe + @brand.name, brand_path(@brand) %></h2>
@@ -10,6 +12,7 @@
       <ul>
         <li class="on"><%= link_to 'Campaigns', brand_path(@brand) %></li>
         <li class="on"><%= link_to 'Send Lists', brand_send_lists_path(@brand) %></li>
+        <li class="on"><%= link_to 'Track', tracker_path(@brand) %></li>
       </ul>
     </div>
 

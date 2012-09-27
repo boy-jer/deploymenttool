@@ -18,26 +18,24 @@
 
 
 div#dst.account div#header {
-  background:#f79821;
-  background:-webkit-linear-gradient(bottom, #f79821, #ec9e3b);
-
+  background:#eee;
+  background:-webkit-linear-gradient(top, #eee, #ddd);
 }
 
   div#dst.account div#header h1 {
     color:#333;
-    font-size:78px;
-    text-shadow:1px 1px 0px #f8c17c;
+    font-size:80px;
+    text-shadow:1px 1px 0px #fff;
   }
   div#dst.account div#header h2 {
     font-size:20px;
-    color:#fff;
+    color:#555;
     font-weight:300;
-    margin-top:-15px;
-    text-shadow:1px 1px 0px #b2680a;
+    text-shadow:1px 1px 0px #fff;
   }
     div#dst.account div#header h1 span.highlight {
-      color:#fff;
-      text-shadow:-1px -1px 0px #985f17;
+      color:#f79821;
+      text-shadow:1px 1px 0px #fff;
     }
     div#dst.account div#header h1 span.trademark {
       font-size:18px;
@@ -64,8 +62,8 @@ div#dst.account div.record {
     text-shadow:-1px -1px 0px #000;
   }
 div#dst.account div.record a {
-  color:#999;
-  text-shadow:1px 1px 0px #000;
+  color:#ccc;
+  text-shadow:-1px -1px 0px #000;
 }
 div#dst.account div.record a:hover {
   color:#fff;
@@ -115,12 +113,14 @@ div.email {
   margin: 0 auto;
   width:750px;
   border-radius:10px;
-  background:-webkit-linear-gradient(top, #fff, #fafaf8);
-  box-shadow: 0px 1px 5px #777;
+  background:#fff;
+  border-bottom:2px solid #a3a3a1;
+  border-top:1px solid #fff;
+  box-shadow: 0px 0px 6px #000;
   margin-top:25px;
 }
   div.email div.config {
-    background:#f2f4f4;
+    background:#ddd;
     padding:25px;
     border-top-right-radius:10px;
     border-top-left-radius:10px;
@@ -132,16 +132,15 @@ div.email {
   div.email h1 {
     font-size:12px;
     font-weight:300;
+  font-family:sans-serif;
     padding:10px 25px;
     background:#fff;
-    border:1px solid #dededb;
     float:left;
     margin-bottom:15px;
     color:#666;
     margin-top:25px;
     border-radius:10px;
-    box-shadow: inset 0px 1px 1px #777;
-    border-radius:1px solid #fff;
+    box-shadow: inset 0px 1px 3px #666;
   }
   div.email ul.send_list {
     list-style:none;
@@ -150,31 +149,29 @@ div.email {
   }
     div.email ul.send_list li {
       border-radius:10px;
-      padding:5px 10px;
+      padding:7px 13px;
       float:left;
       margin-right:10px;   
       margin-bottom:10px; 
       font-size:11px;
-      box-shadow: 0px 0px 2px #777;  
+      box-shadow: 0px 1px 2px #444;  
       border-top:1px solid;
-      border-right:1px solid;
-      border-left:1px solid;
+      border-right:none;
+      border-left:none;
       border-bottom:1px solid;
+      font-weight:bold;
     }
     div.email ul.send_list.to li {
       color:#fff;
       background:-webkit-linear-gradient(top, #3b8dbd, #2e7199);
-      border-top-color:#5298ac;
-      border-right-color:#317689;
-      border-left-color:#317689;
+      border-top-color:#a3d8f1;
       border-bottom-color:#1e5778;
+      text-shadow: -1px -1px 0px #1e5778;
     }
     div.email ul.send_list.cc li {
       color:#fff;
       background:-webkit-linear-gradient(top, #333, #111);
       border-top-color:#5298ac;
-      border-right-color:#317689;
-      border-left-color:#317689;
       border-bottom-color:#1e5778;
     }
 
@@ -188,7 +185,7 @@ div.form {
   background:-webkit-linear-gradient(top, #efefec, #e4e4e1);
   margin:100px auto;
   border:1px solid #fff;
-  box-shadow: 0px 1px 5px #777;
+  box-shadow: 0px 2px 5px #111;
 } 
 div.form h1 {
   color:#555;
@@ -338,11 +335,32 @@ div#dst {
         border-bottom:1px solid #fff;
         height:50px;
         line-height:50px;
+        clear:both;
         border-bottom:2px solid #9e311c;
         border-right:none;
         border-left:none;
         border-top:1px solid #dd725e;
+
       }
+  div#dst div#actions div.button {
+    float:left;
+    margin-right:10px;
+    height:35px;
+    width:35px;
+    margin-top:7px;
+    margin-left:10px;
+    box-shadow: inset 0px 0px 2px #000;
+    border-radius:50%;
+    border-bottom:1px solid #aaa;
+    text-align:center;
+    color:#fff;
+    font-size:9px;
+    line-height:40px;
+    text-shadow:-1px -1px 0px #000;
+  }
+      
+      
+      
       div#dst div#actions a.new {
         background:#6ab71e;
         float:right;
@@ -362,6 +380,7 @@ div#dst {
           line-height:50px;
           margin-right:25px;
         }
+
         div#dst div#actions ul li a {
           font-size:18px;
           font-weight:bold;
@@ -388,7 +407,6 @@ div#dst {
       div#dst div#header {
         padding:75px 50px;
         height:auto;
-    
         border:none;
       }
       
@@ -399,7 +417,6 @@ div#dst {
     width:100px;
     box-shadow: 0px 0px 3px #000;
     border-radius:50%;
-    margin-top:25px;
     border-top:1px solid #aaa;
     text-align:center;
     color:#fff;
@@ -408,6 +425,10 @@ div#dst {
     line-height:100px;
     text-shadow:-1px -1px 0px #000;
   }
+    div#dst div#header div.button a {
+    color:#fff;
+    }
+
       
  div#dst div#header div#search_box {
     padding:25px;
@@ -450,7 +471,6 @@ div#dst {
         div#dst div#header h1 {
           font-size:62px;
           color:#fff;
-          margin-bottom:15px;
         }
           div#dst div#header h1 a {
             font-size:42px;

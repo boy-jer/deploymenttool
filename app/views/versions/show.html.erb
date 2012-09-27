@@ -13,7 +13,9 @@
       <%= render 'empty' %>
     <% else %>
       <% i = 0; @version.demographics.each do |demographic| %>
-        <div class="record deletable <%= toggle_row_bg_color %>"><%= demographic.audience.code %></div>
+        <div class="record deletable <%= toggle_row_bg_color %>">
+          <%= button_to 'X', brand_campaign_version_demographic_path(@version.campaign.brand, @version.campaign, @version, demographic), :method => :delete, :class => 'delete' %> <%= demographic.audience.code %>
+        </div>
       <% i += 1; end %>
     <% end %>
   

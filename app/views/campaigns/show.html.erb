@@ -1,13 +1,12 @@
 <div id='dst' class='campaign'>
 
     <div id="header">
+    <% @brand = @campaign.brand %>
+    <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
+"><%= link_to @brand.code, brand_path(@brand) %></div>
       <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign), :class => 'new' %>  
       <h1><span class="current"><%= @campaign.name + '.' %></span></h1>
-      <h2><%= link_to '&larr; '.html_safe + @campaign.brand.name + '.', brand_path(@campaign.brand), :style => 'color:#' + @campaign.brand.color %></h2>
-      <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
-        <%= check_box_tag 'campaign[scheduled]', (@campaign.scheduled == 't' ? 'f' : 't'), @campaign.scheduled %>
-        <%= hidden_field_tag 'updater', 'sdf', { :value => @campaign.scheduled }  %>
-      <% end %>
+<div class="clear"></div>
     </div><!-- /#header, .campaign -->
 
     <%= render 'actions', :local => @campaign %>
@@ -30,3 +29,7 @@
     </div><!-- /.record, .total -->
 
 </div>
+      <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
+        <%= check_box_tag 'campaign[scheduled]', (@campaign.scheduled == 't' ? 'f' : 't'), @campaign.scheduled %>
+        <%= hidden_field_tag 'updater', 'sdf', { :value => @campaign.scheduled }  %>
+      <% end %>

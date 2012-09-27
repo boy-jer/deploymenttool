@@ -1,5 +1,9 @@
 <% CampaignMailerHelper %>
 
+<div id='dst'>
+  <%= render 'actions' %>
+</div>
+
 <% content_for :email do %>
   <% render :template => 'campaign_mailer/final_approval_email' %>
 <% end %>

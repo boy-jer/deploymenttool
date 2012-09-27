@@ -1,0 +1,22 @@
+<% time_marker = ((Date.tomorrow).to_datetime - 12.hours) %>
+
+<% @campaigns.each do |campaign| %>
+
+
+      <% if due_tomorrow(campaign.drop_date, time_marker) %>
+        <% while due_tomorrow(campaign.drop_date, time_marker) %>
+          <% if time_marker.friday? %>
+            <% time_marker += 3;  %>
+            <% datedate = time_marker - 3.days %>
+          <% else %>
+            <% time_marker += 1.day %>
+            <% datedate = time_marker - 1.days %>
+          <% end %>
+        <% end %>
+        <%= (time_marker.to_date - 1.day == Date.today) ? "<div class=\"day today\">Today</div>".html_safe : "<div class='holder'><div class='day beyond'><h1>&rarr;</h1><h2>#{(datedate).strftime('%A')}</h2></div></div>".html_safe %>
+      <% end %>
+      
+       <%= render 'campaign', :campaign => campaign %>  
+   
+      
+  <% end %>
