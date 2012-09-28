@@ -1,25 +1,6 @@
-<div id='dst'>
-
-  <div id='actions'>
-  <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-top:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
-"></div>
-  
-  
-    <ul>
-    <li class="on" style='padding-right:25px;'><%= link_to @brand.name, brand_path(@brand) %></li>
-    <li class="on"><%= link_to 'Audiences', brand_audiences_path(@brand) %></li>
-    <li class="on"><%= link_to 'Send Lists', brand_send_lists_path(@brand) %></li>
-    </ul>
-  </div>
-</div>
-<div id="tracker">
-
-
-
 <% time_marker = ((Date.tomorrow).to_datetime - 12.hours) %>
 
-
-  <% @campaigns.each do |campaign| %>
+<% @campaigns.each do |campaign| %>
 
 
       <% if due_tomorrow(campaign.drop_date, time_marker) %>
@@ -38,5 +19,4 @@
        <%= render 'campaign', :campaign => campaign %>  
    
       
-  <% end %>
-</div><!-- /#tracker -->
+  <% end unless @campaigns == NIL %>

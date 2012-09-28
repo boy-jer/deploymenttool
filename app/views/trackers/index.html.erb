@@ -9,9 +9,15 @@
 </div>
 <div id="tracker">
 
+  <div id="search_box">
+      <form method="get" action="<%= search_trackers_path %>">
+        <input id="search_tracker" name="user_input" type="text" placeholder='Brand Name' autocomplete='off'/>
+      </form>
+ </div>     
+      <div id="search_results"></div>
 
-<div id="results"></div>
 
-<%= render 'flow_chart', :campaigns => @campaigns %>
+
+
   
 </div><!-- /#tracker -->

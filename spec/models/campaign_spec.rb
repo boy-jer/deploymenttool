@@ -59,6 +59,10 @@ describe Campaign do
     it { @proof_round.should == 'R' + @campaign.round.to_s }
   end
 
+  it 'should format dates'  do
+    pending 'date_format method'
+  end
+
   # Note that the TimeZone is hard coded at the moment. This should be dynamic at some point.  
   describe "#get_drop_date_as" do
     before :each do

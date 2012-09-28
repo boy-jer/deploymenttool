@@ -27,6 +27,8 @@ $(document).ready(function() {
     $.get(url, formData, function(html) { // perform an AJAX get
       $("#search_results").html(html); // replace the "results" div with the results=
     });
+    
+    $("#search_results").show();
   
   });  
   
@@ -34,6 +36,26 @@ $(document).ready(function() {
     //$(this).children('form').submit();
     $('form',this).submit()
   });
+  
+  
+  
+  
+  // Tracker Search
+  $("input#search_tracker").bind("keyup", function() {
+    var form = $("input#search_tracker").closest("form"); // Grab the Entire Form.
+    var url = "/trackers/search"; // The Controller URL for returning Data. 
+    var formData = form.serialize(); // The Data in the Form.
+  
+    $.get(url, formData, function(html) { // perform an AJAX get
+      $("#search_results").html(html); // replace the "results" div with the results=
+    });
+  
+  });  
+  
+  
+  
+  
+  
   
   
 });

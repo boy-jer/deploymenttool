@@ -48,6 +48,9 @@ Dst::Application.routes.draw do
   end
   
   resources :trackers do
+    collection do 
+      get :search
+    end
   end
   
   # Sample resource route with options:

@@ -61,6 +61,10 @@ class Campaign < ActiveRecord::Base
     total = 0; versions.each {|v| total += v.counts_subtotal}; total
   end
 
+  def date_format(date)
+    DateTime.strptime(date, "%m/%d/%Y %I:%M%P")
+  end
+
 private
 
   def init

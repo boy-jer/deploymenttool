@@ -22,6 +22,8 @@ class CampaignsController < ApplicationController
     @brand = Brand.find(params[:brand_id])
     @campaign = @brand.campaigns.new(params[:campaign])
     
+    @campaign.drop_date = @campaign.date_format params[:campaign][:drop_date]
+    
     @campaign.save ? redirect_to(brand_path(@brand)) : NIL
   end
   
