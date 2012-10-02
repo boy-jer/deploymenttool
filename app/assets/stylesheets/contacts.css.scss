@@ -5,6 +5,8 @@
 div#dst.contacts div#header {
   background:#eee;
   background:-webkit-linear-gradient(top, #eee, #ddd);
+  box-shadow:inset 0px 3px 7px #666;
+  padding:15px 50px;
 }
   div#dst.contacts div#header h1 {
     color:#333;

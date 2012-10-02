@@ -32,3 +32,28 @@ div#dst.segmentation div#header {
 // --------------------
 //        Record
 // --------------------
+
+     div#dst.segmentation div.record {
+       background: #393939;
+       font-weight:normal;
+     }
+        
+
+div.code p
+{
+}
+div.code span.comment {
+  color:#797979;
+}
+div.code span.statement {
+  color:#d58944;
+}
+div.code span.enclosed_string {
+  color:#b4c978;
+}
+div.code span.number {
+  color:#9b74d8;
+}
+div.code span.data_extension {
+  color:#80aac6;
+}

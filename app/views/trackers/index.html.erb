@@ -1,23 +1,19 @@
 <div id='dst'>
   <div id='actions'>
     <ul>
-      <li class='on' style='padding-right:25px;'><%= link_to 'ExactTarget', brands_path %></li>
-      <li class='on'><%= link_to 'Brands', brands_path %></li>
-      <li class='on'><%= link_to 'Contacts', contacts_path %></li>
+      <li class='on'><%= link_to 'ExactTarget', brands_path %></li>
     </ul>
   </div>
-</div>
+</div><!-- /#dst -->
+
 <div id="tracker">
 
   <div id="search_box">
-      <form method="get" action="<%= search_trackers_path %>">
-        <input id="search_tracker" name="user_input" type="text" placeholder='Brand Name' autocomplete='off'/>
-      </form>
- </div>     
-      <div id="search_results"></div>
+    <form method="get" action="<%= search_trackers_path %>">
+      <input id="search_tracker" class='off' name="user_input" type="text" autocomplete='off'/>
+    </form>
+  </div> <!-- /#search_box -->   
 
+  <div id="search_results"></div>
 
-
-
-  
 </div><!-- /#tracker -->

@@ -29,4 +29,19 @@ class SendListsController < ApplicationController
     @send_list.destroy ? redirect_to(brand_send_lists_path(@brand)) : redirect_to(new_brand_path)
   end
 
+  # Needs to be used to search inside of send_lists contacts or something...
+  def search
+    
+    
+    @contacts = Contact.find(:all, :conditions => ["name LIKE :search", {:search => "%#{params[:user_input]}%"}], :limit => 5, :order => 'name')
+    @send_list = SendList.find(params[:send_list_id])
+    @send_lists_contact = @send_list.send_lists_contacts.new
+    
+    @contacts = NIL if params[:name].size < 2
+
+
+    render :layout => false
+
+  end
+
 end

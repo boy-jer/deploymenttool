@@ -4,8 +4,8 @@
 
 jQuery ->
 
-  $('div.deletable').mouseover ->
+  $('div.deletable').live 'mouseover', ->
     $('input.delete', this).show()
-  $('div.deletable').mouseout ->
+  $('div.deletable').live 'mouseout', ->
     $('input.delete', this).hide()
     

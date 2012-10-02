@@ -10,11 +10,10 @@ class TrackersController < ApplicationController
   end
 
   def search
-    @brands = Brand.find(:all, :conditions => ["name LIKE ?", "%#{params[:user_input]}%" ])
+    @campaigns = Campaign.find :all, :joins => [:brand], :conditions => ["campaigns.name LIKE ? OR brands.name LIKE ? AND campaigns.drop_date >= ? AND campaigns.drop_date <= ?", "%#{params[:user_input]}%", "%#{params[:user_input]}%", DateTime.now, DateTime.now + 7.days]
 
-    @campaigns = @brands.first.campaigns
-    
-    @campaigns = Campaign.find(:all) if params[:user_input].size < 2
+
+    @campaigns = Campaign.find :all, :conditions => ["drop_date >= ? and drop_date <= ?", DateTime.now, DateTime.now + 7.days], :order => 'drop_date ASC'  if (params[:user_input].size < 2 || params[:user_input].size == 0)
 
 
     render :layout => false

@@ -31,9 +31,7 @@ Dst::Application.routes.draw do
       resources :versions do
         resources :demographics
       end
-      resource :segmentation do
-        resources :segments do
-        end
+      resources :segments do
       end
     end
     resources :send_lists do

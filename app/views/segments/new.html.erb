@@ -2,12 +2,11 @@
 
   <h1>New Segment</h1>
 
-  <%= form_for [@brand, @campaign, @segmentation, @segment] do |f| %>
+  <%= form_for [@brand, @campaign, @segment] do |f| %>
     <ul>
-      <li><%= f.text_field :list_name, :placeholder => 'List Name' %></li>
-      <li><%= f.submit 'Add List' %></li>
+      <li><%= f.text_area :segmentation %></li>
+      <li><%= f.submit 'Add Segment' %></li>
     </ul>
-  <%= f.hidden_field :brand_id %>
   <% end %>
 
 </div>

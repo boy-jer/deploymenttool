@@ -7,7 +7,7 @@ class Campaign < ActiveRecord::Base
 
   has_many :versions, :dependent => :destroy
   belongs_to :brand
-  has_one :segmentation
+  has_many :segments
   
   amoeba do
     enable

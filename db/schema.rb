@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120923193541) do
+ActiveRecord::Schema.define(:version => 20121002153105) do
 
   create_table "audiences", :force => true do |t|
     t.string   "code"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120923193541) do
     t.integer  "brand_id"
     t.boolean  "counts_approval"
     t.boolean  "scheduled"
+    t.integer  "alt_id"
   end
 
   create_table "contacts", :force => true do |t|

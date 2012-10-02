@@ -29,7 +29,6 @@
     <% campaign.versions.each do |version| %>
       <li> 
         <%= version.creative %>
-        <span class="count"><%= number_with_delimiter version.counts_subtotal, :delimeter => ',' %></span>
         <%= '<span class="approved">&#10003;</span>'.html_safe if version.creative_approval %>
       </li>
     <% end %>

@@ -21,11 +21,7 @@ class ContactsController < ApplicationController
   def search
     
     
-    @contacts = Contact.find(:all, :conditions => ["name LIKE :search", {:search => "%#{params[:name]}%"}], :limit => 5, :order => 'name')
-    @send_list = SendList.find(params[:send_list_id])
-    @send_lists_contact = @send_list.send_lists_contacts.new
-    
-    @contacts = NIL if params[:name].size < 2
+    @contacts = Contact.find(:all, :conditions => ["name LIKE ?", "%#{params[:user_input]}%"], :limit => 5, :order => 'name')
 
 
     render :layout => false

@@ -3,12 +3,16 @@
     <div id="header">
       <%= link_to 'Add Segment', new_brand_campaign_segment_path(@brand, @campaign), :class => 'new' %>  
       <h1>Segments</h1>
-      <h2>Data File: <%= @campaign.segment.data_file %></h2>
-      <h2>Suppressions: <%= @campaign.segment.suppressions %></h2>
+      <h2>Data File:</h2>
+      <h2>Suppressions:</h2>
     </div>
 
-    <div class="record">
-      <%= @campaign.segment.segmentation %>
+    <div class='code'>
+    <% @segments.each do |segment| %>
+      <div class="record">
+        <%= sql_syntax_highlight(segment.scripted_segmentation).html_safe %>
+      </div>
+    <% end %>
     </div>
 
 </div>

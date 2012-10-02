@@ -14,9 +14,27 @@ div#tracker {
 div#tracker div#search_box {
   box-shadow:0px 2px 6px #000;
   margin-top:-65px;
+  height:45px;
 }
 div#tracker div#search_box input {
   outline:none;
+  text-align:center;
+  color:#666;
+  border-top:1px solid;
+  border-right:1px solid;
+  border-left:1px solid;
+  font-size:18px;
+  border-bottom:1px solid;
+}
+
+div#tracker div#search_box input.off {
+  border-color-top:#999;
+  border-right-color:#bbb;
+  border-left-color:#bbb;
+  border-bottom-color:#ddd;
+}
+div#tracker div#search_box input.on {
+  border:1px solid #d24d33;
 }
 
 div#tracker div.day_0 {
@@ -140,11 +158,12 @@ div#tracker div.day.beyond {
   
 
 
-    div#tracker ul {
+    div#tracker div.campaign ul {
       list-style:none;
       display:block;
-      border:1px solid red;
       position:relative;
+      width:225px;
+      
     }
 
 
@@ -152,31 +171,35 @@ div#tracker div.day.beyond {
       font-size:12px;
       font-weight:bold;
       border-radius:15px;
-      padding:4px 10px;
-    background:#31769f;
-      height:20px;
+      padding:3px 10px;
+      height:18px;
       line-height:20px;
+      font-weight:normal;
       margin-bottom:5px;
       text-shadow: 1px 1px #22678f;
-      color:#e9eef1;           
-border-top:1px solid #0e3048;
-width:200px;
-box-shadow: inset 0px 2px 4px #18415e;
+      background:#eee;
+      color:#777;
+      box-shadow: inset 0px 1px 3px #888;
+      text-shadow: 1px 1px 1px #fff;
+      border:1px solid #ccc;
     }
 
     
     
       div#tracker div.campaign ul li span.count {
         font-weight:300;
+        color:#fff;
+        font-size:12px;
         margin-left:5px;
       }
-      div.campaign ul li span.approved {
+      div#tracker div.campaign ul li span.approved {
         float:right;
         display:block;
         border-radius:50%;
         background:#5dab1e;
         text-align:center;
-        font-size:8px;
+        font-size:10px;
+        line-height:16px;
         color:#fff;
         font-weight:normal;
         text-shadow:none;
@@ -227,15 +250,7 @@ box-shadow: inset 0px 2px 4px #18415e;
     border-top:1px solid #fff;
     box-shadow: 0px 1px 3px #333;
   }
-  div#tracker div.time {
-    text-align:center;
-    margin-bottom:10px;
-    font-weight:400;
-    font-size:14px;
-font-family: 'Coda', sans-serif;
-    text-shadow:1px 1px 0px #000;
-    color:#ccc;
-  }
+
 
 
     div#tracker div.campaign.approved div.brand {
@@ -250,13 +265,7 @@ font-family: 'Coda', sans-serif;
     div#tracker div.campaign.approved div.container {
       border-top:1px solid #4c7e23;
     }
-    div#tracker div.campaign.approved ul li {
-      background:#ecc346;
-      box-shadow: inset 0px 2px 4px #c9a127;
-        text-shadow: 1px 1px 1px #836817;
-      border-top:1px solid #90741d;
 
-    }
 
 
 
@@ -271,11 +280,5 @@ font-family: 'Coda', sans-serif;
       div#tracker div.campaign.scheduled div.brand a {
         text-shadow: 1px 1px 1px #256d2e;
       }
-        div#tracker div.campaign.scheduled ul li {
-      background:#4ca75e;
-      box-shadow: inset 0px 2px 4px #2a773a;
-      text-shadow: 1px 1px 1px #256d2e;
-      border-top:1px solid #1f5c2b;
 
-    }
 

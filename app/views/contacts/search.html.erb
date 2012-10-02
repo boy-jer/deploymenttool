@@ -1,12 +1,6 @@
-<ul>
 <% @contacts.each do |contact| %>
-    <li>
+    <div class='record deletable <%= toggle_row_bg_color %>'>
+    <%= button_to 'X', contact_path(contact), :method => :delete, :class => 'delete' %>
     <%= contact.name %> <span><%= contact.email %></span>
-      <form method="post" id="new_send_list_contact" action="<%= brand_send_list_send_lists_contacts_path(@send_list.brand, @send_list) %>">
-        <input type="hidden" name="contact_id" type="text" value='<%= contact.id %>'/>
-        <input type="hidden" name="send_list_id" type="text" value='<%= @send_list.id %>'/>
-      </form>  
-  </li>
-  
-<% end unless @contacts == NIL %>
-</ul>
+    </div>
+<% end %>

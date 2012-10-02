@@ -11,3 +11,6 @@ jQuery ->
     $(this).closest('form').submit())
 
   $("#body").prepend('<%= escape_javascript(render \'campaign/new.html.erb\') %>');
+
+  $('div#new_campaign').live 'click', ->
+    $('div.form').show()
