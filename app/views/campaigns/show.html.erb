@@ -1,15 +1,13 @@
 <div id='dst' class='campaign'>
 
-    <div id="header">
-    <% @brand = @campaign.brand %>
-    <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
-"><%= link_to @brand.code, brand_path(@brand) %></div>
-      <%= link_to 'New Version', new_brand_campaign_version_path(params[:brand_id], @campaign), :class => 'new' %>  
-      <h1><span class="current"><%= @campaign.name + '.' %></span></h1>
-<div class="clear"></div>
-    </div><!-- /#header, .campaign -->
+  <% @brand = @campaign.brand %>
 
-    <%= render 'actions', :local => @campaign %>
+  <%= render 'shared/navigation_bar', :local => @brand %>
+
+  <%= render 'header', :brand => @brand, :campaign => @campaign %>
+
+  <div class='stage'>
+
 
     <% if @campaign.versions.count == 0 %>
       <%= render 'empty' %>    
@@ -29,7 +27,8 @@
     </div><!-- /.record, .total -->
 
 </div>
-      <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
-        <%= check_box_tag 'campaign[scheduled]', (@campaign.scheduled == 't' ? 'f' : 't'), @campaign.scheduled %>
-        <%= hidden_field_tag 'updater', 'sdf', { :value => @campaign.scheduled }  %>
-      <% end %>
+
+</div>
+
+      
+      

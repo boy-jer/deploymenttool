@@ -2,46 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-//
-//     Audiences Page Styling
-//
-// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-
-// --------------------
-//        Header
-// --------------------
-
-div#dst.segmentation div#header {
-  background:#3cbcae;
-  text-shadow: -1px -1px #0e0f10;
-  background:-webkit-linear-gradient(top, #3cbcae, #238f84);
-}
-  div#dst.segmentation div#header h1 {
-    color:#fff;
-    text-shadow:-1px -1px #14675e;
-  }
-  div#dst.segmentation div#header h2 {
-    text-shadow:none;
-    color:#fff;
-    font-size:22px;
-  }
-
-// --------------------
-//        Record
-// --------------------
-
-     div#dst.segmentation div.record {
-       background: #393939;
-       font-weight:normal;
-     }
-        
-
-div.code p
-{
-}
 div.code span.comment {
   color:#797979;
 }

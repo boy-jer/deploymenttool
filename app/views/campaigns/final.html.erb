@@ -1,7 +1,9 @@
 <% CampaignMailerHelper %>
 
-<div id='dst'>
-  <%= render 'actions' %>
+<div id='dst' class='campaign'>
+  <%= render 'shared/navigation_bar', :local => @brand %>
+
+  <%= render 'header', :brand => @brand, :campaign => @campaign %>
 </div>
 
 <% content_for :email do %>

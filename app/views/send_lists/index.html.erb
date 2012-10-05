@@ -1,33 +1,29 @@
-<div id='dst' class='send_lists'>
-  <% @campaigns = @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC') %>
-  <div id='header'>
-    <div class='button' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
-"><%= @campaigns.size %></div>
-  
-    <%= link_to 'New Send List',  new_brand_send_list_path(params[:brand_id]), :class => 'new' %>  
+<div id='dst' class='brand'>
 
-    <h1>Send lists.</h1>
-    <h2><%= link_to "#{@brand.name}".html_safe, brand_path(@brand) %></h2>
-  </div>
-  
-  <div id="actions">
-    <ul>
-      <li class="on"><%= link_to 'Campaigns', brand_path(@brand) %></li>
-      <li class="on"><%= link_to 'Audiences', brand_audiences_path(@brand) %></li>
-      <li class="on"><%= link_to 'Track', tracker_path(@brand) %></li>
-    </ul>
-  </div>
+  <% @campaigns = @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC') %>
+  <%= render 'shared/navigation_bar', :local => @brand %>
+
+  <%= render 'brands/header', :brand => @brand %>
 
   <% if @send_lists.size == 0 %>
     <%= render 'empty' %>
   <% else %>
-    <% @send_lists.each do |send_list| %>
-    <div class='record deletable <%= toggle_row_bg_color %>'>
-     <%= button_to 'X', brand_send_list_path(@brand, send_list), :method => :delete, :class => 'delete' %>
-      <%= link_to send_list.list_name, brand_send_list_path(@brand, send_list) %>
-      <span class='count'><%= send_list.send_lists_contacts.size > 0 ? send_list.send_lists_contacts.size : 'Empty'  %></span>
+  
+  <div class='send_lists_container' style='padding:25px 25px'>
+      <% @send_lists.each do |send_list| %>
+    <div class='package deletable <%= toggle_row_bg_color %>'>
+      <h1><%= link_to send_list.list_name, brand_send_list_path(@brand, send_list) %></h1>
+     <!--<%= button_to 'X', brand_send_list_path(@brand, send_list), :method => :delete, :class => 'delete' %>-->
+     <div class='container'>
+       <ul>
+       <% send_list.contacts.each do |contact|  %>
+        <li><%= contact.name %></li>
+       <% end %>
+      </ul>
+     </div>
     </div>
     <% end %>
+  </div>
   <% end %>
 
 </div><!-- /#dst, .send_lists -->

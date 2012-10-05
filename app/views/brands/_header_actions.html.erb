@@ -1,0 +1,11 @@
+<ul class='actions'>
+  <li class='<%= params[:controller] == 'brands' ? 'on' : 'off' %>'>
+    <%= params[:controller] == 'brands' ? 'Campaigns' : (link_to 'Campaigns', brand_path(@brand)) %>
+  </li>
+  <li class='<%= params[:controller] == 'send_lists' ? 'on' : 'off' %>'>
+    <%= params[:controller] == 'send_lists' ? 'Send Lists' : (link_to 'Send Lists', brand_send_lists_path(@brand)) %>
+  </li>
+  <li class='<%= params[:controller] == 'audiences' ? 'on' : 'off' %>'>
+    <%= params[:controller] == 'audiences' ? 'Audiences' : (link_to 'Audiences', brand_audiences_path(@brand)) %>
+  </li>
+</ul>

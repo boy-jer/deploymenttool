@@ -10,7 +10,6 @@ class Segment < ActiveRecord::Base
     @parser.set_table = campaign.treatment_name
     @parser.set_campaign_id = campaign.id.to_s
     @parser.set_brand_code = campaign.brand.code
-
     
     @parser.parse(segmentation)
   end

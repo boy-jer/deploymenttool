@@ -1,0 +1,29 @@
+<% @brand = @campaign.brand %>
+<div class='brand_holder'>
+ <div class='brand_icon' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
+">
+
+    <%= link_to @campaign.brand.name, brand_path(@campaign.brand) %>
+  </div>
+  <div class='clear'></div>
+</div>
+
+<div id="header">
+
+  <% @brand = @campaign.brand %>
+ 
+  <% if params[:controller] == 'campaigns' %>
+    <% link_text = 'New Version'; link = new_brand_campaign_version_path(@brand, @campaign) %>
+  <% elsif params[:controller] == 'segments' %>
+    <% link_text = 'Add Segment'; link = new_brand_campaign_segment_path(@brand, @campaign) %>
+  <% end %> 
+ 
+  <%= link_to link_text, link, :class => 'new' %>
+ 
+  <h1><%= @campaign.name + '.' %></h1>
+  
+  <%= render 'campaigns/header_actions' %>
+  
+  <div class="clear"></div>
+
+</div><!-- /#header, .campaign -->

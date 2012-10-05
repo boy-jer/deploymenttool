@@ -1,0 +1,24 @@
+<ul class='actions'>
+  <li class='<%= (params[:controller] == 'campaigns' && params[:action] == 'show') ? 'on' : 'off' %>'>
+    <%= (params[:controller] == 'campaigns' && params[:action] == 'show') ? 'Versions' : (link_to 'Versions', brand_campaign_path(@brand, @campaign)) %>
+  </li>
+  <li style='margin-right:25px;' class='<%= params[:controller] == 'segments' ? 'on' : 'off' %>'>
+    <%= params[:controller] == 'segments' ? 'Segments' : (link_to 'Segments', brand_campaign_segments_path(@brand, @campaign)) %>
+  </li>
+  <li class='<%= params[:action] == 'proof' ? 'on_item' : 'off' %>'>
+    <%= params[:action] == 'proof' ? 'Proofs' : (link_to 'Proofs', proof_brand_campaign_path(@brand, @campaign)) %>
+  </li>
+  <li class='<%= params[:action] == 'counts' ? 'on_item' : 'off' %>'>
+    <%= params[:action] == 'counts' ? 'Counts' : (link_to 'Counts', counts_brand_campaign_path(@brand, @campaign)) %>
+  </li>
+  <li class='<%= params[:action] == 'final' ? 'on_item' : 'off' %>'>
+    <%= params[:action] == 'final' ? 'Final Approval' : (link_to 'Final Approval', final_brand_campaign_path(@brand, @campaign)) %>
+  </li>
+  <li class='<%= params[:action] == 'scheduled' ? 'on_item' : 'off' %>'>
+    <%= params[:action] == 'scheduled' ? 'Scheduled' : (link_to 'Scheduled', scheduled_brand_campaign_path(@brand, @campaign)) %>
+  </li>
+</ul>
+      <%= form_tag brand_campaign_path(@campaign.brand, @campaign), :method => 'put' do |f| %>
+        <%= check_box_tag 'campaign[scheduled]', (@campaign.scheduled == 't' ? 'f' : 't'), @campaign.scheduled %>
+        <%= hidden_field_tag 'updater', 'sdf', { :value => @campaign.scheduled }  %>
+      <% end %>

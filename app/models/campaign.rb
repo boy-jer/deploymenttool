@@ -1,6 +1,7 @@
 class Campaign < ActiveRecord::Base
 
-  attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions, :scheduled
+  attr_accessible :data_file, :drop_date, :name, :round, :brand_id, :counts_approval, :suppressions, 
+  :scheduled, :alt_id
 
   validates :name, :drop_date, :brand_id, :round, :presence => true
   validates :counts_approval, :scheduled, :inclusion => {:in => [true, false]}

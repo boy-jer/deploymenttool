@@ -1,18 +1,15 @@
-<div id="dst" class="segmentation">
+<div id='dst' class='campaign'>
 
-    <div id="header">
-      <%= link_to 'Add Segment', new_brand_campaign_segment_path(@brand, @campaign), :class => 'new' %>  
-      <h1>Segments</h1>
-      <h2>Data File:</h2>
-      <h2>Suppressions:</h2>
-    </div>
+  <%= render 'shared/navigation_bar', :local => @brand %>
 
-    <div class='code'>
+  <%= render 'campaigns/header', :brand => @brand, :campaign => @campaign %>
+
+  <div class='stage'>
     <% @segments.each do |segment| %>
-      <div class="record">
+      <div class="code <%= toggle_row_bg_color %>">
         <%= sql_syntax_highlight(segment.scripted_segmentation).html_safe %>
       </div>
     <% end %>
-    </div>
+  </div>
 
 </div>

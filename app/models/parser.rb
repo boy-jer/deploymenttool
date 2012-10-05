@@ -2,8 +2,16 @@ class Parser
 
   attr_reader :gsub_sets
 
+  #consider doing a load text first...
+
   def initialize
     @gsub_sets = Hash.new
+  end
+  
+  def get_variables(text)
+    variables = Array.new
+    regex = /\$\$(.*)\$\$/
+    text.scan(regex)
   end
 
   def parse(text)

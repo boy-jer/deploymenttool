@@ -14,24 +14,79 @@
 
 div#dst.campaign div#header {
   background:#e6e6e2;
-  box-shadow:inset 0px 2px 4px #777;
+  box-shadow:0px 2px 6px #000;
+  margin:25px 25px;
+  margin-top:-1px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding:50px;
+  border-bottom:4px solid #c2c2be;
+  border-top:1px solid #fff;
+  position:relative;
+  clear:both;
 }
 div#dst.campaign div#header div.button {
   font-size:22px;
   line-height:105px;
 }
+div#dst.campaign div#header div.brand {
+  position:absolute;
+  top:-3px;
+  padding:10px 25px;
+  letter-spacing:0.10em;
+  box-shadow:0px 2px 4px #555;
+  left:50px;
+}
+div#dst.campaign div#header div.brand a {
+    color:#eee;
+  text-shadow:-1px -1px 0px #333;
+  font-size:16px;
+  font-weight:bold;
+}
 div#dst.campaign div#header h1 {
-  margin-top:18px;
+margin-bottom:15px;
+text-shadow:1px 1px 0px #fff;
+color:#444;
+font-size:58px;
 }
 // --------------------
 //        Record
 // --------------------
+
+div#dst.campaign div.brand_holder {
+  background:#333;
+  text-shadow: -1px -1px #000;
+  box-shadow:inset 0px 2px 10px #000;
+  border-bottom:1px solid #666;
+  padding:25px;
+  height:auto;
+}
+
+div#dst.campaign div.brand_icon {
+  background:#e6e6e2;
+  box-shadow: 0px 2px 6px #000;
+  padding:15px 35px;
+  margin-bottom:-25px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-left:10px;
+  width:auto;
+  float:left;
+  border-bottom:4px solid #c2c2be;
+}
+div#dst.campaign div.brand_holder a {
+  color:#fff;
+  font-weight:bold;
+  font-size:16px;
+}
 
 div#dst.campaign div.record a {
   color:#25272a;
 }
 div#dst.campaign div.record {
   background:#3b8dbd;
+  border-bottom:2px solid #1e5d82;
+  border-top:1px solid #6aa6c9;
 }
   div#dst.campaign div.record.total {
     background:#dededb;
@@ -42,6 +97,8 @@ div#dst.campaign div.record {
     border-bottom:1px solid #ccc;
     height:50px;
     line-height:50px;
+    margin-top:10px;
+    border:none;
   }
   div#dst.campaign div.record.total form {
     display:inline;
@@ -122,3 +179,29 @@ div#dst.campaign div.record {
           border-color:#fff;
           text-shadow: 1px 1px #992f1a;
         }
+
+  div#dst.campaign div#header ul.actions li.on_item {
+    background:#3887b4;
+    box-shadow:0px 1px 4px #000;
+    margin-right:10px;
+    border-top:1px solid #93c5e1;
+    border-bottom:2px solid #26678c;
+    color:#fff;
+  }
+    div#dst.campaign div#header ul.actions li.on_item a {
+      text-shadow:1px 1px 0px #26678c;
+      color:#fff;
+    }
+
+  div#dst.campaign div#header ul.actions li.off {
+    background:#d9d9d4;
+    box-shadow:none;
+    margin-right:10px;
+    border-bottom:1px solid #bfbfbb;
+    border-top:1px solid #fff;
+    box-shadow:none;
+  }
+    div#dst.campaign div#header ul.actions li.off a {
+      text-shadow:1px 1px 0px #eee;
+      color:#a6a6a2;
+    }

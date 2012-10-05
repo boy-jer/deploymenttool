@@ -1,0 +1,16 @@
+<div id="header" class="brand">
+  <div class='button' id='new_campaign' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
+"><%= @campaigns.size %></div>
+
+  <% if params[:controller] == 'brands' %>
+    <% text = 'New Campaign'; link = new_brand_campaign_path(@brand) %>
+  <% elsif params[:controller] == 'audiences' %>
+    <% text = 'Add Audience'; link = new_brand_audience_path(@brand) %>
+  <% elsif params[:controller] == 'send_lists' %>
+    <% text = 'New Send List'; link = new_brand_send_list_path(@brand) %>
+  <% end %>
+  <%= link_to text, link, :class => 'new' %>
+  <h1><%= @brand.name %>.</h1>
+  <%= render 'brands/header_actions' %>
+  <div class="clear"></div>
+</div><!-- /#header -->

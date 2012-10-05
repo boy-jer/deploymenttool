@@ -1,28 +1,19 @@
-
-
 <div id="dst" class="brand">
 
   <% @campaigns = @brand.campaigns.find(:all, :conditions => ["drop_date >= ?", DateTime.now], :order => 'drop_date ASC') %>
 
-  <%= render 'actions', :local => @brand %>
+  <%= render 'shared/navigation_bar', :local => @brand %>
 
+  <%= render 'header', :brand => @brand %>
 
-  <div id="header" class="brand">
-    <div class='button' id='new_campaign' style="background:#<%= @brand.color %>;background:-webkit-linear-gradient(top, #<%= @brand.color %>, <%= @brand.darken_color(@brand.color, 0.75) %>);border-bottom:2px solid <%= @brand.darken_color(@brand.color, 0.50) %>;
-"><%= @campaigns.size %></div>
-    <%= link_to 'New Campaign', new_brand_campaign_path(@brand), :class => 'new' %>
-    <h1><%= @brand.name %>.</h1>
-    <h2><%= link_to 'Brands.'.html_safe, brands_path %></h2>
-    <div class="clear"></div>
-  </div><!-- /#header -->
-
-
-  <% if @campaigns.size == 0 %>
-    <%= render 'empty' %>
-  <% else %>
-    <% i = 0; @campaigns.each do |campaign| %>
-      <%= render 'campaign_record', :campaign => campaign %>
-    <% i += 1; end %>
-  <% end %>
+  <div class='stage'>
+    <% if @campaigns.size == 0 %>
+      <%= render 'empty' %>
+    <% else %>
+      <% i = 0; @campaigns.each do |campaign| %>
+        <%= render 'campaign_record', :campaign => campaign %>
+      <% i += 1; end %>
+    <% end %>
+  </div>
 
 </div><!-- /#dst, .brand -->
