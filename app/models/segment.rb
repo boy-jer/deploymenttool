@@ -7,11 +7,21 @@ class Segment < ActiveRecord::Base
   def scripted_segmentation
     @parser = Parser.new
     
-    @parser.set_table = campaign.treatment_name
-    @parser.set_campaign_id = campaign.id.to_s
+    @parser.set_treatment_name = campaign.treatment_name
+    @parser.set_campaign_id = campaign.alt_id.to_s
     @parser.set_brand_code = campaign.brand.code
     
     @parser.parse(segmentation)
+  end
+  
+  def script(segment)
+    @parser = Parser.new
+  
+    @parser.set_treatment_name = campaign.treatment_name
+    @parser.set_campaign_id = campaign.alt_id.to_s
+    @parser.set_brand_code = campaign.brand.code
+    
+    @parser.parse(segment)
   end
 
 end

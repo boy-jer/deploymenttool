@@ -341,6 +341,11 @@ div#dst div.stage {
   div#dst.campaign div.code.dark {
     background:#1c1c1c;
   }
+  
+  div#dst.campaign div.code.live {
+ 
+  }
+  
   div#dst div.record.empty {
     color:#fff;
     text-align:center;
@@ -423,15 +428,14 @@ div#dst div.stage {
         }
       div#dst div#actions {
         background:#d24d33;
-        border-bottom:1px solid #fff;
+        border-top:1px solid #dd725e;
+        border-bottom:2px solid #9e311c;
         height:50px;
         line-height:50px;
         clear:both;
         padding:0 50px;
-        border-bottom:2px solid #9e311c;
         border-right:none;
         border-left:none;
-        border-top:1px solid #dd725e;
 
       }
   div#dst div#actions div.button {

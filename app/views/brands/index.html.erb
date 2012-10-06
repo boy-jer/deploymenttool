@@ -1,12 +1,6 @@
 <div id='dst' class='account'>
 
-  <div id='actions'>
-    <ul>
-      <li class='on'><%= link_to 'ExactTarget', brands_path() %></li>
-      <li class='on right'><%= link_to 'Contacts', contacts_path() %></li>
-      <li class='on right'><%= link_to 'Track', trackers_path() %></li>
-    </ul>
-  </div>
+<%= render 'shared/navigation_bar' %>
 
   <div id='header'>
     <%= link_to 'New Brand', new_brand_path(), :class => 'new' %>  

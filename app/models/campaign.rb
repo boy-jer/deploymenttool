@@ -26,6 +26,28 @@ class Campaign < ActiveRecord::Base
     return drop_date.strftime('%-I:%M%P PST') if formatting == :time
     return drop_date.strftime('%-m/%-d/%Y %-I:%M%P PST') if formatting == :full_drop_date
   end
+  
+  #THIS NEEDS A SPEC OR TEST
+  #Consider getting audience list as a simply array that would remove all these issues.
+  # Rewrite the spec that way.
+  # Also think about simply adding these segments into the campaigns segments list.
+  # They are segments, just generated on the FLY.
+  def live_segmentations
+    segmentations = Array.new
+    
+    
+    segment = self.segments.new
+    
+    segmentations << segment.script("SELECT * FROM [$$brand_code$$_WeeklyCampaign] WHERE campaign_id = $$campaign_id$$")
+    segmentations << segment.script("SELECT * FROM [$$brand_code$$_Whole] Whole WHERE NOT EXISTS ( SELECT * FROM [$$brand_code$$_UNSUBS] Unsubs WHERE Unsubs.email_address = Whole.email_address ) AND NOT EXISTS ( SELECT * FROM ent.[ET_UNSUB] GlobalUnsubs WHERE GlobalUnsubs.email_address = Whole.email_address )")
+    
+    versions.each do |v|
+      list = (v.audience_list.split(',').collect { |a| "'" + a.lstrip + "'" }).join(', ')
+      segmentations << segment.script("SELECT * FROM [$$treatment_name$$_WAU] WHERE email_version IN (#{list})")        
+    end
+    
+    segmentations;
+  end
 
   def proof_round
     'R' + round.to_s
@@ -72,6 +94,9 @@ private
     self.round ||= 0
     self.counts_approval ||= FALSE #will set the default value only if it's nil
     self.scheduled ||= FALSE
+    
+    ## Add segments?
+    
   end
 
   def camel(string)

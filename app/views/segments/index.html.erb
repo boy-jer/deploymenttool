@@ -10,6 +10,11 @@
         <%= sql_syntax_highlight(segment.scripted_segmentation).html_safe %>
       </div>
     <% end %>
+    <% @campaign.live_segmentations.each do |s| %>
+      <div class='code live <%= toggle_row_bg_color %>'>
+        <%= sql_syntax_highlight(s).html_safe %>        
+      </div>
+    <% end %>
   </div>
 
 </div>

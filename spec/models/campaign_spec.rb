@@ -24,6 +24,7 @@ describe Campaign do
   it { should respond_to :client_responce_deadline }
   it { should respond_to :counts_total }
   it { should respond_to :treatment_name }
+  it { should respond_to :live_segmentations }
 
   it { should respond_to :is_approved? }
   it { should respond_to :counts_provided? }
@@ -50,6 +51,10 @@ describe Campaign do
   
   context "a new instance is created" do
     pending 'counts approval should default to false'
+  end
+  
+  describe "#live_segmentations" do
+    pending 'tests'
   end
   
   describe "#proof_round" do
