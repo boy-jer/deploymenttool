@@ -35,7 +35,6 @@ class Campaign < ActiveRecord::Base
   def live_segmentations
     segmentations = Array.new
     
-    
     segment = self.segments.new
     
     segmentations << segment.script("SELECT * FROM [$$brand_code$$_WeeklyCampaign] WHERE campaign_id = $$campaign_id$$")

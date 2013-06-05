@@ -8,7 +8,4 @@
   <li class='<%= params[:controller] == 'audiences' ? 'on' : 'off' %>'>
     <%= params[:controller] == 'audiences' ? 'Audiences' : (link_to 'Audiences', brand_audiences_path(@brand)) %>
   </li>
-  <li class='<%= params[:controller] == 'test' ? 'on' : 'off' %>'>
-    <%= params[:controller] == 'test' ? 'Process' : (link_to 'Process', brand_audiences_path(@brand)) %>
-  </li>
 </ul>

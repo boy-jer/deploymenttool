@@ -1,16 +1,13 @@
 class CampaignsController < ApplicationController
 
   def search
-  
     @campaigns = Contact.find(:all, :conditions => [" LIKE :search", {:search => "%#{params[:name]}%"}], :limit => 5, :order => 'name')
     @send_list = SendList.find(params[:send_list_id])
     @send_lists_contact = @send_list.send_lists_contacts.new
     
     @contacts = NIL if params[:name].size < 2
 
-
     render :layout => false  
-  
   end
 
   def new
@@ -94,9 +91,6 @@ class CampaignsController < ApplicationController
         # Hack, can't get the false version to update without this. It returns nothing when submitted...
     params[:campaign] = {:counts_approval => 0} if params[:campaign] == NIL
     end
-    
-
-
 
     @campaign.update_attributes params[:campaign]
     

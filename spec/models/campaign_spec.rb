@@ -64,8 +64,9 @@ describe Campaign do
     it { @proof_round.should == 'R' + @campaign.round.to_s }
   end
 
-  it 'should format dates'  do
-    pending 'date_format method'
+  describe 'format_date' do
+    it 'returns a datetime in the "%m/%d/%Y %I:%M%P" format' do
+    end
   end
 
   # Note that the TimeZone is hard coded at the moment. This should be dynamic at some point.  
